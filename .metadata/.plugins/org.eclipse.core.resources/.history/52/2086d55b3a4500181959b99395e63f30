@@ -1,0 +1,7 @@
+package com.internousdev.listening.dto;
+
+public class LoginDTO {
+
+	private String Loginid;
+
+}

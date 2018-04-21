@@ -1,0 +1,23 @@
+package com.internousdev.listening.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import com.internousdev.listening.dto.ItemDTO;
+import com.internousdev.listening.util.DBConnector;
+
+public class ItemDAO {
+
+	private DBConnector dbConnector= new DBConnector();
+	private Connection con = dbConnector.getConnection();
+	private ItemDTO itemDTO = new ItemDTO();
+
+	private ItemDTO getItemInfo() {
+		String sql = "SELECT id ,item_name, item_price, item_stock FROM item_info_transaction"
+		try {
+
+		}
+	}
+
+
+}

@@ -1,0 +1,8 @@
+package com.internousdev.listening.action;
+
+
+public interface EntranceAction extends ActionSupport implements SessionAware{
+
+
+
+}

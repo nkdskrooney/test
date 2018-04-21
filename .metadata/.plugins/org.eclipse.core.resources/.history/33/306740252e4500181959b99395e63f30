@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+
+a:link  { color : 色指定; }
+a:visited  { color : 色指定; }
+#header{
+	background-color:black;
+	color:white;
+	width:100%;
+	height:80px;
+}
+#header h1{
+	float:left;
+	line-height:35px;
+	font-size:40px;
+	margin:20px;
+	width:80px;
+	height:40px;
+}
+#header li{
+	float:right;
+	line-height:100px;
+	list-style:none;
+	font-size:14px;
+	padding-right:20px;
+}
+#main{
+	width:100%;
+	height:300px;
+}
+#footer{
+	background-color:black;
+	color:white;
+	width:100%;
+	height:80px;
+}
+#footer li{
+	float:right;
+	line-height:100px;
+	list-style:none;
+	font-size:14px;
+	padding-right:20px;
+}
