@@ -23,6 +23,7 @@ create table item_info_transaction(
 	item_name varchar(30),
 	item_price int,
 	item_stock int,
+	img_address varchar(50),
 	insert_date datetime,
 	update_date datetime
 );
@@ -35,12 +36,16 @@ create table user_buy_item_transaction(
 	total_count int,
 	user_master_id varchar(16),
 	pay varchar(30),
+	img_address varchar(50),
 	insert_date datetime,
 	delete_date datetime
 	);
 
-INSERT INTO item_info_transaction(item_name, item_price, item_stock)
-	VALUES("ノートBook", 100, 50);
+INSERT INTO item_info_transaction(item_name, item_price, item_stock, img_address)
+	VALUES("nabowa", 1000, 5, "./img/nabowa.jpg");
+
+INSERT INTO item_info_transaction(item_name, item_price, item_stock, img_address)
+	VALUES("rega", 1000, 10, "./img/rega.jpg");
 
 INSERT INTO login_user_transaction(login_id, login_pass, user_name, user_web_address, user_address)
 	VALUES("test", "test", "test","test","test");

@@ -29,30 +29,60 @@
 			</ul>
 		</div>
 
+
 		<div id="main">
 
 			<div id="top">
 				<p>商品一覧</p>
 			</div>
 			<div>
-						<s:iterator value="itemList">
-							<tr>
-								<td>
-									<s:property value="itemName" />
-								</td>
-								<td>
-									<s:property value="itemPrice" />
-									<span>円</span>
-								</td>
-								<td>
-									<s:property value="itemStock" />
-									<span>個</span>
-								</td>
-							</tr>
-						</s:iterator>
-			</div>
 
+				<s:iterator value="itemList">
+					<tr>
+						<td>
+							<s:property value="itemName" />
+						</td>
+						<td>
+							<img class="item-img" src='<s:property value="imgAddress"/>'>
+						</td>
+						<td>
+							<s:property value="itemPrice" />
+							<span>円</span>
+						</td>
+						<td>
+							<s:property value="itemStock" />
+							<span>個</span>
+						</td>
+
+
+						<s:form action="BuyItemCartAction">
+						<s:hidden name = "id" />
+						<td>
+							<select name="PurchaseNumber">
+								<option value="1" selected="selected">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+						<td>
+							<input type="radio" name="pay" value="1" checked="checked">
+								現金払い
+							<input type="radio" name="pay" value="2">
+								クレ ジットカード
+						</td>
+						<td><s:submit value="購入" /></td>
+						</s:form>
+
+
+					</tr>
+				</s:iterator>
+
+			</div>
+			<div><form><p><a href='<s:url action="GoImageAction" />'>画像テスト</a></p></form></div>
 		</div>
+
 
 		<div id="footer">
 			<ul>

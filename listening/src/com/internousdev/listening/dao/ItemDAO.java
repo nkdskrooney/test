@@ -16,8 +16,9 @@ public class ItemDAO {
 	private ItemDTO itemDTO ;
 	private List<ItemDTO> itemDTOList = new ArrayList<ItemDTO>();
 
+
 	public List<ItemDTO> getItemInfo() {
-		String sql = "SELECT id ,item_name, item_price, item_stock FROM item_info_transaction";
+		String sql = "SELECT id ,item_name, item_price, item_stock ,img_address FROM item_info_transaction";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -25,9 +26,43 @@ public class ItemDAO {
 				itemDTO = new ItemDTO();
 				itemDTO.setId(rs.getInt("id"));
 				itemDTO.setItemName(rs.getString("item_name"));
-				itemDTO.setItemPrice(rs.getString("item_price"));
+				itemDTO.setItemPrice(rs.getInt("item_price"));
 				itemDTO.setItemStock(rs.getInt("item_stock"));
+				itemDTO.setImgAddress(rs.getString("img_address"));
 
+				itemDTOList.add(itemDTO);
+
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				 con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		return itemDTOList;
+	}
+
+
+	public List<ItemDTO> getItemInfo(int id,String payment, int PurchaseNumber ) {
+		String sql = "SELECT id ,item_name, item_price, item_stock ,img_address FROM item_info_transaction WHERE id = ?";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+				itemDTO = new ItemDTO();
+				itemDTO.setId(rs.getInt("id"));
+				itemDTO.setItemName(rs.getString("item_name"));
+				itemDTO.setItemPrice(rs.getInt("item_price"));
+				itemDTO.setItemStock(rs.getInt("item_stock"));
+				itemDTO.setImgAddress(rs.getString("img_address"));
+				itemDTO.setPayment(payment);
+				itemDTO.setPurchaseNumber(PurchaseNumber);
+
+				itemDTO.setTotalPrice(rs.getInt("item_price")* PurchaseNumber);
 				itemDTOList.add(itemDTO);
 			}
 		}catch(Exception e){

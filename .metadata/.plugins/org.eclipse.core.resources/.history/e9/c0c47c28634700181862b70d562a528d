@@ -1,0 +1,106 @@
+package com.internousdev.listening.action;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.listening.dao.ItemDAO;
+import com.internousdev.listening.dto.ItemDTO;
+import com.internousdev.listening.dto.LoginDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BuyItemCartAction extends ActionSupport implements SessionAware{
+	public Map<String,Object>session;
+	public List<ItemDTO> itemList = new ArrayList<>();
+	public LoginDTO loginDTO = new LoginDTO();
+	public int PurchaseNumber;
+	public String payment;
+	public String pay;
+
+	public int id;
+
+	public String execute(){
+		String result=SUCCESS;
+
+		ItemDAO dao = new ItemDAO();
+		itemList = dao.getItemInfo();
+		session.put("itemId", id);
+		session.put("PurchaseNumber", PurchaseNumber);
+		int intPurchaseNumber = Integer.parseInt(session.get("PurchaseNumber").toString());
+		int intPrice = itemList.get(2).getItemPrice();
+
+		session.put("total_price", intPurchaseNumber * intPrice);
+
+		if(pay.equals("1")) {
+			payment = "現金払い";
+			session.put("pay", payment);
+		}else {
+			payment = "クレジットカード";
+			session.put("pay", payment);
+		}
+
+
+		return result;
+	}
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	public List<ItemDTO> getItemList() {
+		return itemList;
+	}
+
+	public void setItemList(List<ItemDTO> itemList) {
+		this.itemList = itemList;
+	}
+
+	public LoginDTO getLoginDTO() {
+		return loginDTO;
+	}
+
+	public void setLoginDTO(LoginDTO loginDTO) {
+		this.loginDTO = loginDTO;
+	}
+
+	public int getPurchaseNumber() {
+		return PurchaseNumber;
+	}
+
+	public void setPurchaseNumber(int purchaseNumber) {
+		PurchaseNumber = purchaseNumber;
+	}
+
+	public String getPayment() {
+		return payment;
+	}
+
+	public void setPayment(String payment) {
+		this.payment = payment;
+	}
+
+	public String getPay() {
+		return pay;
+	}
+
+	public void setPay(String pay) {
+		this.pay = pay;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+}

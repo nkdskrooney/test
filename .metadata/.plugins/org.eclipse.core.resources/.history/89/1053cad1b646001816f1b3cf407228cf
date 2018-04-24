@@ -1,0 +1,84 @@
+package com.internousdev.listening.action;
+
+public class ImageFileTransmitAction extends BaseAction {
+
+	private static final long serialVersionUID = 1L;
+
+
+	ImageFileTransmitForm form = new ImageFileTransmitForm();
+
+	long fileMaxSize = 2097152;//2MB
+
+	String realPath = ServletActionContext.getServletContext().getRealPath("/image");
+
+	public String doInit() throws SystemException {
+
+		return INPUT;
+	}
+
+	public String doFileUpload() throws SystemException {
+
+
+		String uploadFileFileName = form.getUploadFileFileName();
+
+		//uploadFileFileName = uploadFileFileName.substring(uploadFileFileName.lastIndexOf('.'));
+		//イメージファイルじゃない場合、異常を返す
+		if(!isImageFile(form.getUploadFileContentType())) {
+			// return error;//TODO
+		}
+		// 空ファイル、またはファイルサイズ２M以上の場合、異常を返す
+		if(form.getUploadFile() == null || form.getUploadFile().length()>fileMaxSize) {
+			// return maxSizeError;//TODO
+		}
+
+		File filePath = new File(new File(realPath), uploadFileFileName);
+		// ディレクトリ存在しない場合、新なディレクトリを作成
+		if(!filePath.getParentFile().exists()) {
+			filePath.getParentFile().mkdirs();
+		}
+
+		 try {
+			// ★コピーを実施
+            		 FileUtils.copyFile(form.getUploadFile(), filePath);
+	         } catch (IOException e) {
+	             System.out.println("画像がアップロードできませんでした。");
+	             e.printStackTrace();
+	         }
+
+		return "uploadSuccess";
+	}
+
+
+	/**
+	 *
+	 * @param extension
+	 *            　ファイルの拡張子
+	 * @return
+	 */
+	private boolean isImageFile(String extension) {
+
+		return (extension.equals("image/gif")
+				|| extension.equals("image/jpeg")
+				|| extension.equals("image/png")
+				|| extension.equals("image/bmp")
+				|| extension.equals("image/x-icon")
+				|| extension.equals("image/pjpeg"));
+
+	}
+
+	/**
+	 * @return the form
+	 */
+	public ImageFileTransmitForm getForm() {
+		return form;
+	}
+
+
+	/**
+	 * @param form the form to set
+	 */
+	public void setForm(ImageFileTransmitForm form) {
+		this.form = form;
+	}
+
+}

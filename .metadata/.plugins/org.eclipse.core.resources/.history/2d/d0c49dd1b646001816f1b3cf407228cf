@@ -1,0 +1,5 @@
+package com.internousdev.listening.action;
+
+public class ImageFileTransmitAction {
+
+}
