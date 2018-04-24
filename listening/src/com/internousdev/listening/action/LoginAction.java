@@ -24,14 +24,14 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public String execute() {
 		ItemDAO dao = new ItemDAO();
 		itemList = dao.getItemInfo();
-
 		String result = ERROR;
 
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 		session.put("loginUser", loginDTO);
-		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
-			result = SUCCESS;
 
+		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
+
+			result = SUCCESS;
 			return result;
 		}
 

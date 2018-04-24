@@ -7,7 +7,7 @@ public class LoginDTO {
 	private String LoginPassword;
 	private String WebAddress;
 	private String Address;
-	private boolean LoginFlg;
+	private boolean LoginFlg = false ;
 
 	public String getLoginId() {
 		return LoginId;

@@ -1,7 +1,7 @@
 package com.internousdev.listening.dto;
 
 public class ItemDTO {
-	private int id;
+	private int itemId;
 	private String itemName;
 	private int itemPrice;
 	private int itemStock;
@@ -11,10 +11,10 @@ public class ItemDTO {
 	private int totalPrice;
 
 	public int getId() {
-		return id;
+		return itemId;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.itemId = id;
 	}
 	public String getItemName() {
 		return itemName;

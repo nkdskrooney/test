@@ -27,7 +27,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 		session.put("alltotalprice", ATP);
 		String result = ERROR;
 
-		if(session.containsKey("LoginId")) {
+		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
 			result = SUCCESS;
 			return result;
 		}

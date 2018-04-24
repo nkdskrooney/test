@@ -72,7 +72,7 @@
 						<tr>
 							<td>支払い方法</td>
 							<td>
-								<s:property value="pay"/>
+								<s:property value="payment"/>
 							</td>
 						</tr>
 				</s:iterator>

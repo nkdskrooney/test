@@ -12,10 +12,7 @@
 		<link rel="stylesheet" href="./css/style.css">
 		<title>確認画面</title>
 		<style type="text/css">
-		#cart-item{
-		float:left;
-		width:25%;
-		}
+
 		</style>
 	</head>
 	<body>
@@ -71,12 +68,12 @@
 						<tr>
 							<td>支払い方法</td>
 							<td>
-								<s:property value="pay"/>
+								<s:property value="payment"/>
 							</td>
 						</tr>
 				</s:iterator>
-
-					<s:property value="alltotalprice" />
+					<span>合計金額</span>
+					<s:property value="session.alltotalprice" />
 					<span>円</span>
 					<s:submit value="完了"/>
 					<tr>
