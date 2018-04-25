@@ -22,20 +22,10 @@
 	</head>
 	<body>
 
-	<form action="ImageUploadAction" method="post" enctype="multipart/form-data">
-	<table class="img-form" >
-            <tr bgcolor="f5f5f5">
-                <td width="22%">
-                    <div align="right">画像：</div>
-                </td>
-                <td width="78%">
-			<input type="file" name="myfile"/>
-                </td>
-            </tr>
-        </table>
-
-	<input type="submit" value="画像をアップロードする">
-	</form>
-
+	<h2>Struts2ファイルアップデートサンプル</h2>
+	<s:form action="FileUploadAction" method="post" enctype="multipart/form-data">
+	<s:file name="userImage" label="画像" />
+	<s:submit value="アップロード" align="center" />
+	</s:form>
 	</body>
 </html>

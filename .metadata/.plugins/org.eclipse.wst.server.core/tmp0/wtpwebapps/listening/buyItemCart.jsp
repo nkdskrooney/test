@@ -20,6 +20,7 @@
 		</style>
 	</head>
 	<body>
+<!-- header	 -->
 		<div id="header">
 			<h1><a href='<s:url action="GoHomeAction" />'>Listening.</a></h1>
 			<ul>
@@ -36,14 +37,16 @@
 			</ul>
 		</div>
 
-
+<!-- main -->
 		<div id="main">
 			<div id="top">
 				<p>CartItem</p>
 			</div>
-			<s:form action="BuyItemConfirmAction">
 
+			<s:form action="BuyItemConfirmAction">
+<!-- iterator -->
 				<s:iterator value="session.itemList" id="cart-item">
+					<br>
 						<tr>
 							<td>商品名</td>
 							<td>
@@ -76,23 +79,13 @@
 							</td>
 						</tr>
 				</s:iterator>
-
-
-<s:submit value="ログイン"/>
-					<tr>
-						<td>
-							<input type="button" value="戻る"   onclick="submitAction('GoHomeAction')" />
-						</td>
-						<td>
-							<input type="button" value="確認画面へ"   onclick="submitAction('BuyItemConfirmAction')" />
-						</td>
-					</tr>
-				</s:form>
-
-
+<!-- iterator -->
+				<br>
+				<s:submit value="確認画面へ"/>
+			</s:form>
 		</div>
 
-
+<!-- footer -->
 		<div id="footer">
 			<ul>
 				<li><a href='<s:url action="GoHomeAction" />'>ホーム画面へ戻る</a></li>

@@ -1,7 +1,6 @@
 package com.internousdev.listening.action;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -11,57 +10,62 @@ import com.internousdev.listening.dto.ItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemCartAction extends ActionSupport implements SessionAware{
+//sessionの定義
 	public Map<String,Object>session;
-	public List<ItemDTO> itemList = new ArrayList<>();
+//各値のフィールドの作成(グローバル変数)
 	public int PurchaseNumber;
 	public String payment;
 	public String pay;
+	public int itemId;
 
-	public int id;
-
+	@SuppressWarnings("unchecked")
 	public String execute(){
+//result結果、SUCCESSを挿入
 		String result=SUCCESS;
-
+//支払い方法判定（"1"orその他）sessionへ格納
 		if(pay.equals("1")) {
 			payment = "現金払い";
 		}else {
 			payment = "クレジットカード";
 		}
-
-		session.put("payment", payment);
-
+//ArrayList「itemDTOList」の作成
+		ArrayList<ItemDTO> itemDTOList = new ArrayList<>();
+//ItemDAOメソッドを利用するため、インスタンス生成
 		ItemDAO dao = new ItemDAO();
-		itemList = dao.getItemInfo(id,payment, PurchaseNumber);
-		if(session.containsKey("itemList")){
-			@SuppressWarnings("unchecked")
-			List<ItemDTO> stockList = (List<ItemDTO>) session.get("itemList");
-			List<ItemDTO> addList = new ArrayList<>();
-			addList.addAll(stockList);
-			addList.addAll(itemList);
-
-			session.put("itemList", addList);
-
+//ItemDTO型のインスタンスを作成
+		ItemDTO itemDTO = new ItemDTO();
+//ItemDTOからの購入情報をItemDTO型のインスタンスに格納
+		itemDTO = dao.getItemInfo(itemId, payment, PurchaseNumber);
+//sessionに"itemList"が	ない場合、購入情報をsessionへ格納。ある場合、購入情報とsession内の情報を格納
+		if(!session.containsKey("itemList")){
+			itemDTOList.add(itemDTO);
+			session.put("itemList", itemDTOList);
 		}else{
-			session.put("itemList", itemList);
+			itemDTOList.add(itemDTO);
+			itemDTOList.addAll((ArrayList<ItemDTO>) session.get("itemList"));
+			session.put("itemList", itemDTOList);
+			System.out.println(((ArrayList<ItemDTO>) session.get("itemList")).size());
 		}
-
 		return result;
 	}
 
+//以下、getter/setter
 	public Map<String, Object> getSession() {
 		return session;
 	}
+
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-	public List<ItemDTO> getItemList() {
-		return itemList;
+	public int getItemId() {
+		return itemId;
 	}
 
-	public void setItemList(List<ItemDTO> itemList) {
-		this.itemList = itemList;
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
+
 	public int getPurchaseNumber() {
 		return PurchaseNumber;
 	}
@@ -85,16 +89,5 @@ public class BuyItemCartAction extends ActionSupport implements SessionAware{
 	public void setPay(String pay) {
 		this.pay = pay;
 	}
-
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
 
 }

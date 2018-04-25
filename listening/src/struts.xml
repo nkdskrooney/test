@@ -3,28 +3,27 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
-	<constant name="struts.devMode" value="true" />
+		<constant name="struts.ui.theme" value="simple" />
+<!-- 	<constant name="struts.devMode" value="true" /> -->
 	<package name="com.internousdev.listening.action" extends="struts-default">
 
-		<!-- GoImageAction -->
-<!-- 		<action name="GoImageAction" class="com.internousdev.listening.action.GoImageAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success">image.jsp</result> -->
-<!-- 		</action> -->
+		<!--GoImageAction -->
+		<action name="GoImageAction" class="com.internousdev.listening.action.GoImageAction"
+			method="execute">
+			<result name="success">image.jsp</result>
+		</action>
 
-		<!-- ImageUploadAction -->
-<!-- 		<action name="upload" class="com.internousdev.listening.action.ImageUploadAction"> -->
+		<!-- FileUploadAction -->
+		<action name="FileUploadAction" class="com.internousdev.listening.action.FileUploadAction">
 
-<!--     	<interceptor-ref name="basicStack"/> -->
-<!--     	<interceptor-ref name="fileUpload"> -->
-<!--         <param name="maximumSize">500000</param> -->
-<!--         <param name="allowedTypes">image/jpeg,image/gif/jpg</param> -->
-<!--     	</interceptor-ref> -->
-<!--     	<interceptor-ref name="validation"/> -->
-<!--     	<interceptor-ref name="workflow"/> -->
-<!--    		<result name="success">home.jsp</result> -->
-<!-- 		</action> -->
+    	<interceptor-ref name="fileUpload">
+
+	    <param name="allowedTypes">image/png,image/jpeg,image/gif,image/pjpeg</param>
+    	</interceptor-ref>
+    	<interceptor-ref name="defaultStack"/>
+   		<result name="success">successUserImage.jsp</result>
+   		<result name="input">image.jsp</result>
+		</action>
 
 		<!-- EntranceAction -->
 		<action name="EntranceAction" class="com.internousdev.listening.action.EntranceAction"

@@ -49,3 +49,5 @@ INSERT INTO item_info_transaction(item_name, item_price, item_stock, img_address
 
 INSERT INTO login_user_transaction(login_id, login_pass, user_name, user_web_address, user_address)
 	VALUES("test", "test", "test","test","test");
+INSERT INTO login_user_transaction(login_id, login_pass, user_name, user_web_address, user_address)
+	VALUES("root", "root", "root","root","root");

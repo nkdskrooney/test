@@ -10,11 +10,12 @@ public class ItemDTO {
 	private int PurchaseNumber;
 	private int totalPrice;
 
-	public int getId() {
+
+	public int getItemId() {
 		return itemId;
 	}
-	public void setId(int id) {
-		this.itemId = id;
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
 	public String getItemName() {
 		return itemName;

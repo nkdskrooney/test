@@ -13,6 +13,7 @@
 		<style type="text/css"></style>
 	</head>
 	<body>
+<!-- header -->
 		<div id="header">
 			<h1><a href='<s:url action="GoHomeAction" />'>Listening.</a></h1>
 			<ul>
@@ -28,15 +29,14 @@
 				</li>
 			</ul>
 		</div>
-
-
+<!-- main -->
 		<div id="main">
 
 			<div id="top">
 				<p>商品一覧</p>
 			</div>
 			<div>
-
+<!-- iterator -->
 				<s:iterator value="itemList">
 					<tr>
 						<td>
@@ -56,7 +56,7 @@
 
 
 						<s:form action="BuyItemCartAction">
-						<s:hidden name = "id" />
+						<s:hidden name = "itemId" />
 						<td>
 							<select name="PurchaseNumber">
 								<option value="1" selected="selected">1</option>
@@ -74,16 +74,14 @@
 						</td>
 						<td><s:submit value="購入" /></td>
 						</s:form>
-
-
 					</tr>
 				</s:iterator>
-
+<!-- iterator -->
 			</div>
 			<div><form><p><a href='<s:url action="GoImageAction" />'>画像テスト</a></p></form></div>
 		</div>
 
-
+<!-- footer -->
 		<div id="footer">
 			<ul>
 				<li><a href='<s:url action="GoHomeAction" />'>ホーム画面へ戻る</a></li>

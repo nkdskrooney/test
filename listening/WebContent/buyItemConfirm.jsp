@@ -16,6 +16,7 @@
 		</style>
 	</head>
 	<body>
+<!-- header -->
 		<div id="header">
 			<h1><a href='<s:url action="GoHomeAction" />'>Listening.</a></h1>
 			<ul>
@@ -32,64 +33,48 @@
 			</ul>
 		</div>
 
-
+<!-- main -->
 		<div id="main">
 			<div id="top">
 				<p>CartItem</p>
 			</div>
 			<s:form action="BuyItemCompleteAction">
-
+<!-- iterator -->
 				<s:iterator value="session.itemList" id="cart-item">
-						<tr>
-							<td>商品名</td>
-							<td>
+					<br>
+
+							<label>商品名</label>
 								<s:property value="itemName" />
-							</td>
-						</tr>
-						<tr>
-							<td>
+
 								<img class="item-img" src='<s:property value="imgAddress"/>'>
-							</td>
-						</tr>
-						<tr>
-							<td>値段</td>
-							<td>
+
+							<label>値段</label>
+
 								<s:property value="totalPrice" />
 								<span>円</span>
-							</td>
-						</tr>
-						<tr>
-							<td>購入個数</td>
-							<td>
+
+
+							<label>購入個数</label>
+
 								<s:property value="PurchaseNumber" />
 								<span>個</span>
-							</td>
-						</tr>
-						<tr>
+
 							<td>支払い方法</td>
-							<td>
+
 								<s:property value="payment"/>
-							</td>
-						</tr>
+
 				</s:iterator>
-					<span>合計金額</span>
-					<s:property value="session.alltotalprice" />
-					<span>円</span>
-					<s:submit value="完了"/>
-					<tr>
-						<td>
-							<input type="button" value="戻る"   onclick="submitAction('GoHomeAction')" />
-						</td>
-						<td>
-							<input type="button" value="完了"   onclick="submitAction('BuyItemCompleteAction')" />
-						</td>
-					</tr>
-				</s:form>
-
-
+<!-- iterator -->
+				<br>
+				<span>合計金額</span>
+				<s:property value="session.alltotalprice" />
+				<span>円</span>
+				<br>
+				<s:submit value="完了画面へ"/>
+			</s:form>
 		</div>
 
-
+<!-- footer -->
 		<div id="footer">
 			<ul>
 				<li><a href='<s:url action="GoHomeAction" />'>ホーム画面へ戻る</a></li>

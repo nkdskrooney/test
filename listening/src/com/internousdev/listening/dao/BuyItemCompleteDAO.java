@@ -3,7 +3,6 @@ package com.internousdev.listening.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
 import com.internousdev.listening.dto.ItemDTO;
 import com.internousdev.listening.util.DBConnector;
@@ -19,17 +18,18 @@ public class BuyItemCompleteDAO {
 			+ " total_count, user_master_id, pay, img_address, insert_date)"
 			+ " VALUES(?, ?, ?, ?, ?, ?, ?)";
 
-	public void buyItemeInfo(List<ItemDTO> itemlist,  String user_master_id) throws SQLException {
+	public void buyItemInfo(ItemDTO itemList,  String user_master_id) throws SQLException {
 		try {
-			ItemDTO TP = (ItemDTO) itemlist;
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, TP.getId());
-			preparedStatement.setInt(2, TP.getTotalPrice());
-			preparedStatement.setInt(3, TP.getPurchaseNumber());
+			preparedStatement.setInt(1, itemList.getItemId());
+			preparedStatement.setInt(2, itemList.getTotalPrice());
+			preparedStatement.setInt(3, itemList.getPurchaseNumber());
 			preparedStatement.setString(4, user_master_id);
-			preparedStatement.setString(5, TP.getPayment());
-			preparedStatement.setString(6, TP.getImgAddress());
+			preparedStatement.setString(5, itemList.getPayment());
+			preparedStatement.setString(6, itemList.getImgAddress());
 			preparedStatement.setString(7, dateUtil.getDate());
+			System.out.println(itemList);
+			System.out.println(user_master_id);
 			preparedStatement.execute();
 		} catch(Exception e) {
 			e.printStackTrace();
