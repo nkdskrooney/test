@@ -4,16 +4,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.listening.dto.ItemDTO;
 import com.internousdev.listening.util.DBConnector;
 
-public class ItemDAO {
+public class ItemDAO implements SessionAware{
 
 	private DBConnector dbConnector= new DBConnector();
 	private Connection con = dbConnector.getConnection();
 	private ItemDTO itemDTO ;
 	private ArrayList<ItemDTO> itemDTOList = new ArrayList<ItemDTO>();
+	public Map<String,Object>session;
 
 
 	public ArrayList<ItemDTO> getItemInfo() {
@@ -28,7 +32,6 @@ public class ItemDAO {
 				itemDTO.setItemPrice(rs.getInt("item_price"));
 				itemDTO.setItemStock(rs.getInt("item_stock"));
 				itemDTO.setImgAddress(rs.getString("img_address"));
-
 				itemDTOList.add(itemDTO);
 
 			}
@@ -75,6 +78,13 @@ public class ItemDAO {
 			}
 		}
 		return itemDTO;
+	}
+
+
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		// TODO 自動生成されたメソッド・スタブ
+
 	}
 
 

@@ -15,13 +15,14 @@ public class EntranceAction extends ActionSupport implements SessionAware{
 	public Map<String,Object>session;
 	public List<ItemDTO> itemList = new ArrayList<ItemDTO>();
 	public LoginDTO loginDTO = new LoginDTO();
+	public ItemDTO ItemDTO = new ItemDTO();
 
 	public String execute(){
 		String result=SUCCESS;
 		loginDTO.setLoginFlg(false);
 		ItemDAO dao = new ItemDAO();
 		itemList = dao.getItemInfo();
-
+		session.put("itemId", ItemDTO.getItemId());
 		return result;
 	}
 	public Map<String, Object> getSession() {

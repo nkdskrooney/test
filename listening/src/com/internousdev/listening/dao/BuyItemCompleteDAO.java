@@ -3,6 +3,7 @@ package com.internousdev.listening.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.internousdev.listening.dto.ItemDTO;
 import com.internousdev.listening.util.DBConnector;
@@ -18,7 +19,8 @@ public class BuyItemCompleteDAO {
 			+ " total_count, user_master_id, pay, img_address, insert_date)"
 			+ " VALUES(?, ?, ?, ?, ?, ?, ?)";
 
-	public void buyItemInfo(ItemDTO itemList,  String user_master_id) throws SQLException {
+	public void buyItemInfo(ArrayList<ItemDTO> List,  String user_master_id) throws SQLException {
+		for(ItemDTO itemList : List){
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, itemList.getItemId());
@@ -28,13 +30,12 @@ public class BuyItemCompleteDAO {
 			preparedStatement.setString(5, itemList.getPayment());
 			preparedStatement.setString(6, itemList.getImgAddress());
 			preparedStatement.setString(7, dateUtil.getDate());
-			System.out.println(itemList);
-			System.out.println(user_master_id);
 			preparedStatement.execute();
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
 			connection.close();
+		}
 		}
 	}
 }

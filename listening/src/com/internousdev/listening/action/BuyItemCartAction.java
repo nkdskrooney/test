@@ -37,14 +37,14 @@ public class BuyItemCartAction extends ActionSupport implements SessionAware{
 //ItemDTOからの購入情報をItemDTO型のインスタンスに格納
 		itemDTO = dao.getItemInfo(itemId, payment, PurchaseNumber);
 //sessionに"itemList"が	ない場合、購入情報をsessionへ格納。ある場合、購入情報とsession内の情報を格納
-		if(!session.containsKey("itemList")){
+		if(!(session.containsKey("itemList"))){
 			itemDTOList.add(itemDTO);
 			session.put("itemList", itemDTOList);
 		}else{
-			itemDTOList.add(itemDTO);
 			itemDTOList.addAll((ArrayList<ItemDTO>) session.get("itemList"));
+			itemDTOList.add(itemDTO);
 			session.put("itemList", itemDTOList);
-			System.out.println(((ArrayList<ItemDTO>) session.get("itemList")).size());
+
 		}
 		return result;
 	}

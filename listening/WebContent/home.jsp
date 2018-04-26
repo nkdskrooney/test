@@ -17,7 +17,7 @@
 		<div id="header">
 			<h1><a href='<s:url action="GoHomeAction" />'>Listening.</a></h1>
 			<ul>
-				<li>マイページへ</li>
+				<li><a href='<s:url action="MyPageAction" />'>マイページへ</a></li>
 				<li><a href='<s:url action="UserCreateAction" />'>新規ユーザー登録</a></li>
 				<li><a href='<s:url action="HomeAction" />'>ログイン</a></li>
 				<li>ようこそ

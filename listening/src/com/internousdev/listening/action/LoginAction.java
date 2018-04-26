@@ -1,7 +1,6 @@
 package com.internousdev.listening.action;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -13,21 +12,29 @@ import com.internousdev.listening.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware{
-
+//session情報
+	public Map<String, Object> session;
+//フィールドの定義
 	private String loginUserId;
 	private String loginPassword;
-	public Map<String, Object> session;
-	public List<ItemDTO> itemList = new ArrayList<ItemDTO>();
+//ItemDTO型のArrayList・itemListの定義
+	public ArrayList<ItemDTO> itemList = new ArrayList<ItemDTO>();
+//LoginDAO・LoginDTOのインスタンス生成
 	private LoginDAO loginDAO = new LoginDAO();
 	private LoginDTO loginDTO = new LoginDTO();
 
 	public String execute() {
-		ItemDAO dao = new ItemDAO();
-		itemList = dao.getItemInfo();
+//result結果、ERRORの挿入
 		String result = ERROR;
-
+//ItemDAOのインスタンス生成
+		ItemDAO dao = new ItemDAO();
+//itemListに商品情報を挿入する(home.jsp遷移後に商品情報を表示するため)
+		itemList = dao.getItemInfo();
+//インスタンスloginDTOにログイン情報を格納する。その後sessionへ格納
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 		session.put("loginUser", loginDTO);
+//ま
+		session.put("loginUserId",loginDTO.getLoginId());
 
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
 

@@ -43,6 +43,7 @@
 <!-- 削除ボタン後のメッセージがない場合 -->
 				<s:elseif test="message == null">
 					<h3>ご購入情報は以下になります。</h3>
+
 					<table border="1">
 						<tr>
 							<th>商品名</th>
@@ -51,6 +52,7 @@
 							<th>支払い方法</th>
 							<th>購入日</th>
 						</tr>
+
 						<s:iterator value="myPageList">
 							<tr>
 								<td>
@@ -73,6 +75,7 @@
 							</tr>
 							</s:iterator>
 					</table>
+
 					<!-- 削除ボタン -->
 					<s:form action="MyPageAction">
 						<input type="hidden" name="deleteFlg" value="1">
