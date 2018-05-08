@@ -30,22 +30,25 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		ItemDAO dao = new ItemDAO();
 //itemListに商品情報を挿入する(home.jsp遷移後に商品情報を表示するため)
 		itemList = dao.getItemInfo();
-//インスタンスloginDTOにログイン情報を格納する。その後sessionへ格納
+//インスタンスloginDTOにログイン情報を格納する
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
-		session.put("loginUser", loginDTO);
-//ま
-		session.put("loginUserId",loginDTO.getLoginId());
 
-		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
-
+//ログイン判定処理(管理者)
+		if (loginDTO.getUserName().equals("root")&&loginDTO.getLoginPassword().equals("root")){
+			return INPUT ;
+		}
+//ログイン判定処理(ユーザー)(LoginflgはDAOにてtrue挿し込み済)
+		if(loginDTO.getLoginFlg()) {
+			session.put("loginUser", loginDTO);
+			//購入履歴検索処理で呼び出す為にloginUserIdをsessionへ格納
+			session.put("loginUserId",loginDTO.getLoginId());
 			result = SUCCESS;
 			return result;
 		}
-
 		return result;
 	}
 
-
+//以下、getter/setter
 	public String getLoginUserId() {
 		return loginUserId;
 	}

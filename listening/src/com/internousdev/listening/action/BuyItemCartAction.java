@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.listening.dao.CartItemDAO;
 import com.internousdev.listening.dao.ItemDAO;
 import com.internousdev.listening.dto.ItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,7 +14,7 @@ public class BuyItemCartAction extends ActionSupport implements SessionAware{
 //sessionの定義
 	public Map<String,Object>session;
 //各値のフィールドの作成(グローバル変数)
-	public int PurchaseNumber;
+	public int count;
 	public String payment;
 	public String pay;
 	public int itemId;
@@ -29,21 +30,14 @@ public class BuyItemCartAction extends ActionSupport implements SessionAware{
 			payment = "クレジットカード";
 		}
 //ArrayList「itemDTOList」の作成
-		ArrayList<ItemDTO> itemDTOList = new ArrayList<>();
-//ItemDAOメソッドを利用するため、インスタンス生成
-		ItemDAO dao = new ItemDAO();
+		ArrayList<ItemDTO> CartList = new ArrayList<>();
+//ItemDAO/CartItemDAOメソッドを利用するため、インスタンス生成
+		ItemDAO item = new ItemDAO();
+		CartItemDAO cart = new CartItemDAO();
 //ItemDTO型のインスタンスを作成
 		ItemDTO itemDTO = new ItemDTO();
-//ItemDTOからの購入情報をItemDTO型のインスタンスに格納
-		itemDTO = dao.getItemInfo(itemId, payment, PurchaseNumber);
-//sessionに"itemList"が	ない場合、購入情報をsessionへ格納。ある場合、購入情報とsession内の情報を格納
-		if(!(session.containsKey("itemList"))){
-			itemDTOList.add(itemDTO);
-			session.put("itemList", itemDTOList);
-		}else{
-			itemDTOList.addAll((ArrayList<ItemDTO>) session.get("itemList"));
-			itemDTOList.add(itemDTO);
-			session.put("itemList", itemDTOList);
+
+
 
 		}
 		return result;
@@ -64,14 +58,6 @@ public class BuyItemCartAction extends ActionSupport implements SessionAware{
 
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
-	}
-
-	public int getPurchaseNumber() {
-		return PurchaseNumber;
-	}
-
-	public void setPurchaseNumber(int purchaseNumber) {
-		PurchaseNumber = purchaseNumber;
 	}
 
 	public String getPayment() {

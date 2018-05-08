@@ -17,7 +17,6 @@ public class FileUploadAction extends ActionSupport {
 	public String execute() {
 		String filePath = ServletActionContext.getServletContext().getRealPath("/").concat("img");
 
-
 		System.out.println("Image Location:" + filePath);
 		File fileToCreate = new File(filePath, userImageFileName);
 		try {

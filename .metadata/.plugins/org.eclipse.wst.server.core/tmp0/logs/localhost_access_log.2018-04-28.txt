@@ -1,0 +1,17 @@
+127.0.0.1 - - [28/Apr/2018:13:47:35 +0900] "GET / HTTP/1.1" 404 1019
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:13:47:37 +0900] "GET /listening/ HTTP/1.1" 200 844
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:13:47:37 +0900] "GET /listening/img/haikei.jpg HTTP/1.1" 200 2311437
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:13:59:13 +0900] "GET /listening/EntranceAction.action;jsessionid=E184F24883385DB17623219DE3AE4C4E HTTP/1.1" 200 4556
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:13:59:13 +0900] "GET /listening/css/style.css HTTP/1.1" 200 833
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:13:59:13 +0900] "GET /listening/img/rega.jpg HTTP/1.1" 200 264019
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:13:59:13 +0900] "GET /listening/img/nabowa.jpg HTTP/1.1" 200 74739
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:13:59:17 +0900] "POST /listening/BuyItemCartAction.action HTTP/1.1" 200 2215
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:13:59:18 +0900] "POST /listening/BuyItemConfirmAction.action HTTP/1.1" 500 7655
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:14:01:11 +0900] "POST /listening/BuyItemCartAction.action HTTP/1.1" 200 2215
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:14:01:11 +0900] "GET /listening/css/style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:14:01:11 +0900] "GET /listening/img/nabowa.jpg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:14:01:12 +0900] "POST /listening/BuyItemConfirmAction.action HTTP/1.1" 200 1872
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:14:01:23 +0900] "POST /listening/LoginAction.action HTTP/1.1" 200 4564
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:14:01:25 +0900] "POST /listening/BuyItemCartAction.action HTTP/1.1" 200 2780
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:14:01:26 +0900] "POST /listening/BuyItemConfirmAction.action HTTP/1.1" 200 2364
+0:0:0:0:0:0:0:1 - - [28/Apr/2018:14:01:31 +0900] "GET /listening/GoHomeAction.action HTTP/1.1" 200 4564

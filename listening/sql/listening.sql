@@ -28,6 +28,19 @@ create table item_info_transaction(
 	update_date datetime
 );
 
+drop table if exists cart_item_transaction;
+create table cart_item_transaction(
+	id int not null primary key auto_increment,
+	item_transaction_id int,
+	total_price int,
+	total_count int,
+	pay varchar(30),
+	img_address varchar(50),
+	tentative_id varchar(10),
+	insert_date datetime,
+	delete_date datetime
+	);
+
 drop table if exists user_buy_item_transaction;
 create table user_buy_item_transaction(
 	id int not null primary key auto_increment,
@@ -48,6 +61,7 @@ INSERT INTO item_info_transaction(item_name, item_price, item_stock, img_address
 	VALUES("rega", 1000, 10, "./img/rega.jpg");
 
 INSERT INTO login_user_transaction(login_id, login_pass, user_name, user_web_address, user_address)
-	VALUES("test", "test", "test","test","test");
+	VALUES("test", "test", "test", "test", "test");
+
 INSERT INTO login_user_transaction(login_id, login_pass, user_name, user_web_address, user_address)
-	VALUES("root", "root", "root","root","root");
+	VALUES("root", "root", "root", "root", "root");

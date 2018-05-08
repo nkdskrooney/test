@@ -13,46 +13,34 @@
 		<style type="text/css"></style>
 	</head>
 	<body>
-		<div id="header">
-			<h1><a href='<s:url action="GoHomeAction" />'>Listening.</a></h1>
-			<ul>
-				<li>マイページへ</li>
-				<li><a href='<s:url action="UserCreateAction" />'>新規ユーザー登録</a></li>
-				<li><a href='<s:url action="HomeAction" />'>ログイン</a></li>
-				<li>ようこそ
-				<s:if test="#session.loginUser.LoginFlg == true">
-					<s:property value="#session.loginUser.UserName"/>
-				</s:if>
-				<s:else>ゲスト</s:else>
-				様
-				</li>
-			</ul>
-		</div>
+<!-- header -->
+	<jsp:include page="include_header.jsp"/>
 
+<!-- main -->
 		<div id="main">
 
 			<div id="top">
 				<p>商品一覧</p>
 			</div>
 			<div>
-						<s:iterator value="itemList">
+						<s:form action="BuyItemCartAction">
 							<tr>
 								<td>
-									<s:property value="itemName" />
+									<s:property value="session.itemName" />
 								</td>
 								<td>
-									<img class="item-img" src='<s:property value="imgAddress"/>'>
+									<img class="item-img" src='<s:property value="session.imgAddress"/>'>
 								</td>
 								<td>
-									<s:property value="itemPrice" />
+									<s:property value="session.itemPrice" />
 									<span>円</span>
 								</td>
 								<td>
-									<s:property value="itemStock" />
+									<s:property value="session.itemStock" />
 									<span>個</span>
 								</td>
 								<td>
-									<select name="PurchaseNumber">
+									<select name="count">
 										<option value="1" selected="selected">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -66,18 +54,13 @@
 									<input type="radio" name="pay" value="2">
 										クレ ジットカード
 								</td>
+								<td><s:submit value="購入" /></td>
 							</tr>
-						</s:iterator>
+						</s:form>
 			</div>
-			<div><form><p><a href='<s:url action="GoImageAction" />'>画像テスト</a></p></form></div>
 		</div>
 
-		<div id="footer">
-			<ul>
-				<li><a href='<s:url action="GoHomeAction" />'>ホーム画面へ戻る</a></li>
-				<li>利用規約</li>
-				<li>internous株式会社</li>
-			</ul>
-		</div>
+<!-- footer -->
+		<jsp:include page="include_footer.jsp"/>
 	</body>
 </html>

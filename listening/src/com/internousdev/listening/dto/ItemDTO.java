@@ -7,7 +7,7 @@ public class ItemDTO {
 	private int itemStock;
 	private String imgAddress;
 	private String payment;
-	private int PurchaseNumber;
+	private int count;
 	private int totalPrice;
 
 
@@ -47,11 +47,11 @@ public class ItemDTO {
 	public void setPayment(String payment) {
 		this.payment = payment;
 	}
-	public int getPurchaseNumber() {
-		return PurchaseNumber;
+	public int getCount() {
+		return count;
 	}
-	public void setPurchaseNumber(int purchaseNumber) {
-		PurchaseNumber = purchaseNumber;
+	public void setCount(int count) {
+		this.count = count;
 	}
 	public int getTotalPrice() {
 		return totalPrice;
@@ -59,7 +59,5 @@ public class ItemDTO {
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-
-
 
 }

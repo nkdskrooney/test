@@ -27,7 +27,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 //result結果、ERRORを挿入
 		String result = ERROR;
 //ログイン判定(LoginFlgがtrueの場合SUCCESSを結果に挿入)
-		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
+		if(session.containsKey("loginUser")) {
 			result = SUCCESS;
 			return result;
 		}

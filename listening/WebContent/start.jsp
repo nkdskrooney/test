@@ -25,11 +25,9 @@
 		</style>
 	</head>
 	<body>
-
+<!-- main -->
 		<p>
 		<a href='<s:url action="EntranceAction" />'>ようこそlistening.へ</a>
 		</p>
-
-
 	</body>
 </html>

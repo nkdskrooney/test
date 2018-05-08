@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DateUtil.java&apos; to &apos;Miamiburger/src/com.internousdev.miamiburger.util&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;listening&apos;&#x0D;&#x0A;- 宛先要素: &apos;Miamiburger/src/com.internousdev.miamiburger.util&apos;&#x0D;&#x0A;- オリジナル要素: &apos;com.internousdev.listening.util.DateUtil.java&apos;" description="コンパイル単位をコピー" destination="=Miamiburger/src&lt;com.internousdev.miamiburger.util" element1="/src&lt;com.internousdev.listening.util{DateUtil.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1525734888632" units="1" version="1.0"/>
+</session>
