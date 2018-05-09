@@ -37,7 +37,7 @@ create table product_info(
 	image_file_name varchar(50),
 	release_date datetime,
 	release_company varchar(50),
-	insert_date datetime,
+	regist_date datetime,
 	update_date datetime
 );
 

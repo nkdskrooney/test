@@ -100,3 +100,8 @@
 0:0:0:0:0:0:0:1 - - [08/May/2018:16:33:54 +0900] "GET /burger/MyPageAction.action;jsessionid=3BFB9AF4B724C5CF03F6B668BDE6676E HTTP/1.1" 200 -
 0:0:0:0:0:0:0:1 - - [08/May/2018:16:33:56 +0900] "GET /burger/MyPageAction.action;jsessionid=3BFB9AF4B724C5CF03F6B668BDE6676E HTTP/1.1" 200 1091
 0:0:0:0:0:0:0:1 - - [08/May/2018:16:33:59 +0900] "GET /burger/UserUpdateAction.action HTTP/1.1" 200 1630
+127.0.0.1 - - [08/May/2018:17:06:41 +0900] "GET / HTTP/1.1" 404 1019
+0:0:0:0:0:0:0:1 - - [08/May/2018:17:06:43 +0900] "GET /burger/ HTTP/1.1" 200 589
+0:0:0:0:0:0:0:1 - - [08/May/2018:17:06:46 +0900] "GET /burger/MyPageAction.action;jsessionid=58E5399D22D7B6A04B7EF038830EC9EB HTTP/1.1" 200 1091
+0:0:0:0:0:0:0:1 - - [08/May/2018:17:06:51 +0900] "GET /burger/UserUpdateAction.action HTTP/1.1" 200 1630
+0:0:0:0:0:0:0:1 - - [08/May/2018:17:07:31 +0900] "GET /burger/UserUpdateAction.action HTTP/1.1" 200 1630

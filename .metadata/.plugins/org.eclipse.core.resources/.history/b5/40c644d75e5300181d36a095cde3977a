@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
+		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title>Home画面</title>
+		<style type="text/css"></style>
+	</head>
+	<body>
+	<s:form action="MasterAddConfirmAction">
+	<p>商品名</p>
+	<input name="productName";>
+	<p>商品かな</p>
+	public String productNameKana;
+	<p>商品詳細</p>
+	public String productDescription;
+	<p>カテゴリID</p>
+	public String categoryId;
+	<p>値段</p>
+	public int price;
+	<p>画像パス</p>
+	public String imageFilePath;
+	<p>画像名</p>
+	public String imageFileName;
+	<p>発売日</p>
+	public String releaseDate;
+	<p>ステータス</p>
+	public int Status;
+
+	<s:submit value="確認画面へ" />
+
+	</s:form>
+
+</body>
+</html>
