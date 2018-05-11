@@ -17,7 +17,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 //MyPageDAOのインスタンス生成
 		MyPageDAO myPageDAO = new MyPageDAO();
 //session内に"LoginUser"がない場合ERRORを返す
-//		if (!(session.containsKey("loginUser"))) {
+//		if (!(session.containsKey("userInfoDTO"))) {
 //			return ERROR;
 //		}
 //userIdを受け取りuserIdに対応したユーザー情報をmyPageDTOに格納する
@@ -55,6 +55,34 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 				session.put("old_updatedDate", myPageDTO.getUpdatedDate());
 				session.put("old_secretQuestion", myPageDTO.getSecretQuestion());
 				session.put("old_secretAnswer", myPageDTO.getSecretAnswer());
+//男性と女性の判別、文字列の挿入
+
+				try{
+					switch(myPageDTO.getSex()){
+					  case 0 :
+						  session.put("old_sex_Name","男性" );
+					       break;
+					  case 1 :
+						  session.put("old_sex_Name","女性" );
+					       break;
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+//ステータスの判別、文字列の挿入　管理画面にて変更可能にするかも
+//				try{
+//					switch(myPageDTO.getStatus()){
+//					  case 0 :
+//						  session.put("new_status_Name","無効" );
+//					       break;
+//					  case 1 :
+//						  session.put("new_status_Name","有効" );
+//					       break;
+//					}
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
 
 //result結果、SUCCESSを挿入する
 		String result = SUCCESS;

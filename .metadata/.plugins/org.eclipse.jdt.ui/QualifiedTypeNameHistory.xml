@@ -8,9 +8,7 @@
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="com.internousdev.listening.dto.ItemDTO"/>
-<fullyQualifiedTypeName name="org.apache.struts2.ServletActionContext"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.internousdev.listening.dao.CartItemDAO"/>
@@ -22,4 +20,9 @@
 <fullyQualifiedTypeName name="com.opensymphony.xwork2.ActionSupport"/>
 <fullyQualifiedTypeName name="org.apache.struts2.interceptor.SessionAware"/>
 <fullyQualifiedTypeName name="com.internousdev.miamiburger.dto.ProductInfoDTO"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="org.apache.struts2.ServletActionContext"/>
+<fullyQualifiedTypeName name="org.apache.commons.io.FileUtils"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="com.internousdev.miamiburger.dao.MasterAddCompleteDAO"/>
 </qualifiedTypeNameHistroy>

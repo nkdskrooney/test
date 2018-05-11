@@ -34,6 +34,19 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 		session.put("new_secretQuestion", new_secretQuestion);
 		session.put("new_secretAnswer", new_secretAnswer);
 
+//男性と女性の判別、文字列の挿入(既存)
+		try{
+			switch(new_sex){
+			  case 0 :
+				  session.put("new_sex_Name","男性" );
+			       break;
+			  case 1 :
+				  session.put("new_sex_Name","女性" );
+			       break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 //result結果、SUCCESSを挿入する
 		String result = SUCCESS;
