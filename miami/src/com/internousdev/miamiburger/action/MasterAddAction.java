@@ -26,9 +26,6 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 			System.out.println("Image Location:" + filePath);
 			File fileToCreate = new File(filePath, userImageFileName);
 
-//			↓eclipceのimgフォルダへ保管可能だが移植性がないのでボツ（仕組み説明用の為に残してます）
-//			File fileToCreate = new File("/Users/owner/Desktop/workspace/test/miami/WebContent/img", userImageFileName);
-
 			try {
 				FileUtils.copyFile(userImage, fileToCreate);
 				session.put("userImageFileName", userImageFileName);

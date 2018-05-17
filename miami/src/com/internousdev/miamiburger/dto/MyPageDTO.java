@@ -12,7 +12,7 @@ public class MyPageDTO {
 	private int status;
 	private int logined;
 	private String registDate;
-	private String updatedDate;
+	private String updateDate;
 	private String secretQuestion;
 	private String secretAnswer;
 
@@ -82,11 +82,11 @@ public class MyPageDTO {
 	public void setRegistDate(String registDate) {
 		this.registDate = registDate;
 	}
-	public String getUpdatedDate() {
-		return updatedDate;
+	public String getUpdateDate() {
+		return updateDate;
 	}
-	public void setUpdatedDate(String updatedDate) {
-		this.updatedDate = updatedDate;
+	public void setUpdateDate(String updateDate) {
+		this.updateDate = updateDate;
 	}
 	public String getSecretQuestion() {
 		return secretQuestion;

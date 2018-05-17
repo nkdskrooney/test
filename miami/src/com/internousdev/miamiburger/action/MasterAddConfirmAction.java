@@ -31,7 +31,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 		session.put("categoryId", categoryId);
 		session.put("Status", Status);
 
-	//次のページでcategoryIdを文字で表示する
+	//確認画面でcategoryIdを文字で表示する
 		try{
 			switch(categoryId){
 			  case 1 :
@@ -51,7 +51,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			e.printStackTrace();
 		}
 
-	//次のページでcategoryIdを文字で表示する
+	//確認画面でStatusを文字で表示する
 			try{
 				switch(Status){
 				  case 1 :
@@ -64,6 +64,10 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+	//InputChecker
+		
+		
 
 	//result結果、SUCCESSを挿入する
 		String result = SUCCESS;

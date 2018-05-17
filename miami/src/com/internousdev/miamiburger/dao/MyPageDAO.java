@@ -11,7 +11,7 @@ public class MyPageDAO {
 		public MyPageDTO getUserInfo(String userId){
 			DBConnector dbConnector= new DBConnector();
 			Connection con = dbConnector.getConnection();
-			String sql = "SELECT user_id ,password, family_name, first_name ,family_name_kana ,first_name_kana, sex, email, status, logined, secret_question, secret_answer, regist_date, updated_date "
+			String sql = "SELECT user_id ,password, family_name, first_name ,family_name_kana ,first_name_kana, sex, email, status, logined, secret_question, secret_answer, regist_date, update_date "
 					+ "FROM user_info WHERE user_id = ?";
 			MyPageDTO myPageDTO = new MyPageDTO();
 			try {
@@ -33,7 +33,7 @@ public class MyPageDAO {
 					myPageDTO.setSecretQuestion(rs.getString("secret_question"));
 					myPageDTO.setSecretAnswer(rs.getString("secret_answer"));
 					myPageDTO.setRegistDate(rs.getString("regist_date"));
-					myPageDTO.setUpdatedDate(rs.getString("updated_date"));
+					myPageDTO.setUpdateDate(rs.getString("update_date"));
 
 				}
 			}catch(Exception e){

@@ -16,13 +16,14 @@
 <fullyQualifiedTypeName name="com.internousdev.miamiburger.dto.MyPageDTO"/>
 <fullyQualifiedTypeName name="com.internousdev.miamiburger.dao.ChangePasswordCompleteDAO"/>
 <fullyQualifiedTypeName name="com.internousdev.miamiburger.dao.ProductInfoDAO"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.opensymphony.xwork2.ActionSupport"/>
-<fullyQualifiedTypeName name="org.apache.struts2.interceptor.SessionAware"/>
 <fullyQualifiedTypeName name="com.internousdev.miamiburger.dto.ProductInfoDTO"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.apache.struts2.ServletActionContext"/>
 <fullyQualifiedTypeName name="org.apache.commons.io.FileUtils"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="com.internousdev.miamiburger.dao.MasterAddCompleteDAO"/>
+<fullyQualifiedTypeName name="com.internousdev.miamiburger.dto.UserInfoDTO"/>
+<fullyQualifiedTypeName name="org.apache.struts2.interceptor.SessionAware"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

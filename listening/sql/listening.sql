@@ -5,52 +5,58 @@ drop database if exists listening;
 create database if not exists listening;
 use listening;
 
-drop table if exists login_user_transaction;
-create table login_user_transaction(
+drop table if exists user_info;
+create table user_info(
 	id int not null primary key auto_increment,
-	login_id varchar(16) unique,
-	user_name varchar(50),
-	login_pass varchar(16),
-	user_web_address varchar(50),
-	user_address varchar(50),
-	insert_date datetime,
+	user_id varchar(16) unique,
+	password varchar(16),
+	user_name varchar(16),
+	user_name_kana varchar(32),
+	sex int,
+	email varchar(50),
+	regist_date datetime,
 	updated_date datetime
 );
 
-drop table if exists item_info_transaction;
-create table item_info_transaction(
+drop table if exists item_info;
+create table item_info(
 	id int not null primary key auto_increment,
-	item_name varchar(30),
-	item_price int,
-	item_stock int,
-	img_address varchar(50),
-	insert_date datetime,
+	item_id varchar(16) unique,
+	item_name varchar(100),
+	item_name_kana varchar(100),
+	category_id int,
+	price int,
+	stock int,
+	image_file_path varchar(50),
+	release_date datetime,
+	regist_date datetime,
 	update_date datetime
 );
 
-drop table if exists cart_item_transaction;
-create table cart_item_transaction(
+drop table if exists cart_info;
+create table cart_info(
 	id int not null primary key auto_increment,
-	item_transaction_id int,
-	total_price int,
-	total_count int,
-	pay varchar(30),
-	img_address varchar(50),
-	tentative_id varchar(10),
-	insert_date datetime,
+	user_id varchar(16),
+	temp_user_id varchar(100),
+	item_id int,
+	count int,
+	image_file_path varchar(100),
+	price int,
+	regist_date datetime,
 	delete_date datetime
 	);
 
-drop table if exists user_buy_item_transaction;
-create table user_buy_item_transaction(
+drop table if exists purchase_info;
+create table purchase_info(
 	id int not null primary key auto_increment,
-	item_transaction_id int,
+	user_id varchar(16),
+	item_id int,
 	total_price int,
-	total_count int,
+	count int,
 	user_master_id varchar(16),
 	pay varchar(30),
 	img_address varchar(50),
-	insert_date datetime,
+	regist_date datetime,
 	delete_date datetime
 	);
 

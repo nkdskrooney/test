@@ -8,6 +8,6 @@
 </head>
 <body>
 <h1>DBへの書き込み終了</h1>
-<h1><a href='<s:url action="MasterAction" />'>管理画面へ</a></h1>
+<h1><a href='<s:url action="GoMasterAction" />'>管理画面へ</a></h1>
 </body>
 </html>

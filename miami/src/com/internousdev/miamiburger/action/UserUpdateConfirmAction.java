@@ -1,10 +1,14 @@
 package com.internousdev.miamiburger.action;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.miamiburger.dao.UserCreateConfirmDAO;
+import com.internousdev.miamiburger.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserUpdateConfirmAction extends ActionSupport implements SessionAware {
@@ -20,21 +24,37 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 	private String new_email;
 	private String new_secretQuestion;
 	private String new_secretAnswer;
+//InputChecker用のリスト（InputCheckerからの戻り値を格納する）
+	int i;
+
+	private String errorId = "";        //IDエラー
+	private String errorPass = "";          //パスワードエラー
+	private String errorCheck = "";         //確認用パスワードエラー
+	private String errorName = "";          //姓名エラー
+	private String errorNameKana = "";      //姓名（ひらがな）エラー
+	private String errorEmail = "";         //メールアドレスエラー
+	private String errorQuestion;      //秘密の質問エラー
+	private String errorAnswer = "";        //秘密の質問の回答エラー
+
+	private InputChecker inputChecker = new InputChecker();
+	private List<String> ErrorUserIdList = new ArrayList<>();
+	private List<String> ErrorPasswordList = new ArrayList<>();
+	private List<String> ErrorReconfirmPassList = new ArrayList<>();
+	private List<String> ErrorFamilyNameList = new ArrayList<>();
+	private List<String> ErrorFirstNameList = new ArrayList<>();
+	private List<String> ErrorFamilyNameKanaList = new ArrayList<>();
+	private List<String> ErrorFirstNameKanaList = new ArrayList<>();
+	private List<String> ErrorEmailList = new ArrayList<>();
+	private List<String> ErrorQuestionList = new ArrayList<>();
+	private List<String> ErrorAnswerList = new ArrayList<>();
+//userIdの被り確認の為にuserIdを抽出するメソッドを持つuserCreateConfirmDAOのインスタンス生成
+	private UserCreateConfirmDAO userCreateConfirmDAO = new UserCreateConfirmDAO();
 
 	public String execute() throws SQLException {
+	//デフォルトのresultはERRORを設定
+		String result = ERROR;
 
-//変更予定のユーザー情報を格納する
-		session.put("new_userId", new_userId);
-		session.put("new_familyName",new_familyName );
-		session.put("new_firstName",new_firstName );
-		session.put("new_familyNameKana",new_familyNameKana );
-		session.put("new_firstNameKana",new_firstNameKana );
-		session.put("new_sex", new_sex);
-		session.put("new_email", new_email);
-		session.put("new_secretQuestion", new_secretQuestion);
-		session.put("new_secretAnswer", new_secretAnswer);
-
-//男性と女性の判別、文字列の挿入(既存)
+	//男性と女性の判別、文字列の挿入(既存)
 		try{
 			switch(new_sex){
 			  case 0 :
@@ -47,13 +67,85 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	//変更予定のユーザー情報を格納する
+		session.put("new_userId", new_userId);
+		session.put("new_familyName",new_familyName );
+		session.put("new_firstName",new_firstName );
+		session.put("new_familyNameKana",new_familyNameKana );
+		session.put("new_firstNameKana",new_firstNameKana );
+		session.put("new_sex", new_sex);
+		session.put("new_email", new_email);
+		session.put("new_secretQuestion", new_secretQuestion);
+		session.put("new_secretAnswer", new_secretAnswer);
 
-//result結果、SUCCESSを挿入する
-		String result = SUCCESS;
+	//以下InputChecker
+
+		String checkUserId = userCreateConfirmDAO.getConfirmUser(new_userId);
+	//確認用
+		System.out.println(checkUserId);
+		System.out.println(new_userId);
+	//InputCheckerのメソッドを使用し記述内容をチェックする。
+		ErrorUserIdList = inputChecker.doCheck("ユーザーID", new_userId, 1, 8, true, false, false, true, true);
+		ErrorFamilyNameList = inputChecker.doCheck("姓", new_familyName, 1, 16, true, true, true, false, false);
+		ErrorFirstNameList = inputChecker.doCheck("名", new_firstName, 1, 16, true, true, true, false, false);
+		ErrorFamilyNameKanaList = inputChecker.doCheck("姓ふりがな", new_familyNameKana, 1, 16, false, false, true, false, false);
+		ErrorFirstNameKanaList = inputChecker.doCheck("名ふりがな", new_firstNameKana, 1, 16, false, false, true, false, false);
+		ErrorEmailList = inputChecker.doCheck("メールアドレス", new_email, 14, 32, true, false, false, true, true);
+		ErrorAnswerList = inputChecker.doCheck("メールアドレス", new_secretAnswer, 1, 16, true, true, true, true, true);
+	//もし記載内容に問題がなければSUCCESSを挿入する
+		if(
+				ErrorUserIdList.size() == 0 &&
+				!(checkUserId.equals(new_userId)) &&
+				ErrorFamilyNameList.size() == 0 &&
+				ErrorFirstNameList.size() == 0 &&
+				ErrorFamilyNameKanaList.size() == 0 &&
+				ErrorFirstNameKanaList.size() == 0 &&
+				ErrorEmailList.size() == 0 &&
+				new_secretQuestion != null &&
+				ErrorAnswerList.size() == 0
+				){
+			result = SUCCESS;
+	//記載内容に不備があれば、各項目ごとにエラーメッセージを挿入する。
+		}else{
+			for(i=0;i < ErrorUserIdList.size()-1;i++){
+				errorId = errorId + ErrorUserIdList.get(i);
+			}
+			if(!(new_userId.equals(""))){
+				if (checkUserId.equals(new_userId)) {
+					errorId = errorId + "そのユーザーIDはすでに使われています";
+				}
+			}
+			for(i=0;i < ErrorPasswordList.size()-1;i++){
+				errorPass = errorPass + ErrorPasswordList.get(i);
+			}
+			for(i=0;i < ErrorReconfirmPassList.size()-1;i++){
+				errorCheck = errorCheck + ErrorReconfirmPassList.get(i);
+			}
+			for(i=0;i < ErrorFamilyNameList.size()-1;i++){
+				errorName = errorName + ErrorFamilyNameList.get(i);
+			}
+			for(i=0;i < ErrorFirstNameList.size()-1;i++){
+				errorName = errorName + ErrorFirstNameList.get(i);
+			}
+			for(i=0;i < ErrorFamilyNameKanaList.size()-1;i++){
+				errorNameKana = errorNameKana + ErrorFamilyNameKanaList.get(i);
+			}
+			for(i=0;i < ErrorFirstNameKanaList.size()-1;i++){
+				errorNameKana = errorNameKana + ErrorFirstNameKanaList.get(i);
+			}
+			for(i=0;i < ErrorEmailList.size()-1;i++){
+				errorEmail = errorEmail + ErrorEmailList.get(i);
+			}
+			if(new_secretQuestion != null ){
+				errorQuestion = "選択してください。";
+			}
+			for(i=0;i < ErrorAnswerList.size()-1;i++){
+				errorAnswer = errorAnswer + ErrorAnswerList.get(i);
+			}
+		}
 		return result;
 	}
-
-//以下、getter/setter
+	//以下、getter/setter
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -134,5 +226,172 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 		this.new_secretAnswer = new_secretAnswer;
 	}
 
+	public int getI() {
+		return i;
+	}
+
+	public void setI(int i) {
+		this.i = i;
+	}
+
+	public String getErrorId() {
+		return errorId;
+	}
+
+	public void setErrorId(String errorId) {
+		this.errorId = errorId;
+	}
+
+	public String getErrorPass() {
+		return errorPass;
+	}
+
+	public void setErrorPass(String errorPass) {
+		this.errorPass = errorPass;
+	}
+
+	public String getErrorCheck() {
+		return errorCheck;
+	}
+
+	public void setErrorCheck(String errorCheck) {
+		this.errorCheck = errorCheck;
+	}
+
+	public String getErrorName() {
+		return errorName;
+	}
+
+	public void setErrorName(String errorName) {
+		this.errorName = errorName;
+	}
+
+	public String getErrorNameKana() {
+		return errorNameKana;
+	}
+
+	public void setErrorNameKana(String errorNameKana) {
+		this.errorNameKana = errorNameKana;
+	}
+
+	public String getErrorEmail() {
+		return errorEmail;
+	}
+
+	public void setErrorEmail(String errorEmail) {
+		this.errorEmail = errorEmail;
+	}
+
+	public String getErrorQuestion() {
+		return errorQuestion;
+	}
+
+	public void setErrorQuestion(String errorQuestion) {
+		this.errorQuestion = errorQuestion;
+	}
+
+	public String getErrorAnswer() {
+		return errorAnswer;
+	}
+
+	public void setErrorAnswer(String errorAnswer) {
+		this.errorAnswer = errorAnswer;
+	}
+
+	public InputChecker getInputChecker() {
+		return inputChecker;
+	}
+
+	public void setInputChecker(InputChecker inputChecker) {
+		this.inputChecker = inputChecker;
+	}
+
+	public List<String> getErrorUserIdList() {
+		return ErrorUserIdList;
+	}
+
+	public void setErrorUserIdList(List<String> errorUserIdList) {
+		ErrorUserIdList = errorUserIdList;
+	}
+
+	public List<String> getErrorPasswordList() {
+		return ErrorPasswordList;
+	}
+
+	public void setErrorPasswordList(List<String> errorPasswordList) {
+		ErrorPasswordList = errorPasswordList;
+	}
+
+	public List<String> getErrorReconfirmPassList() {
+		return ErrorReconfirmPassList;
+	}
+
+	public void setErrorReconfirmPassList(List<String> errorReconfirmPassList) {
+		ErrorReconfirmPassList = errorReconfirmPassList;
+	}
+
+	public List<String> getErrorFamilyNameList() {
+		return ErrorFamilyNameList;
+	}
+
+	public void setErrorFamilyNameList(List<String> errorFamilyNameList) {
+		ErrorFamilyNameList = errorFamilyNameList;
+	}
+
+	public List<String> getErrorFirstNameList() {
+		return ErrorFirstNameList;
+	}
+
+	public void setErrorFirstNameList(List<String> errorFirstNameList) {
+		ErrorFirstNameList = errorFirstNameList;
+	}
+
+	public List<String> getErrorFamilyNameKanaList() {
+		return ErrorFamilyNameKanaList;
+	}
+
+	public void setErrorFamilyNameKanaList(List<String> errorFamilyNameKanaList) {
+		ErrorFamilyNameKanaList = errorFamilyNameKanaList;
+	}
+
+	public List<String> getErrorFirstNameKanaList() {
+		return ErrorFirstNameKanaList;
+	}
+
+	public void setErrorFirstNameKanaList(List<String> errorFirstNameKanaList) {
+		ErrorFirstNameKanaList = errorFirstNameKanaList;
+	}
+
+	public List<String> getErrorEmailList() {
+		return ErrorEmailList;
+	}
+
+	public void setErrorEmailList(List<String> errorEmailList) {
+		ErrorEmailList = errorEmailList;
+	}
+
+	public List<String> getErrorQuestionList() {
+		return ErrorQuestionList;
+	}
+
+	public void setErrorQuestionList(List<String> errorQuestionList) {
+		ErrorQuestionList = errorQuestionList;
+	}
+
+	public List<String> getErrorAnswerList() {
+		return ErrorAnswerList;
+	}
+
+	public void setErrorAnswerList(List<String> errorAnswerList) {
+		ErrorAnswerList = errorAnswerList;
+	}
+
+	public UserCreateConfirmDAO getUserCreateConfirmDAO() {
+		return userCreateConfirmDAO;
+	}
+
+	public void setUserCreateConfirmDAO(UserCreateConfirmDAO userCreateConfirmDAO) {
+		this.userCreateConfirmDAO = userCreateConfirmDAO;
+	}
 
 }

@@ -19,7 +19,7 @@ public class BuyItemCartAction extends ActionSupport implements SessionAware{
 	public String pay;
 	public int itemId;
 
-	@SuppressWarnings("unchecked")
+
 	public String execute(){
 //result結果、SUCCESSを挿入
 		String result=SUCCESS;
@@ -37,9 +37,6 @@ public class BuyItemCartAction extends ActionSupport implements SessionAware{
 //ItemDTO型のインスタンスを作成
 		ItemDTO itemDTO = new ItemDTO();
 
-
-
-		}
 		return result;
 	}
 

@@ -36,7 +36,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 				session.put("new_status", myPageDTO.getStatus());
 				session.put("new_logined", myPageDTO.getLogined());
 				session.put("new_registDate", myPageDTO.getRegistDate());
-				session.put("new_updatedDate", myPageDTO.getUpdatedDate());
+				session.put("new_updateDate", myPageDTO.getUpdateDate());
 				session.put("new_secretQuestion", myPageDTO.getSecretQuestion());
 				session.put("new_secretAnswer", myPageDTO.getSecretAnswer());
 
@@ -52,7 +52,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 				session.put("old_status", myPageDTO.getStatus());
 				session.put("old_logined", myPageDTO.getLogined());
 				session.put("old_registDate", myPageDTO.getRegistDate());
-				session.put("old_updatedDate", myPageDTO.getUpdatedDate());
+				session.put("old_updatedDate", myPageDTO.getUpdateDate());
 				session.put("old_secretQuestion", myPageDTO.getSecretQuestion());
 				session.put("old_secretAnswer", myPageDTO.getSecretAnswer());
 //男性と女性の判別、文字列の挿入

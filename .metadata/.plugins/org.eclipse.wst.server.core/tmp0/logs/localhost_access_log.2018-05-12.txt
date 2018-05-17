@@ -1,0 +1,10 @@
+127.0.0.1 - - [12/May/2018:17:02:29 +0900] "GET / HTTP/1.1" 404 1019
+0:0:0:0:0:0:0:1 - - [12/May/2018:17:02:32 +0900] "GET /miamiburger/ HTTP/1.1" 200 2819
+127.0.0.1 - - [12/May/2018:18:35:09 +0900] "GET / HTTP/1.1" 404 1019
+0:0:0:0:0:0:0:1 - - [12/May/2018:18:35:12 +0900] "GET /miamiburger/ HTTP/1.1" 200 2819
+0:0:0:0:0:0:0:1 - - [12/May/2018:18:36:00 +0900] "GET /miamiburger/HomeAction.action;jsessionid=2B1015806D40CF7C2DA8DC5A60B7D3E6 HTTP/1.1" 200 2335
+0:0:0:0:0:0:0:1 - - [12/May/2018:18:36:17 +0900] "GET /miamiburger/HomeAction.action HTTP/1.1" 200 2335
+0:0:0:0:0:0:0:1 - - [12/May/2018:18:36:24 +0900] "GET /miamiburger/HomeAction.action HTTP/1.1" 200 2335
+0:0:0:0:0:0:0:1 - - [12/May/2018:18:36:46 +0900] "GET /miamiburger/LoginAction.action HTTP/1.1" 200 2949
+0:0:0:0:0:0:0:1 - - [12/May/2018:18:36:58 +0900] "GET /miamiburger/ChangePasswordAction.action HTTP/1.1" 200 3280
+0:0:0:0:0:0:0:1 - - [12/May/2018:18:37:27 +0900] "GET /miamiburger/Action.action HTTP/1.1" 200 3435

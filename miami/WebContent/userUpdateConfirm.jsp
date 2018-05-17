@@ -12,53 +12,50 @@
 		<style type="text/css"></style>
 	</head>
 	<body>
+	<h1>変更内容確認</h1>
 <!-- ユーザー情報変更 旧 -->
-	<label>ユーザーID</label>
-	<p><s:property value="session.old_userId" /></p>
-	<label>姓</label>
-	<p><s:property value="session.old_familyName" /></p>
-	<label>名</label>
-	<p><s:property value="session.old_firstName" /></p>
-	<label>姓（かな）</label>
-	<p><s:property value="session.old_familyNameKana" /></p>
-	<label>名（かな）</label>
-	<p><s:property value="session.old_firstNameKana" /></p>
-	<label>性別</label>
-	<p><s:property value="session.old_sex_Name" /></p>
-	<label>Eメール</label>
-	<p><s:property value="session.old_email" /></p>
-	<label>秘密の質問</label>
-	<p><s:property value="session.old_secretQuestion" /></p>
-	<label>答え</label>
-	<p><s:property value="session.old_secretAnswer" /></p>
+	姓
+	<s:property value="session.old_familyName" />
+	名
+	<s:property value="session.old_firstName" /><br>
+	姓（かな）
+	<s:property value="session.old_familyNameKana" />
+	名（かな）
+	<s:property value="session.old_firstNameKana" /><br>
+	性別
+	<s:property value="session.old_sex_Name" /><br>
+	Eメール
+	<s:property value="session.old_email" /><br>
+	秘密の質問
+	<s:property value="session.old_secretQuestion" /><br>
+	答え
+	<s:property value="session.old_secretAnswer" /><br>
 
 	<h3>↓</h3>
 
 <!-- ユーザー情報変更 新 -->
-	<label>ユーザーID</label>
-	<p><s:property value="session.new_userId" /></p>
-	<label>姓</label>
-	<p><s:property value="session.new_familyName" /></p>
-	<label>名</label>
-	<p><s:property value="session.new_firstName" /></p>
-	<label>姓（かな）</label>
-	<p><s:property value="session.new_familyNameKana" /></p>
-	<label>名（かな）</label>
-	<p><s:property value="session.new_firstNameKana" /></p>
-	<label>性別</label>
-	<p><s:property value="session.new_sex_Name" /></p>
-	<label>Eメール</label>
-	<p><s:property value="session.new_email" /></p>
-	<label>秘密の質問</label>
-	<p><s:property value="session.new_secretQuestion" /></p>
-	<label>答え</label>
-	<p><s:property value="session.new_secretAnswer" /></p>
+	姓
+	<s:property value="session.new_familyName" />
+	名
+	<s:property value="session.new_firstName" /><br>
+	姓（かな）
+	<s:property value="session.new_familyNameKana" />
+	名（かな）
+	<s:property value="session.new_firstNameKana" /><br>
+	性別
+	<s:property value="session.new_sex_Name" /><br>
+	Eメール
+	<s:property value="session.new_email" /><br>
+	秘密の質問
+	<s:property value="session.new_secretQuestion" /><br>
+	答え
+	<s:property value="session.new_secretAnswer" /><br>
 
-	<p><a href='<s:url action="UserUpdateCompleteAction" />'>変更完了</a></p>
+	<a href='<s:url action="UserUpdateCompleteAction" />'>変更完了</a>
 
 <!-- マイページ画面への遷移 -->
-	<p><a href='<s:url action="MyPageAction" />'>マイページ戻る</a></p>
-	<p><a href='<s:url action="UserUpdateAction" />'>変更画面へ戻る</a></p>
+	<a href='<s:url action="MyPageAction" />'>マイページ戻る</a>
+	<a href='<s:url action="UserUpdateAction" />'>変更画面へ戻る</a>
 
 	</body>
 </html>
