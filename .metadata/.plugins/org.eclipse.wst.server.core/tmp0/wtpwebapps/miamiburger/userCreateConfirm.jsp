@@ -24,6 +24,9 @@
 			}
 		</script>
 			<body>
+
+		<jsp:include page="header.jsp" />
+
 			<s:form id="form-action">
 
 			 <h2>新規ユーザー登録確認</h2>
@@ -37,11 +40,6 @@
 
  					<tr>
  					<th>パスワード</th>
-					<td><s:property value="passCon" escape="false" /></td>
-					</tr>
-
- 					<tr>
- 					<th>確認用パスワード</th>
 					<td><s:property value="passCon" escape="false" /></td>
 					</tr>
 
@@ -101,10 +99,10 @@
 					<s:hidden name ="secretAnswer"/>
 
 					<div id="button">
-						<ul>
-							<li><s:submit value="訂正" onclick="goUserCreateAction();" /></li>
-							<li><s:submit value="登録" onclick="goUserCreateCompleteAction();" /></li>
-						</ul>
+
+							<s:submit value="訂正" onclick="goUserCreateAction();" />
+							<s:submit value="登録" onclick="goUserCreateCompleteAction();" />
+
 					</div>
 
 

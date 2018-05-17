@@ -29,7 +29,7 @@
 		<!-- ユーザーID -->
 
 		<div class="form-text">ログインID</div>
-		<span> <input type="text" name="userId" placeholder="半角英数字 " maxlength="8" value=<s:property value="session.userId" /> >※8文字以内  
+		<span> <input type="text" name="userId" placeholder="半角英数字 " maxlength="8" value=<s:property value="session.userId" /> >※8文字以内
 		</span>
 		<s:if test="errorId!=null">
 				<s:property value="errorId" />
@@ -44,14 +44,6 @@
 			<s:property value="errorPass" />
 		</s:if>
 
-		<!-- パスワード確認 -->
-
-		<div class="form-text">パスワード確認用</div>
-		<span><input type="password" name="checkPassword"
-			placeholder=" 半角英数字 " maxlength="16" >※16文字以内</span>
-		<s:if test="errorCheck!=null">
-				<s:property value="errorCheck" />
-		</s:if>
 
 		<!-- 名前 -->
 
@@ -137,17 +129,17 @@
 				<option value="2">好きな動物</option>
 			</select>
 		</s:else>
-		
+
 		<s:if test="errorQuestion!=null">
 				<s:property value="errorQuestion" />
 		</s:if>
-		
+
 		<!-- 質問の答え -->
 
 		<div class="form-text">答え</div>
 		<span> <input type="text" name="secretAnswer" placeholder="漢字,ひらがな,半角英数字,記号 " maxlength="10" size="25" value=<s:property value="session.secretAnswer"/> >※10文字以内
 		</span>
-		
+
 		<s:if test="errorAnswer!=null">
 				<s:property value="errorAnswer" />
 		</s:if>

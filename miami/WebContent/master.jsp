@@ -8,6 +8,7 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
 		<title>管理画面</title>
 		<style type="text/css"></style>
 	</head>
@@ -15,19 +16,6 @@
 <!-- ユーザー情報 -->
 	<s:iterator value="productInfoList">
 		<div class="product_container">
-
-<!-- 既存商品変更の仕組みが出来たらUPします。By中川 -->
-<%-- 			<a href="<s:url action="MasterUpdateAction"> --%>
-					<s:param name="productId" value="%{productId}"/>
-					<s:param name="imageFilePath" value="%{imageFilePath}"/>
-					<s:param name="imageFileName" value="%{imageFileName}"/>
-					<s:param name="productName" value="%{productName}"/>
-					<s:param name="productNameKana" value="%{productNameKana}"/>
-					<s:param name="productDescription" value="%{productDescription}"/>
-					<s:param name="price" value="%{price}"/>
-					<s:param name="categoryId" value="%{categoryId}"/>
-<%-- 				</s:url>"> --%>
-
 				<img src='img/<s:property value="imageFilePath"/>' width="100" height="100"/>
 				<br>
 				<span><b><s:property value="productName" /></b></span>

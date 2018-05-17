@@ -8,31 +8,30 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
 		<title>確認画面</title>
 		<style type="text/css"></style>
 	</head>
 	<body>
-	<p>画像</p>
-	ファイル名：<s:property value="session.userImageFileName"/><br/>
-	<img src="img/<s:property value="session.userImageFileName"/>" width="100" height="100"/>
-	<p>商品名</p>
-	<p><s:property value="session.productName" /></p>
-	<p>商品かな</p>
-	<p><s:property value="session.productNameKana" /></p>
-	<p>商品詳細</p>
-	<p><s:property value="session.productDescription" /></p>
-	<p>カテゴリ</p>
-	<p><s:property value="session.categoryName" /></p>
-	<p>値段</p>
-	<p><s:property value="session.price" />円</p>
-	<p>画像名</p>
-	<p><s:property value="session.imageFileName" /></p>
-	<p>発売日</p>
-	<p><s:property value="session.releaseDate" /></p>
-	<p>ステータス</p>
-	<p><s:property value="session.StatusName" /></p>
+	画像<br>
+	ファイル名：<s:property value="session.image_file_name"/><br/>
+	<img src="img/<s:property value="session.image_file_path"/>" width="100" height="100"/><br>
+	商品名
+	<s:property value="session.productName" /><br>
+	商品かな
+	<s:property value="session.productNameKana" /><br>
+	商品詳細
+	<s:property value="session.productDescription" /><br>
+	カテゴリ
+	<s:property value="session.categoryName" /><br>
+	値段
+	<s:property value="session.price" />円<br>
+	発売日
+	<s:property value="session.releaseDate" /><br>
+	ステータス
+	<s:property value="session.StatusName" /><br>
 
-	<p><a href='<s:url action="MasterAddCompleteAction" />'>完了画面</a></p>
+	<a href='<s:url action="MasterAddCompleteAction" />'>完了画面</a>
 
 </body>
 </html>

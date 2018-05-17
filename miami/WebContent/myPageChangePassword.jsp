@@ -6,12 +6,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
-		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
 		<title>ユーザー情報変更画面</title>
 		<style type="text/css"></style>
 	</head>
 	<body>
+
+<jsp:include page="header.jsp" />
 
 	<h1>パスワード変更</h1>
 <!-- ユーザー情報変更フォーム -->

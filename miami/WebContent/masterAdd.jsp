@@ -9,6 +9,7 @@
 		<meta http-equiv="imagetoolbar" content="no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
 		<title>画面</title>
 		<style type="text/css"></style>
 	</head>

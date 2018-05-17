@@ -9,13 +9,16 @@ import com.internousdev.miamiburger.util.DBConnector;
 import com.internousdev.miamiburger.util.DateUtil;
 
 public class MasterAddCompleteDAO{
-	private DBConnector db = new DBConnector();
-	private Connection con = null;
+
 	private DateUtil dateUtil = new DateUtil();
 
 	public int getMaxProductId() {
+
 		int maxProductId = -1;
-		con = db.getConnection();
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
 		String sql = "SELECT MAX(product_id) AS id FROM product_info";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -38,7 +41,7 @@ public class MasterAddCompleteDAO{
 		return maxProductId;
 	}
 
-	public void cerateProduct(
+	public int cerateProduct(
 				int productId,
 				String productName,
 				String productNameKana,
@@ -49,6 +52,10 @@ public class MasterAddCompleteDAO{
 				int Status,
 				String userImageFileName
 			) throws SQLException {
+		int check = 0;
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
 		try {
 			String sql =
 				"INSERT INTO product_info ("
@@ -64,7 +71,7 @@ public class MasterAddCompleteDAO{
 				+ "image_file_name, "
 				+ "regist_date)"
 				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			con = db.getConnection();
+
 			PreparedStatement preparedStatement = con.prepareStatement(sql);
 			preparedStatement.setInt(1, productId);
 			preparedStatement.setString(2, productName);
@@ -77,12 +84,14 @@ public class MasterAddCompleteDAO{
 			preparedStatement.setString(9, userImageFileName);
 			preparedStatement.setString(10, userImageFileName);
 			preparedStatement.setString(11, dateUtil.getDate());
-			preparedStatement.execute();
+
+			check = preparedStatement.executeUpdate();
 
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
 			con.close();
 		}
+		return check;
 	}
 }

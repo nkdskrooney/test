@@ -6,14 +6,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
-		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
 		<title>ユーザー情報変更入力画面</title>
 		<style type="text/css"></style>
 	</head>
 	<body>
 
-
+<jsp:include page="header.jsp" />
 
 	<h1>ユーザー情報変更</h1>
 <!-- ユーザー情報変更フォーム -->
@@ -41,8 +43,8 @@
 				<td><input name="new_firstNameKana" maxlength="16" value="<s:property value="session.new_firstNameKana" />"></td>
 			</tr>
 			<tr>
-			<td><s:if test="errorName!=null">
-				<s:property value="errorName" />
+			<td><s:if test="errorNameKana!=null">
+				<s:property value="errorNameKana" />
 			</s:if></td>
 			</tr>
 			<tr>
@@ -65,14 +67,12 @@
 				<td>秘密の質問</td>
 					<td><s:if test="session.new_secretQuestion==1">
 					<select name="new_secretQuestion" >
-						<option value=null>選択してください</option>
 						<option value="1" selected>好きな食べ物</option>
 						<option value="2">好きな動物</option>
 					</select>
 					</s:if>
 					<s:elseif test="session.new_secretQuestion==2">
 					<select name="new_secretQuestion" >
-						<option value=null>選択してください</option>
 						<option value="1">好きな食べ物</option>
 						<option value="2" selected>好きな動物</option>
 					</select>

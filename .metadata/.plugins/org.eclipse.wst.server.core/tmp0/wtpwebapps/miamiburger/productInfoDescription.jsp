@@ -36,11 +36,10 @@
 	<div class="main_container">
 		<s:form action="InsertCartAction">
 			商品名：<s:property value="session.productName" /><br>
-			ふりがな：<s:property value="session.productNameKana" /><br>
 			商品詳細情報：<s:property value="session.productDescription" /><br>
 			値段：<s:property value="session.price" />円<br>
 			発売年月日：<s:property value="session.releaseDate" /><br>
-			
+
 			<s:hidden name="productId"/>
 			<s:hidden name="price"/>
 			購入個数：

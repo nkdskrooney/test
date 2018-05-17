@@ -28,7 +28,8 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 
 			try {
 				FileUtils.copyFile(userImage, fileToCreate);
-				session.put("userImageFileName", userImageFileName);
+				session.put("image_file_name", userImageFileName);
+				session.put("image_file_path", userImageFileName);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
