@@ -9,56 +9,156 @@
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<title>ユーザー情報変更画面</title>
-		<style type="text/css"></style>
+		<style type="text/css">
+		body {
+			background-image: url(./images/board.jpg);
+			background-attachment: fixed;
+			background-size: cover;
+			background-size: 100% auto;
+		}
+		.main{
+			width:100%;
+			padding-top:2%;
+		}
+		.clear{
+		clear:both;
+		}
+		h1{
+			width:60%;
+			margin:0 auto;
+			margin-top:50px;
+			text-align: center;
+			border-left:1px solid black;
+			border-bottom:1px solid black;
+			border-radius:10px;
+			background-color:rgba(255,255,255,0.5);
+			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
+		}
+		.inner_1{
+			margin:5% 0 0 5%;
+			float:left;
+			width: 35%;
+			height: 50%;
+			border-left:1px solid black;
+			border-bottom:1px solid black;
+			border-radius:10px;
+			background-color:rgba(255,255,255,0.5);
+			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
+		}
+		.inner_1 p{
+			font-size:20px;
+			padding:3%;
+		}
+		.inner_2{
+			float:right;
+			margin:5% 5% 0 0;
+			width: 35%;
+			height: 50%;
+			border-left:1px solid black;
+			border-bottom:1px solid black;
+			border-radius:10px;
+			background-color:rgba(255,255,255,0.5);
+			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
+		}
+		.inner_2 p{
+			font-size:20px;
+			padding:3%;
+		}
+		.user_info{
+			margin:0 auto;
+		}
+		.character{
+			padding:3%;
+		}
+		.img{
+			margin:15% 2% 0 4% ;
+			float:left;
+			width:12%;
+			height:100px;
+			object-fit: contain;
+		}
+		.button{
+			margin:0 auto;
+			width:20%;
+		}
+		.button input{
+			margin:3%;
+			width:100%;
+		}
+
+		</style>
 	</head>
 	<body>
-	<jsp:include page="header.jsp" />
-	<h1>変更内容確認</h1>
-<!-- ユーザー情報変更 旧 -->
-	姓:
-	<s:property value="session.old_familyName" />
-	名:
-	<s:property value="session.old_firstName" /><br>
-	姓（かな）:
-	<s:property value="session.old_familyNameKana" />
-	名（かな）:
-	<s:property value="session.old_firstNameKana" /><br>
-	性別:
-	<s:property value="session.old_sex_Name" /><br>
-	Eメール:
-	<s:property value="session.old_email" /><br>
-	秘密の質問:
-	<s:if test="session.old_secretQuestion==1">好きな食べ物</s:if>
-	<s:if test="session.old_secretQuestion==2">好きな動物</s:if><br>
-	答え:
-	<s:property value="session.old_secretAnswer" /><br>
+	<div class="header">
+		<jsp:include page="header.jsp" />
+	</div>
+	<div class="main">
+		<h1>変更内容確認</h1>
+		<div class="inner_1">
+		<p>これまでのユーザー情報</p>
+				<div class="character">
+					<b>姓:</b><s:property value="session.old_familyName" />
+				</div>
+				<div class="character">
+					<b>名:</b><s:property value="session.old_firstName" />
+				</div>
+				<div class="character">
+					<b>姓（かな）:</b><s:property value="session.old_familyNameKana" />
+				</div>
+				<div class="character">
+					<b>名（かな）:</b><s:property value="session.old_firstNameKana" />
+				</div>
+				<div class="character">
+					<b>性別:</b><s:property value="session.old_sex_Name" />
+				</div>
+				<div class="character">
+					<b>Eメール:</b><s:property value="session.old_email" />
+				</div>
+				<div class="character">
+					<b>秘密の質問:</b><s:if test="session.old_secretQuestion==1">好きな食べ物</s:if><s:if test="session.old_secretQuestion==2">好きな動物</s:if>
+				</div>
+				<div class="character">
+					<b>答え:</b><s:property value="session.old_secretAnswer" />
+				</div>
+		</div>
+		<img class="img" src="./images/yajirusi.png" width="100px" height="100px">
+		<div class="inner_2">
+			<p>これからのユーザー情報</p>
+				<div class="character">
+					<b>姓:</b><s:property value="session.new_familyName" />
+				</div>
+				<div class="character">
+					<b>名:</b><s:property value="session.new_firstName" />
+				</div>
+				<div class="character">
+					<b>姓（かな）:</b><s:property value="session.new_familyNameKana" />
+				</div>
+				<div class="character">
+					<b>名（かな）:</b><s:property value="session.new_firstNameKana" />
+				</div>
+				<div class="character">
+					<b>性別:</b><s:property value="session.new_sex_Name" />
+				</div>
+				<div class="character">
+					<b>Eメール:</b><s:property value="session.new_email" />
+				</div>
+				<div class="character">
+					<b>秘密の質問:</b><s:if test="session.new_secretQuestion==1">好きな食べ物</s:if><s:if test="session.new_secretQuestion==2">好きな動物</s:if>
+				</div>
+				<div class="character">
+					<b>答え:</b><s:property value="session.new_secretAnswer" />
+				</div>
+		</div>
+		<div class="clear"></div>
+			<div class="button">
+				<input type="button"
+					onclick="location.href='<s:url action="UserUpdateAction" />'"
+					value="変更画面へ戻る" /><br>
 
-	<h3>↓</h3>
-
-<!-- ユーザー情報変更 新 -->
-	姓:
-	<s:property value="session.new_familyName" />
-	名:
-	<s:property value="session.new_firstName" /><br>
-	姓（かな）:
-	<s:property value="session.new_familyNameKana" />
-	名（かな）:
-	<s:property value="session.new_firstNameKana" /><br>
-	性別:
-	<s:property value="session.new_sex_Name" /><br>
-	Eメール:
-	<s:property value="session.new_email" /><br>
-	秘密の質問:
-	<s:if test="session.new_secretQuestion==1">好きな食べ物</s:if>
-	<s:if test="session.new_secretQuestion==2">好きな動物</s:if><br>
-	答え:
-	<s:property value="session.new_secretAnswer" /><br>
-
-	<a href='<s:url action="UserUpdateCompleteAction" />'>変更完了</a>
-
-<!-- マイページ画面への遷移 -->
-	<a href='<s:url action="MyPageAction" />'>マイページ戻る</a>
-	<a href='<s:url action="UserUpdateAction" />'>変更画面へ戻る</a>
-
+				<input type="button"
+					onclick="location.href='<s:url action="UserUpdateCompleteAction" />'"
+					value="変更完了" /><br>
+			</div>
+	</div>
 	</body>
 </html>

@@ -13,63 +13,84 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta charset="utf-8">
-<title>製品詳細</title>
+<link rel="stylesheet" href="./css/miamiburger.css">
+<link rel="stylesheet" href="./css/productInfo.css">
+<title>ProductDescription</title>
 
 <style>
-.main_container {
-	min-width: 1280px;
-}
-
-.product_container{
-	float:left;
-	width:33%;
-	border:1px solid red;
-	text-align:center;
-}
-
 </style>
 </head>
 <body>
 
-<jsp:include page="header.jsp" />
-
-	<div class="main_container">
-		<s:form action="InsertCartAction">
-			商品名：<s:property value="session.productName" /><br>
-			商品詳細情報：<s:property value="session.productDescription" /><br>
-			値段：<s:property value="session.price" />円<br>
-			発売年月日：<s:property value="session.releaseDate" /><br>
-
-			<s:hidden name="productId"/>
-			<s:hidden name="price"/>
-			購入個数：
-			<select name="productCount">
-			<s:iterator value="htmlList">
-				<option value=<s:property value="count"/>><s:property value="count"/>個</option>
-			</s:iterator>
-			</select>
-			<img src='<s:property value="session.imageFilePath" />' alt=<s:property value="session.imageFileName" />/>
-			<s:submit value="カートに追加" />
-		</s:form>
-
-		<s:iterator value="sugestList">
-			<div class="product_container">
-				<a href="<s:url action="ProductInfoDescriptionAction">
-					<s:param name="productId" value="%{productId}"/>
-					<s:param name="categoryId" value="%{categoryId}"/>
-					<s:param name="price" value="%{price}"/>
-					</s:url>">
-
-					<img src="<s:property value= 'imageFilePath'/>">
-					<span><s:property value="productName" /></span>
-					<br>
-					<span> <s:property value="productNameKana" /></span>
-					<br>
-					<span> <s:property value="price" />円</span>
-				</a>
-			</div>
-		</s:iterator>
+	<div class="header">
+		<jsp:include page="header.jsp" />
 	</div>
+	<div class="main">
 
+		<!-- 商品詳細 -->
+
+
+		<div class="inner">
+			<div class="PI-productcontainer">
+				<div class="PI-descriptionbox">
+					<div class="ruby">
+						<s:property value="session.productNameKana" />
+					</div>
+					商品名：<span class="pname"><s:property
+							value="session.productName" /></span> <br> 値段：
+					<s:property value="session.price" />
+					円 <br> 発売年月日：
+					<s:property value="session.releaseDate" />
+
+					<br> 商品詳細情報：
+					<s:property value="session.productDescription" />
+
+					<br>
+					<s:form action="InsertCartAction">
+						<s:hidden name="productId" />
+						<s:hidden name="price" />
+				購入個数： <select name="productCount">
+							<s:iterator value="htmlList">
+								<option value=<s:property value="count"/>><s:property
+										value="count" />個
+								</option>
+							</s:iterator>
+						</select>
+						<s:submit value="カートに追加" />
+					</s:form>
+				</div>
+
+				<div class="PI-imagebox">
+					<img src='<s:property value="session.imageFilePath" />'
+						alt=<s:property value="session.imageFileName" /> />
+				</div>
+			</div>
+
+
+
+			<!-- おすすめ商品 -->
+			<div class="PI-productcontainer">
+				<h2>おすすめ商品</h2>
+				<s:iterator value="sugestList">
+					<div class="PI-productlist_container">
+						<div class="PI-list">
+							<a
+								href="<s:url action="ProductInfoDescriptionAction">
+							<s:param name="productId" value="%{productId}"/>
+							<s:param name="categoryId" value="%{categoryId}"/>
+							<s:param name="price" value="%{price}"/>
+							</s:url>">
+
+								<img src="<s:property value= 'imageFilePath'/>"> <br>
+								<span><s:property value="productName" /></span> <br> <span>
+									<s:property value="productNameKana" />
+							</span> <br> <span><s:property value="price" />円</span>
+							</a>
+						</div>
+					</div>
+				</s:iterator>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

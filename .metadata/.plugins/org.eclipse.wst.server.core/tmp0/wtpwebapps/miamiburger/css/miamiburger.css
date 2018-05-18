@@ -1,8 +1,27 @@
 @CHARSET "UTF-8";
 
 /* 全ページ共通-------------------------------------------------- */
+/* .box{ */
+/* 	margin:2px 5% 2% 5%; */
+/* 	padding:15px; */
+/* 	border-radius:15px; */
+/* 	background-color:rgba(0,0,0,0.5); */
+/*     text-align: center; */
+/* } */
+
+/* body{ */
+/* 	font-size:large; */
+/* } */
+/* .ruby{ */
+/* 	font-size:small; */
+/* } */
+/* .error{ */
+/* 	font-size:medium; */
+/* 	color:red; */
+/* } */
+
 /* body { */
-/* 	background-image: url(../images/background.jpeg); */
+/* 	background-image: url(../images/backgroundWhite.jpeg); */
 /* 	background-attachment: fixed; */
 /* } */
 

@@ -12,20 +12,23 @@ import com.opensymphony.xwork2.ActionSupport;
 public class MyPageAction extends ActionSupport implements SessionAware {
 //session情報
 	public Map<String, Object> session;
-
+	private String passCon;            //パスワードを＊で暗号化
 	public String execute() throws SQLException {
 //MyPageDAOのインスタンス生成
 		MyPageDAO myPageDAO = new MyPageDAO();
-//session内に"LoginUser"がない場合ERRORを返す
+//session内に"userInfoDTO"がない場合ERRORを返す
 //		if (!(session.containsKey("userInfoDTO"))) {
 //			return ERROR;
 //		}
 //userIdを受け取りuserIdに対応したユーザー情報をmyPageDTOに格納する
-		String userId = "test" ;
-		MyPageDTO myPageDTO = myPageDAO.getUserInfo(userId);
 
+//		UserInfoDTO user = (UserInfoDTO) session.get("userInfoDTO");
+		String userId = "guest";
+		MyPageDTO myPageDTO = myPageDAO.getUserInfo(userId);
+		System.out.println(myPageDTO.getUserId());
+//userIdをsessionに格納する。
+				session.put("userId", myPageDTO.getUserId());
 //変更予定のユーザー情報を格納する
-				session.put("new_userId", myPageDTO.getUserId());
 				session.put("new_password", myPageDTO.getPassword());
 				session.put("new_familyName", myPageDTO.getFamilyName());
 				session.put("new_firstName", myPageDTO.getFirstName());
@@ -41,7 +44,6 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 				session.put("new_secretAnswer", myPageDTO.getSecretAnswer());
 
 //変更予定のユーザー情報を格納する
-				session.put("old_userId", myPageDTO.getUserId());
 				session.put("old_password", myPageDTO.getPassword());
 				session.put("old_familyName", myPageDTO.getFamilyName());
 				session.put("old_firstName", myPageDTO.getFirstName());
@@ -52,11 +54,11 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 				session.put("old_status", myPageDTO.getStatus());
 				session.put("old_logined", myPageDTO.getLogined());
 				session.put("old_registDate", myPageDTO.getRegistDate());
-				session.put("old_updatedDate", myPageDTO.getUpdateDate());
+				session.put("old_updateDate", myPageDTO.getUpdateDate());
 				session.put("old_secretQuestion", myPageDTO.getSecretQuestion());
 				session.put("old_secretAnswer", myPageDTO.getSecretAnswer());
-//男性と女性の判別、文字列の挿入
 
+//男性と女性の判別、文字列の挿入
 				try{
 					switch(myPageDTO.getSex()){
 					  case 0 :
@@ -70,19 +72,20 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 					e.printStackTrace();
 				}
 
-//ステータスの判別、文字列の挿入　管理画面にて変更可能にするかも
-//				try{
-//					switch(myPageDTO.getStatus()){
-//					  case 0 :
-//						  session.put("new_status_Name","無効" );
-//					       break;
-//					  case 1 :
-//						  session.put("new_status_Name","有効" );
-//					       break;
-//					}
-//				} catch (Exception e) {
-//					e.printStackTrace();
+//既存パスワードの暗号化
+//				if (((String) session.get("old_password")).length() > 2) {
+//					StringBuilder sb = new StringBuilder((String) session.get("old_password"));
+//						for (int i = 2; i < ((String) session.get("old_password")).length(); i++) {
+//							sb.setCharAt(i, '*');
+//							System.out.println(String.valueOf(sb));
+//						}
+//							passCon = sb.toString();
+//						}else if(((String) session.get("old_password")).length() == 2){
+//							passCon = "**";
+//						}else if(((String) session.get("old_password")).length() == 1){
+//							passCon = "*";
 //				}
+//				session.put("passCon", passCon);
 
 //result結果、SUCCESSを挿入する
 		String result = SUCCESS;
@@ -97,5 +100,14 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
+	public String getPassCon() {
+		return passCon;
+	}
+
+	public void setPassCon(String passCon) {
+		this.passCon = passCon;
+	}
+
 
 }

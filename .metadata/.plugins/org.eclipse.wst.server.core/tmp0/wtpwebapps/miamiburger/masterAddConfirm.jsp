@@ -8,12 +8,13 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
 		<title>確認画面</title>
 		<style type="text/css"></style>
 	</head>
 	<body>
 	画像<br>
-	ファイル名：<s:property value="session.userImageFileName"/><br/>
+	ファイル名：<s:property value="session.image_file_name"/><br/>
 	<img src="img/<s:property value="session.image_file_path"/>" width="100" height="100"/><br>
 	商品名
 	<s:property value="session.productName" /><br>

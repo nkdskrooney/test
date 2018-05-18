@@ -13,41 +13,36 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta charset="utf-8">
+<link rel="stylesheet" href="./css/miamiburger.css">
+<link rel="stylesheet" href="./css/productInfo.css">
 <title>製品情報</title>
 
 <style>
-.main_container {
-	min-width: 1280px;
-}
 
-.product_container {
-	float: left;
-	width: 33%;
-	border: 1px solid red;
-	text-align: center;
-}
-.product_container img{
-	width:50%;
-}
-form{
-	clear:left;
+form {
+	clear: left;
 }
 </style>
 </head>
 <body>
+	<div class="header">
+		<jsp:include page="header.jsp" />
+	</div>
+	<div class="main">
+		<div class="inner">
 
-<jsp:include page="header.jsp" />
+			<div class="PI-productcontainer">
+				<h1>Products</h1>
+				<s:if test="errorMessage != null">
+					<s:property value="errorMessage" />
+				</s:if>
 
-
-		<s:if test="errorMessage != null">
-			<s:property value="errorMessage"/>
-		</s:if>
-
-		<!-- 引き出した商品情報を 3×3 で表示（現在CSSで3列制御中） -->
-		<s:iterator value="productInfoList">
-			<div class="product_container">
-				<a
-					href="<s:url action="ProductInfoDescriptionAction">
+				<!-- 引き出した商品情報を 3×3 で表示（現在CSSで3列制御中） -->
+				<s:iterator value="productInfoList">
+					<div class="PI-productlist_container">
+						<div class="PI-list">
+							<a
+								href="<s:url action="ProductInfoDescriptionAction">
 					<s:param name="id" value="%{id}"/>
 					<s:param name="productId" value="%{productId}"/>
 					<s:param name="productName" value="%{productName}"/>
@@ -62,27 +57,34 @@ form{
 					<s:param name="registDate" value="%{registDate}"/>
 					<s:param name="UpdateDate" value="%{UpdateDate}"/>
 				</s:url>">
-					<img src="<s:property value= 'imageFilePath' />"> <br> <span><b><s:property
-								value="productName" /></b></span> <br> <span> <s:property
-							value="productNameKana" /></span> <br> <span><s:property
-							value="price" />円</span> <br>
-				</a>
+								<img src="<s:property value= 'imageFilePath' />"> <br>
+								<span><b><s:property value="productName" /></b></span> <br>
+								<span> <s:property value="productNameKana" /></span> <br>
+								<span><s:property value="price" />円</span> <br>
+							</a>
+						</div>
+					</div>
+				</s:iterator>
 			</div>
-		</s:iterator>
 
-		<!-- ページセレクト（1ページ目では"前へ"を表示しない、最終ページでは"次へ"を表示しない） -->
-		<s:if test="pageSelect > 0">
-			<form action="ProductInfoAction">
-				<s:hidden name="pageSelect" value="%{pageSelect - 1}" />
-				<s:submit value=" 前へ" />
-			</form>
-		</s:if>
+			<div class="PI-pagingbox">
+				<!-- ページセレクト（1ページ目では"前へ"を表示しない、最終ページでは"次へ"を表示しない） -->
+				<s:if test="pageSelect > 0">
+					<form action="ProductInfoAction">
+						<s:hidden name="pageSelect" value="%{pageSelect - 1}" />
+						<s:submit value=" 前へ" />
+					</form>
+				</s:if>
 
-		<s:if test="pageSelect < mainList.size() -1">
-			<form action="ProductInfoAction" method="post">
-				<s:hidden name="pageSelect" value="%{pageSelect + 1}" />
-				<s:submit value=" 次へ" />
-			</form>
-		</s:if>
+				<s:if test="pageSelect < mainList.size() -1">
+					<form action="ProductInfoAction" method="post">
+						<s:hidden name="pageSelect" value="%{pageSelect + 1}" />
+						<s:submit value=" 次へ" />
+					</form>
+				</s:if>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
