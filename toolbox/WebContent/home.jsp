@@ -30,14 +30,14 @@
 								<s:property value="itemName" />
 							</td>
 							<td>
-								<img class="item-img" src='<s:property value="imgAddress"/>'>
+								<img class="item-img" src='<s:property value="imageFilePath"/>'>
 							</td>
 							<td>
-								<s:property value="itemPrice" />
+								<s:property value="price" />
 								<span>円</span>
 							</td>
 							<td>
-								<s:property value="itemStock" />
+								<s:property value="stock" />
 								<span>個</span>
 							</td>
 							<s:hidden name = "itemId" />

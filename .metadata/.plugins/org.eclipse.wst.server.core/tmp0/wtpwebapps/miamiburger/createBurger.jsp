@@ -7,59 +7,67 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>クリエイトバーガー</title>
 <link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
+<link rel="stylesheet" type="text/css" href="./css/createBurger.css">
 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
 
 <jsp:include page="header.jsp" />
 
-	<h1>クリエイトバーガー</h1>
-	<s:if test="errorMessage!=null">
-		<s:property value="errorMessage"/>
-	</s:if>
-
-	<div id="burgerContainer"></div>
-
-
-	<ul id="selectContainer">
-	<s:iterator value="#session.htmlCreaterList">
-		<li class="hiddenHTML"><span class="selectText"></span> <div class="optionDeleteBtn">削除<span class="idNum"><s:property value="count"/></span></div></li>
-	</s:iterator>
-	</ul>
-
-	<div class="CreateBurgerConfirmAction">
-	<s:form action="CreateBurgerConfirmAction">
-									<!-- 	選択したオプションをhiddenで送信。入力がない時はvalueに-1を入れ判別する。 -->
-			<s:iterator value="#session.htmlCreaterList">
-				<input type="hidden" name=<s:property value="option"/> value="-1" id=<s:property value="hiddenOption"/> />
-			</s:iterator>
-									<!-- 	合計金額をボタン入力以外でいじれないよう、hiddenで送信する。 -->
-		<input type="hidden" name="createPrice" value="0" id="hiddenPrice" />
-		<h3>金額：<span id="price">0</span>円</h3>
-		<h3>購入個数：<select name="product_count" id="product_count">
-			<option value=1 selected>1</option>
-			<option value=2 >2</option>
-			<option value=3 >3</option>
-			<option value=4 >4</option>
-			<option value=5 >5</option>
-		</select>個</h3>
-		<h3>合計金額：<span id="totalPrice">0</span>円</h3>
-
-		<s:submit value="作成" />
-	</s:form>
+	<div class="createBox">
+		<h1>CreateBurger ～Please take your choice！～</h1>
 	</div>
-
-	<ul id="optionList">
-		<s:iterator value="#session.burgerOptionsList">
-			<li class="option">
-				<h3>
-					<span class="optionName"><s:property value="optionName" /></span>
-				</h3>
-				価格：<span class="price"><s:property value="optionPrice" /></span>円
-				<div class="option_id"><s:property value="id"/></div>
-			</li>
-		</s:iterator>
-	</ul>
+		<s:if test="errorMessage!=null">
+			<div class="error">
+				<s:property value="errorMessage"/>
+			</div>
+		</s:if>
+	
+		<div id="burgerContainer"></div>
+	
+		<div class="selectStyle">
+			<h3>your choice</h3>
+			<ul id="selectContainer">
+				<s:iterator value="#session.htmlCreaterList">
+					<li class="hiddenHTML"><span class="selectText"></span> <div class="optionDeleteBtn">remove<span class="idNum"><s:property value="count"/></span></div></li>
+				</s:iterator>
+			</ul>
+		</div>
+	
+		<div class="CreateBurgerConfirmAction">
+		<s:form action="CreateBurgerConfirmAction">
+										<!-- 	選択したオプションをhiddenで送信。入力がない時はvalueに-1を入れ判別する。 -->
+				<s:iterator value="#session.htmlCreaterList">
+					<input type="hidden" name=<s:property value="option"/> value="-1" id=<s:property value="hiddenOption"/> />
+				</s:iterator>
+										<!-- 	合計金額をボタン入力以外でいじれないよう、hiddenで送信する。 -->
+			<input type="hidden" name="createPrice" value="0" id="hiddenPrice" />
+			<h3>金額：<span id="price">0</span>円</h3>
+			<h3>購入個数：<select name="product_count" id="product_count">
+				<option value=1 selected>1</option>
+				<option value=2 >2</option>
+				<option value=3 >3</option>
+				<option value=4 >4</option>
+				<option value=5 >5</option>
+			</select>個</h3>
+			<h3>合計金額：<span id="totalPrice">0</span>円</h3>
+	
+			<input type ="image" name="submit" class="submitBtn" src="./images/hukidashi.png" alt=" 作成">
+			<img src="./images/cook.png" class="imgCook"/>
+		</s:form>
+		</div>
+	
+		<ul id="optionList">
+			<s:iterator value="#session.burgerOptionsList">
+				<li class="option">
+					<h3>
+						<span class="optionName"><s:property value="optionName" /></span>
+					</h3>
+					￥<span class="price"><s:property value="optionPrice" /></span>
+					<div class="option_id"><s:property value="id"/></div>
+				</li>
+			</s:iterator>
+		</ul>
 
 	<script>
 	var maxCount = 10;// 			オプションの選択可能数は10個とする。
@@ -115,7 +123,7 @@
 // 	selectContanerへ選択したオプションを格納していく
 	var displaySelectContaner = function(selectIdList){
 		for(var i=0; i<selectIdList.length; i++){
-			document.querySelector('#selectContainer li:nth-child('+(i+1)+') .selectText').textContent = (i+1)+'番目:'+getOptionData(selectIdList[i]).optionName;
+			document.querySelector('#selectContainer li:nth-child('+(i+1)+') .selectText').textContent = getOptionData(selectIdList[i]).optionName;
 			$('#selectContainer li:nth-child('+(i+1)+')').removeClass("hiddenHTML");
 			document.getElementById('hiddenOption'+(i+1)).value = selectIdList[i];
 		};
@@ -167,6 +175,17 @@
 		document.getElementById('product_count').onchange = function(){
 			totalPriceCal(selectIdList);
 		};
+		
+// 		作成ボタンの画像切り替え
+		$(function(){
+		     $('.submitBtn').hover(function(){
+		        $(this).attr('src', $(this).attr('src').replace('./images/hukidashi.png', './images/ok.png'));
+		          }, function(){
+		             if (!$(this).hasClass('currentPage')) {
+		             $(this).attr('src', $(this).attr('src').replace('./images/ok.png', './images/hukidashi.png'));
+		        }
+		   });
+		});
 
 	</script>
 </body>

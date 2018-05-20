@@ -18,18 +18,21 @@ create table user_info(
 	updated_date datetime
 );
 
+INSERT INTO user_info(user_id, password, user_name, user_name_kana, sex, email, regist_date, update_date) VALUES("admin","admin","管理者","かんりしゃ",0,"kanrisya@yahoo.com","2018-05-01 00:00:00","2018-05-01 00:00:00");
+INSERT INTO user_info(user_id, password, user_name, user_name_kana, sex, email, regist_date, update_date) VALUES("guest","guest","客","きゃく",0,"kanrisya@yahoo.com","2018-05-01 00:00:00","2018-05-01 00:00:00");
+
 drop table if exists item_info;
 create table item_info(
 	id int not null primary key auto_increment,
-	item_id varchar(16) unique,
-	item_name varchar(100),
-	item_name_kana varchar(100),
-	category_id int,
-	price int,
-	stock int,
-	image_file_path varchar(50),
-	release_date datetime,
-	regist_date datetime,
+	item_id int unique not null,
+	item_name varchar(100) not null,
+	item_name_kana varchar(100) not null,
+	category_id int not null,
+	price int ,
+	stock int not null,
+	image_file_path varchar(50) not null,
+	release_date datetime not null,
+	regist_date datetime not null,
 	update_date datetime
 );
 
@@ -67,5 +70,4 @@ create table m_category(
 	delete_date datetime
 	);
 
-INSERT INTO user_info(user_id, password, user_name, user_name_kana, sex, email, regist_date, update_date) VALUES("admin","admin","管理者","かんりしゃ",0,"kanrisya@yahoo.com","2018-05-01 00:00:00","2018-05-01 00:00:00");
-INSERT INTO user_info(user_id, password, user_name, user_name_kana, sex, email, regist_date, update_date) VALUES("guest","guest","客","きゃく",0,"kanrisya@yahoo.com","2018-05-01 00:00:00","2018-05-01 00:00:00");
+

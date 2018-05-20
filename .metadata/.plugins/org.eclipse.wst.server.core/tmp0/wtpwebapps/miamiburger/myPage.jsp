@@ -32,7 +32,7 @@ body {
 	box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
 }
 .main{
-	padding-top:2%;
+	padding-top:5%;
 }
 .main h1{
 	width:60%;

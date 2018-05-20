@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>クリエイトバーガー確認</title>
 <link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
+<link rel="stylesheet" type="text/css" href="./css/createBurger.css">
 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>

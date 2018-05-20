@@ -1,0 +1,224 @@
+@CHARSET "UTF-8";
+
+/* クリエイトバーガー機能-------------------------------------------------- */
+body{
+	background: url(../images/board.jpg) no-repeat fixed;
+	background-size:100% auto;
+}
+h1{
+	text-align:center;
+	line-height:0.8;
+}
+.createBox{
+	position: absolute;
+	top:100px;
+	left:15%;
+	width:70%;
+	border-radius:30px;
+	background-color:rgba(255,255,255,0.5);
+	border-left: 3px solid #000040;
+	border-bottom: 3px solid #000040;
+	box-shadow: -15px 15px 15px 5px rgba(0,0,0,0.3);
+}
+
+
+/* オプション選択ボタンの設定--------------------- */
+#optionList {
+	position: absolute;
+	top: 680px;
+	left: 10%;
+	right: 10%;
+	list-style-type: none;
+}
+
+.option {
+	width: 13%;
+	height: 100px;
+	margin: 0 5px 5px;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius:10px;
+	background-color:rgba(255,255,255,0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0,0,0,0.4);
+	cursor: pointer;
+	float: left;
+	text-shadow:3px 3px 2px grey;
+	text-align:center;
+	line-height:0.8;
+}
+.option:hover{
+	background-color:rgba(150,255,255,0.8);
+}
+
+.option_id {
+	display: none;
+}
+/* ------------------------------------------ */
+
+/* 選択オプションの設定----------------------------- */
+
+.selectStyle{
+	position: absolute;
+	top: 230px;
+	left: 12%;
+	width:20%;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius:10px;
+	background-color:rgba(255,255,255,0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0,0,0,0.4);
+	text-shadow:1px 2px 2px grey;
+}
+.selectStyle h3{
+	text-align:center;
+	line-height:0.8;
+}
+#selectContainer {
+	list-style-type: decimal;
+/* 	padding:10px; */
+}
+
+#selectContainer li {
+	width: 90%;
+	height: 30px;
+	margin-bottom: 5px;
+	border-radius:7px;
+	background-color:rgba(200,255,255,0.5);
+	box-shadow: -2px 2px 2px 2px rgba(0,0,0,0.4);
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	text-align:center;
+}
+
+#selectContainer li div {
+	float: right;
+}
+
+.optionDeleteBtn {
+	border-radius:10px;
+	background-color:rgba(255,0,255,0.5);
+	box-shadow: -1px 1px 1px 1px rgba(0,0,0,0.4);
+	color:white;
+	text-shadow:1px 1px 1px grey;
+	cursor: pointer;
+}
+
+.hiddenHTML {
+	display: none;
+}
+
+.idNum {
+	display: none;
+}
+/* -------------------------------- */
+.CreateBurgerConfirmAction {
+	position: absolute;
+	top: 230px;
+	left: 70%;
+	width:20%;
+	padding-left:5px;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius:10px;
+	background-color:rgba(200,255,255,0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0,0,0,0.4);
+}
+.submitBtn{
+	 cursor: pointer;
+	 width:50%;
+	 margin-left:10%;
+}
+
+.imgCook{
+	float:right;
+	margin-right:10%;
+}
+.error{
+	position:absolute;
+	top:650px;
+	left:70%;
+	width:20%;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius:10px;
+	background-color:rgba(255,200,255,0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0,0,0,0.4);
+}
+
+/* クリエイトバーガー画像作成-------------------- */
+img {
+	width: 28%;
+}
+
+/* ＋20pxずつ追加していく？ */
+.img1 {
+	position: absolute;
+	top: 420px;
+	left: 35%;
+	z-index: 1;
+}
+
+.img2 {
+	position: absolute;
+	top: calc(420px - 20px);
+	left: 35%;
+	z-index: 2;
+}
+
+.img3 {
+	position: absolute;
+	top: calc(420px - 40px);
+	left: 35%;
+	z-index: 3;
+}
+
+.img4 {
+	position: absolute;
+	top: calc(420px - 60px);
+	left: 35%;
+	z-index: 4;
+}
+
+.img5 {
+	position: absolute;
+	top: calc(420px - 80px);
+	left: 35%;
+	z-index: 5;
+}
+
+.img6 {
+	position: absolute;
+	top: calc(420px - 100px);
+	left: 35%;
+	z-index: 6;
+}
+
+.img7 {
+	position: absolute;
+	top: calc(420px - 120px);
+	left: 35%;
+	z-index: 7;
+}
+
+.img8 {
+	position: absolute;
+	top: calc(420px - 140px);
+	left: 35%;
+	z-index: 8;
+}
+
+.img9 {
+	position: absolute;
+	top: calc(420px - 160px);
+	left: 35%;
+	z-index: 9;
+}
+
+.img10 {
+	position: absolute;
+	top: calc(420px - 180px);
+	left: 35%;
+	z-index: 10;
+}
+/* ----------------------------------- */
+/* --------------------------------------------------------------------------------- */

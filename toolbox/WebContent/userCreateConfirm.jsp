@@ -24,50 +24,33 @@
 				<h3>登録する内容は以下でよろしいですか。</h3>
 				<table>
 					<s:form action="UserCreateCompleteAction">
-						<tr id="box">
-							<td>
-								<label>ログインID:</label>
-							</td>
-							<td>
-								<s:property value="LoginId" escape="false" />
-							</td>
-						</tr>
-						<tr id="box">
-							<td>
-								<label>ログインPASS:</label>
-							</td>
-							<td>
-								<s:property value="LoginPassword" escape="false" />
-							</td>
-						</tr>
-						<tr id="box">
-							<td>
-								<label>ユーザー名:</label>
-							</td>
-							<td>
-								<s:property value="UserName" escape="false" />
-							</td>
-						</tr>
-						<tr id="box">
-							<td>
-								<label>メールアドレス:</label>
-							</td>
-							<td>
-								<s:property value="WebAddress" escape="false" />
-							</td>
-						</tr>
-						<tr id="box">
-							<td>
-								<label>住所:</label>
-							</td>
-							<td>
-								<s:property value="Address" escape="false" />
-							</td>
+						<tr>
+							<td><b>ユーザーID:</b></td>
+							<td><s:property value="session.userId" escape="false" /></td>
 						</tr>
 						<tr>
-							<td>
-								<s:submit value="完了" />
-							</td>
+							<td><b>パスワード:</b></td>
+							<td><s:property value="session.password" escape="false" /></td>
+						</tr>
+						<tr>
+							<td><b>ユーザー名:</b></td>
+							<td><s:property value="session.userName" escape="false" /></td>
+						</tr>
+						<tr>
+							<td><b>ユーザー名(ふりがな):</b></td>
+							<td><s:property value="session.userNameKana" escape="false" /></td>
+						</tr>
+						<tr>
+							<td><b>性別:</b></td>
+							<td><s:property value="session.sexName" escape="false" /></td>
+						</tr>
+						<tr>
+							<td><b>メールアドレス:</b></td>
+							<td><s:property value="session.email" escape="false" /></td>
+						</tr>
+
+						<tr>
+							<td><s:submit value="完了" /></td>
 						</tr>
 					</s:form>
 				</table>

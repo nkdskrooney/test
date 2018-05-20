@@ -8,17 +8,18 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="&lt;/p&gt;"/>
+			<item value="id=&quot;box&quot;"/>
+			<item value="label"/>
+			<item value="&lt;/div&gt;"/>
 			<item value="&lt;p&gt;"/>
+			<item value="&lt;/p&gt;"/>
 			<item value="&lt;/label&gt;"/>
 			<item value="&lt;label&gt;"/>
 			<item value="&lt;/P&gt;"/>
-			<item value="ProductSearchAction"/>
-			<item value="sys"/>
-			<item value="loginPassword"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
+			<item value="b"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

@@ -24,8 +24,8 @@
 			<div>
 				<h3>商品を購入する際にはログインをお願いします。</h3>
 				<s:form action="LoginAction">
-					<s:textfield name="loginUserId"/>
-					<s:password name="loginPassword"/>
+					<input type="text" name="loginUserId">
+					<input type="text" name="loginPassword">
 					<s:submit value="ログイン"/>
 				</s:form>
 				<br/>
@@ -37,12 +37,8 @@
 
 		</div>
 
-		<div id="footer">
-			<ul>
-				<li><a href='<s:url action="GoHomeAction" />'>ホーム画面へ戻る</a></li>
-				<li>利用規約</li>
-				<li>internous株式会社</li>
-			</ul>
-		</div>
+<!-- footer -->
+		<jsp:include page="include_footer.jsp"/>
+
 	</body>
 </html>

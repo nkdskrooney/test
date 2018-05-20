@@ -28,7 +28,7 @@
 			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
 		}
 		.main{
-			padding-top:2%;
+			padding-top:5%;
 		}
 		.main h1{
 			width:60%;
@@ -45,10 +45,10 @@
 			margin:0 auto;
 		}
 		.character{
-			padding-top:3%;
+			padding-top:4%;
 			padding-bottom:3%;
+			text-align:center;
 		}
-
 
 
 		</style>
@@ -128,8 +128,8 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td></td>
-						<td class="character"><s:submit value="確認画面へ"/></td>
+						<td><br></td>
+						<td ><s:submit value="確認画面へ"/></td>
 					</tr>
 				</table>
 			</s:form>
