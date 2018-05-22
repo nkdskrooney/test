@@ -1,0 +1,163 @@
+@CHARSET "UTF-8";
+
+/* 宛先選択画面------------------------------------------ */
+body {
+	background: url(../images/board.jpg) no-repeat fixed;
+	background-size: 100% auto;
+}
+
+img{
+	width:20%;
+}
+
+#addressBox{
+	position:absolute;
+	top:100px;
+	left:65%;
+	width:30%;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
+	text-shadow: 3px 3px 2px grey;
+	padding:5px;
+}
+
+.destinationContainer{
+	width:95%;
+	margin:5px;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
+	text-shadow: 3px 3px 2px grey;
+	padding:5px;
+}
+.destinationContainer label{
+	color:red;
+	cursor:pointer;
+}
+
+#selectCartContainer{
+	position:absolute;
+	top:100px;
+	left:5%;
+	width:55%;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
+	text-shadow: 3px 3px 2px grey;
+}
+
+.selectCart{
+	width:90%;
+	margin:5px auto;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
+	text-shadow: 3px 3px 2px grey;
+	overflow:hidden;
+}
+.selectCart img{
+	border-radius: 10px;
+	margin:3px;
+	float:left;
+}
+.floatReset{
+	clear:left;
+}
+/* ------------------------------------------------- */
+/* 登録完了画面---------------------------------- */
+.completeTitleBox {
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	width: 60%;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius: 10px;
+	background-color: rgba(200, 255, 255, 0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
+	text-align: center;
+	line-height: 0.8;
+}
+
+.completeBox {
+	position: absolute;
+	top: 40%;
+	left: 20%;
+	width: 60%;
+	height: 50%;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius: 10px;
+	background-color: rgba(200, 255, 255, 0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
+	text-align: center;
+	line-height: 300px;
+}
+
+.completeBox h2 {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
+/* ----------------------------------------------- */
+
+/*新規宛先登録-------------------------------------*/
+#titleBox{
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	width: 60%;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
+	text-align: center;
+	line-height: 0.8;
+}
+#formBox{
+	position: absolute;
+	top: 40%;
+	left: 20%;
+	width: 60%;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
+	padding:10px;
+}
+#formBox tr:nth-child(1) td:first-child ,#formBox tr:nth-child(2) td:first-child ,#formBox tr:nth-child(3) td:first-child ,#formBox tr:nth-child(4) td:first-child{
+	text-align: right;
+}
+/*-----------------------------------------*/
+
+/*新規宛先確認---------------------------*/
+#confirmBox{
+	position: absolute;
+	top: 40%;
+	left: 20%;
+	right:20%;
+/* 	width: 60%; */
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
+	padding:20px 10%;
+}
+.confirmText{
+	margin-top:10px;
+	width:80%;
+	border-bottom: 1px solid black;
+}
+/*-------------------------------------*/

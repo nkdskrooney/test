@@ -8,20 +8,38 @@
 
 <link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
 <style>
-.PH-title {
-	background-color: #FFFFAA;
+body{
+	background-image:url(./images/board.jpg);
+	background-size: 100% auto;
+}
+.PH-main {
+    position: relative; top: 90px;
+	margin: auto;
+	width: 90%;
+	border: 1px black;
+	background-image:url(./images/menutile.jpg);
+	background-repeat:repeat;
+}
+
+
+h1 {
 	text-align: center;
-	border-radius: 1em;
+	text-decoration: underline;
 }
 
 .PH-inner {
 	border-radius: 1em;
-	width: 35%;
-	height: 55px;
+	width: 40%;
 	float: left;
-	margin: 7%;
+	margin: 3%;
 	border: 1px solid black;
 	background-color: #E6FFE9;
+	position: relative;
+	left: 5%;
+}
+
+.clear {
+	clear: both;
 }
 
 .text {
@@ -30,21 +48,13 @@
 }
 
 .submit {
+	float: right;
 	position: relative;
-	left: 400px;
-	top: -45px;
+	right: 10px;
+	top: -5px;
 }
-
-.clear {
-	clear: left;
-}
-
-.delete {
-	width: 4%;
-	margin: 0 auto;
-}
-
-.DetailsBtn {
+/* ///////////////////////浮きボタン↓////////////////////// */
+.details-submit {
 	width: 60px;
 	height: 25px;
 	font-family: 'Roboto', sans-serif;
@@ -62,70 +72,85 @@
 	outline: none;
 }
 
-.DetailsBtn:hover {
+.details-submit:hover {
 	background-color: #2EE59D;
 	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
 	color: #fff;
 	transform: translateY(-7px);
 }
+/* ///////////////////////浮きボタン↑////////////////////// */
+.Del-submit {
+	width: 60px;
+	margin: auto;
+}
 
-.deleteBtn {
+/* ///////////////////////挿下ボタン↓////////////////////// */
+.decision-submit {
 	display: inline-block;
-	border-radius: 50%; /* ←角を丸くできる       */
-	font-size: 13pt; /* 文字サイズ */
-	text-align: center; /* 文字位置   */
+	border-radius: 50%;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	font-size: 13pt;
+	text-align: center;
 	cursor: pointer; /* カーソル   */
-	padding: 12px 12px; /* 余白       */
-	background: pink; /* 背景色     */
+	padding: 12px 12px;
+	background: red;
 	line-height: 1em; /* 1行の高さ  */
-	transition: .3s; /* なめらか変化 */
+	transition: .3s;
 	box-shadow: 6px 6px 3px #666666; /* 影の設定 */
-	border: 2px solid hotpink; /* 枠の指定 */
+	border: 2px solid #990000;
 	font-weight: 500;
-	color: red;
+	color: #CC0000;
 }
 
-.deleteBtn:hover {
+.decision-submit:hover {
 	box-shadow: none;
-	background: hotpink;
+	background: #AA0000;
 }
+/* ///////////////////////挿下ボタン↑////////////////////// */
 </style>
 <title>購入履歴</title>
 </head>
 <body>
+
 	<div class="header">
 		<jsp:include page="header.jsp" />
 	</div>
-	<div class="PH-title">
-		<h1>購入履歴 (時間別)</h1>
-	</div>
-	<s:if test="emptyMessage == null">
-		<s:iterator value="purchaseListDTOList">
-			<div class="PH-inner">
-				<div class="text">
-					購入日時：
-					<s:property value="registDate" />
-					<br> 合計金額:
-					<s:property value="totalPrice" />
-					円
+	<div class="PH-main">
+		<div class="PH-title">
+			<h1>購入履歴 時間別</h1>
+		</div>
+
+		<s:if test="emptyMessage == null">
+			<s:iterator value="purchaseListDTOList">
+				<div class="PH-inner">
+					<div class="text">
+						購入日時：
+						<s:property value="registDate" />
+						<br> 合計金額:
+						<s:property value="totalPrice" />
+						円
+					</div>
+					<div class="submit">
+						<s:form action="PurchaseHistoryDetailsAction">
+							<s:hidden name="allPurchaseListNumber" />
+							<s:submit value="詳細" class="details-submit" />
+						</s:form>
+					</div>
 				</div>
-				<div class="submit">
-					<s:form action="PurchaseHistoryDetailsAction">
-						<s:hidden name="allPurchaseListNumber" />
-						<s:submit value="詳細" class="DetailsBtn" />
-					</s:form>
-				</div>
+			</s:iterator>
+			<div class="clear"></div>
+			<div class="Del-submit">
+				<s:form action="PurchaseHistoryAction">
+					<input type="hidden" name="deleteFlg" value=true />
+					<s:submit value="削除" class="decision-submit" />
+				</s:form>
 			</div>
-		</s:iterator>
-		<div class="PHDel-submit"></div>
-		<s:form action="PurchaseHistoryAction">
-			<input type="hidden" name="deleteFlg" value=true />
-			<s:submit value="削除" />
-		</s:form>
-	</s:if>
-	<s:else>
-		<s:property value="emptyMessage" />
-	</s:else>
-<!-- 	<div class="footer"></div> -->
+		</s:if>
+		<s:else>
+			<s:property value="emptyMessage" />
+		</s:else>
+
+	</div>
+
 </body>
 </html>

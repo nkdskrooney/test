@@ -32,6 +32,9 @@
 
 		<div class="inner">
 			<div class="PI-productcontainer">
+				<h1>
+					<s:property value="session.productName" />
+				</h1>
 				<div class="PI-descriptionbox">
 					<div class="ruby">
 						<s:property value="session.productNameKana" />
@@ -43,20 +46,22 @@
 					<s:property value="session.releaseDate" />
 
 					<br> 商品詳細情報：
-					<s:property value="session.productDescription" />
+					<div class="descriptionletter">
+						<s:property value="session.productDescription" />
+					</div>
 
 					<br>
 					<s:form action="InsertCartAction">
 						<s:hidden name="productId" />
 						<s:hidden name="price" />
-				購入個数： <select name="productCount">
+				個数： <select name="productCount">
 							<s:iterator value="htmlList">
 								<option value=<s:property value="count"/>><s:property
 										value="count" />個
 								</option>
 							</s:iterator>
 						</select>
-						<s:submit value="カートに追加" />
+						<s:submit value="カートに追加"  class="details-submit" />
 					</s:form>
 				</div>
 

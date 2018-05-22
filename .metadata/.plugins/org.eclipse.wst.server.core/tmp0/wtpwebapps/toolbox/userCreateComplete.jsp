@@ -23,9 +23,7 @@
 			</div>
 			<div>
 				<h3>ユーザーの登録が完了致しました。</h3>
-				<div>
-					<a href='<s:url action="HomeAction" />'>ログインへ</a>
-				</div>
+				<div><a href='<s:url action="LoginGoAction" />'>ログインへ</a></div>
 			</div>
 
 		</div>

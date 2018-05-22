@@ -55,12 +55,12 @@ public class ItemDAO implements SessionAware{
 	}
 
 //個々の商品情報を取得するメソッド
-	public ItemDTO getItemInfo(int item_id) {
+	public ItemDTO getItemInfo(int itemId) {
 		con = db.getConnection();
 		String sql = "SELECT SELECT id ,item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date FROM item_info WHERE id = ?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, item_id);
+			ps.setInt(1, itemId);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				itemDTO = new ItemDTO();

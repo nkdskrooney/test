@@ -6,41 +6,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>宛先情報登録</title>
+<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
+<link rel="stylesheet" type="text/css" href="./css/address.css">
 </head>
 <body>
 
 <jsp:include page="header.jsp" />
 
-	<h1>宛先情報登録</h1>
-	以下の内容で登録します。よろしいですか？
-
-	<table>
-		<tr>
-			<td>名前：</td>
-			<td><s:property value="destinationInfoDTO.getFamilyName()" /></td>
-			<td><s:property value="destinationInfoDTO.getFirstName()" /></td>
-		</tr>
-		<tr>
-			<td>ふりがな：</td>
-			<td><s:property value="destinationInfoDTO.getFamilyNameKana()" /></td>
-			<td><s:property value="destinationInfoDTO.getFirstNameKana()" /></td>
-		</tr>
-		<tr>
-			<td>メールアドレス：</td>
-			<td><s:property value="destinationInfoDTO.getEmail()" /></td>
-		</tr>
-		<tr>
-			<td>電話番号：</td>
-			<td><s:property value="destinationInfoDTO.getTelNumber()" /></td>
-		</tr>
-		<tr>
-			<td>住所：</td>
-			<td><s:property value="destinationInfoDTO.getUserAddress()" /></td>
-		</tr>
-	</table>
-
-	<a href="<s:url action='AddressCompleteAction'/>">登録する</a>
-	<a href="<s:url action='AddressCreateAction'/>">戻る</a>
+	<div id="titleBox">
+		<h2>以下の内容で登録します。よろしいですか？</h2>
+	</div>
+	
+	<div id="confirmBox">
+		名前<br>
+		<div class="confirmText"><s:property value="destinationInfoDTO.getFamilyName()" />　<s:property value="destinationInfoDTO.getFirstName()" /></div><br>
+		ふりがな<br>
+		<div class="confirmText"><s:property value="destinationInfoDTO.getFamilyNameKana()" />　<s:property value="destinationInfoDTO.getFirstNameKana()" /></div><br>
+		メールアドレス<br>
+		<div class="confirmText"><s:property value="destinationInfoDTO.getEmail()" /></div><br>
+		電話番号<br>
+		<div class="confirmText"><s:property value="destinationInfoDTO.getTelNumber()" /></div><br>
+		住所<br>
+		<div class="confirmText"><s:property value="destinationInfoDTO.getUserAddress()" /></div><br>
+		
+		<a href="<s:url action='AddressCompleteAction'/>">登録する</a><br>
+		<a href="<s:url action='AddressCreateAction'/>">戻る</a>
+	</div>
 
 
 

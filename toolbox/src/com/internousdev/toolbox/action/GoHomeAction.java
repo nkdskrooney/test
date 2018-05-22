@@ -28,3 +28,5 @@ public class GoHomeAction extends ActionSupport implements SessionAware {
 		this.session = session;
 	}
 }
+
+

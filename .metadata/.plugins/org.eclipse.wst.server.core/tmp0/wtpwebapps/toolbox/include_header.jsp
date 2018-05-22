@@ -19,7 +19,7 @@
 			<ul>
 				<li><a href='<s:url action="MyPageAction" />'>マイページへ</a></li>
 				<li><a href='<s:url action="UserCreateAction" />'>新規ユーザー登録</a></li>
-				<li><a href='<s:url action="HomeAction" />'>ログイン</a></li>
+				<li><a href='<s:url action="LoginGoAction" />'>ログイン</a></li>
 				<li>ようこそ
 				<s:if test="#session.loginUser.LoginFlg == true">
 					<s:property value="#session.loginUser.UserName"/>

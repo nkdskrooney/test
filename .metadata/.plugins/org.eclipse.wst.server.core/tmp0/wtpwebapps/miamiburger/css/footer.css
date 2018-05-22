@@ -1,0 +1,14 @@
+
+/* -------------------- productInfo、ProductInfoDescription ともに使用されるCSS -------------------- */
+
+/* メイン系（大枠）ボックス */
+
+footer{
+	width:100%;
+	height:40px;
+	margin:0;
+	text-align:center;
+	clear:both;
+	background-color:black;
+	color:white;
+}

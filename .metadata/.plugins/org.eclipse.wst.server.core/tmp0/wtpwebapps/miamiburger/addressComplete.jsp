@@ -7,15 +7,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="refresh" content="5;URL=<s:url action="AddressSelectAction"/>">
 <title>宛先情報登録</title>
+<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
+<link rel="stylesheet" type="text/css" href="./css/address.css">
 </head>
 <body>
 
 <jsp:include page="header.jsp" />
 
-<h1>登録が完了しました</h1>
+<div class="completeTitleBox">
+	<h1>登録が完了しました</h1>
+</div>
 <%-- <h2><span id="timer"></span>秒後に<a href='<s:url action="AddressSelectAction"/>'>商品宛先選択</a>に戻ります。</h2> --%>
 
-<h2>5秒後に<a href='<s:url action="AddressSelectAction"/>'>決済確認画面</a>に戻ります。</h2> 
+<div class="completeBox">
+	<h2>5秒後に<a href='<s:url action="AddressSelectAction"/>'>決済確認画面</a>に戻ります。</h2> 
+</div>
 
 <script>
 // var waitTime = new Date();

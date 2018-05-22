@@ -7,6 +7,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
 <style>
+body{
+	background-image:url(./images/board.jpg);
+	background-size: 100% auto;
+}
+.PHD-main {
+        position: relative; top: 90px;
+
+	text-align: center;
+	margin: auto;
+	width: 90%;
+	border: 1px solid #ddd;
+	background-image:url(./images/menutile.jpg);
+	background-repeat:repeat;
+}
 .PHD-inner {
 	width: 90%;
 	height: 150px;
@@ -19,7 +33,7 @@
 
 .PHD-img {
 	position: relative;top:-1px;left: -1px;
-	width: 300px;
+	width: 200px;
 	height: 100%;
 	border: 1px solid black;
 	background-color: #00FFFF;
@@ -31,18 +45,16 @@
 }
 
 .PHD-text{
-	 position: relative;left:10px;
-	 position: relative;top:10px;
+	text-align: left;
+	position: relative; left: 10px;
+	width: 100%;
+
 }
 
-.PHD-text h2{
-	position: relative; right:20px;
-	 text-align: right;
-}
 
 h1{
+	text-decoration: underline;
 	text-align: center;
-	background-color: #FFFFAA;
 	border-radius: 1em;
 }
 .text{
@@ -56,14 +68,15 @@ h1{
 <div class="header">
 <jsp:include page="header.jsp" />
 </div>
+<div class="PHD-main">
 	<h1>購入履歴一覧</h1>
 <s:iterator value="#session.PHDList">
 
 		<div class="PHD-inner">
 			<div class="PHD-img">
-				<img src="<s:property value='imageFilePath'/>" width="70" height="150" align="middle" alt=<s:property value="imageFileName" /> />
+				<img src="<s:property value='imageFilePath'/>" width="200" height="150" align="middle" alt=<s:property value="imageFileName" /> />
 			</div>
-				<div class="PHD-text stripes">
+				<div class="PHD-text">
 				<div class="body">商品名 : <s:property value="productName"/></div>
 				<div class="ruby">ふりがな:<s:property value="productNameKana" /><br></div>
 				<div class="text">発売年月日：<s:property value="releaseDate" /></div>
@@ -74,6 +87,7 @@ h1{
 			<div class="PHD-footer"></div>
 
 </s:iterator>
+</div>
 <!-- <div class="footer"></div> -->
 </body>
 </html>

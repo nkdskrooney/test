@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>決済確認</title>
 <link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
+<link rel="stylesheet" type="text/css" href="./css/address.css">
 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
@@ -14,47 +15,48 @@
 <jsp:include page="header.jsp" />
 
 	<h1>決済確認</h1>
-	<h3>宛先を選択してください</h3>
-	<h2>宛先一覧：<a href=<s:url action="AddressCreateAction"/>>新規宛先作成</a></h2>
+	<div id="addressBox">
+		<h3>宛先を選択してください</h3>
+		<h3>宛先一覧：<a href=<s:url action="AddressCreateAction"/>>新規宛先作成</a></h3>
 
-<s:form action="SettlementCompleteAction">
-	<s:iterator value="#session.destinationDTOList" status="status">
-		<div class="destinationContainer">
-		<s:if test="#status.first">
-		<label><input type ="radio" name="eachSelectAddress" value=<s:property value="userAddress" /> checked="checked" >この宛先を使用する(一括変更)</label>
-		</s:if>
-		<s:else>
-		<label><input type ="radio" name="eachSelectAddress" value=<s:property value="userAddress" /> >この宛先を使用する(一括変更)</label>
-		</s:else>
-			<br>
-			姓：
-			<s:property value="familyName" />
-			　名：
-			<s:property value="firstName" />
-			<br>
-			ふりがな：
-			<s:property value="familyNameKana" />
-			<s:property value="firstNameKana" />
-			<br>
-			メールアドレス:
-			<s:property value="email" />
-			<br>
-			住所：<span class="addrss"><s:property
-					value="userAddress" /></span> <br>
-			電話番号：
-			<s:property value="telNumber" />
-		</div>
-	</s:iterator>
-	<s:if test="#session.destinationDTOList.isEmpty()">
-			宛先がありません。<a href=<s:url action="AddressCreateAction"/>>宛先を作成してください。</a>
-		</s:if>
-		<s:else>
-			<s:submit value="決済"/>
-		</s:else>
-</s:form>
+		<s:form action="SettlementCompleteAction">
+			<s:iterator value="#session.destinationDTOList" status="status">
+				<div class="destinationContainer">
+					姓：
+					<s:property value="familyName" />
+					　名：
+					<s:property value="firstName" />
+					<br>
+					ふりがな：
+					<s:property value="familyNameKana" />
+					<s:property value="firstNameKana" />
+					<br>
+					メールアドレス:
+					<s:property value="email" />
+					<br>
+					住所：<span class="addrss"><s:property
+							value="userAddress" /></span> <br>
+					電話番号：
+					<s:property value="telNumber" /><br>
+					<s:if test="#status.first">
+						<label><input type ="radio" name="eachSelectAddress" value=<s:property value="userAddress" /> checked="checked" >この宛先を使用する</label>
+					</s:if>
+					<s:else>
+						<label><input type ="radio" name="eachSelectAddress" value=<s:property value="userAddress" /> >この宛先を使用する</label>
+					</s:else>
+				</div>
+			</s:iterator>
+			<s:if test="#session.destinationDTOList.isEmpty()">
+					宛先がありません。<a href=<s:url action="AddressCreateAction"/>>宛先を作成してください。</a>
+				</s:if>
+				<s:else>
+					<s:submit value="決済"/>
+				</s:else>
+		</s:form>
+	</div>
 	
 		<div id="selectCartContainer">
-			<h2>カート内容：</h2>
+			<h2>カート内容</h2>
 			<s:iterator value="#session.cartList">
 				<div class="selectCart">
 					<img src=<s:property value="imageFilePath"/> alt=<s:property value="imageFileName"/>/>
@@ -68,12 +70,9 @@
 					<s:property value="price" />)<br>
 					<div class="clearLeft"></div>
 				</div>
+				<div class="floatReset"></div>
 			</s:iterator>
 		</div>
 		
-
-	
-
-
 </body>
 </html>

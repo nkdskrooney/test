@@ -11,22 +11,29 @@
 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
-<h1>クリエイトバーガー確認画面</h1>
-<h2>以下の内容でよろしいですか？</h2>
-金額：<s:property value="#session.createPrice"/>円
-<br>
-個数：<s:property value="#session.createProduct_count"/>個
-<br>
-合計金額：<span id="totalPrice"></span>円<script>document.getElementById('totalPrice').textContent = <s:property value="#session.createPrice"/> * <s:property value="#session.createProduct_count"/>;</script>
-<br>
-選択されたオプション
-<br>
-<div id="selectList"></div>
+<jsp:include page="header.jsp" />
+<div class="createBox">
+	<h2>以下の内容でよろしいですか？</h2>
+</div>
+<div id="confirmBox">
+	選択されたオプション
+	<br>
+	<div id="selectList"></div>
+	金額：<s:property value="#session.createPrice"/>円
+	<br>
+	個数：<s:property value="#session.createProduct_count"/>個
+	<br>
+	合計金額：<span id="totalPrice"></span>円<script>document.getElementById('totalPrice').textContent = <s:property value="#session.createPrice"/> * <s:property value="#session.createProduct_count"/>;</script>
+	<br>
+	
+	<a href="<s:url action='CreateBurgerCompleteAction'/>"><img src="./images/ok.png" alt="カートに入れる"/></a>
+	<img src="./images/cook.png" class="imgCook"/>
+	<a href="<s:url action='CreateBurgerAction'/>"><img src="./images/recreate.png" alt="作り直す"/></a>
+</div>
 
-<div id="burgerContainer"></div>
-
-<a href="<s:url action='CreateBurgerCompleteAction'/>">カートに入れる</a>
-<a href="<s:url action='CreateBurgerAction'/>">作り直す</a>
+<div class="confirmBurger">
+	<div id="burgerContainer"></div>
+</div>
 	<script>
 	var maxCount = 10;// 			オプションの選択可能数は10個とする。
 

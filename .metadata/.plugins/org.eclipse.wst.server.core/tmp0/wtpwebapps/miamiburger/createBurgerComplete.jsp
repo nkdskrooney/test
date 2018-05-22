@@ -7,16 +7,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="refresh" content="5;URL=<s:url action="HomeAction"/>">
 <title>クリエイトバーガー登録完了</title>
+<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
+<link rel="stylesheet" type="text/css" href="./css/createBurger.css">
 </head>
 <body>
 
 <jsp:include page="header.jsp" />
 
-<h1>登録完了</h1>
+<div class="completeTitleBox">
+	<h1>作成完了</h1>
+</div>
 
 <%-- <h2><span id="timer"></span>秒後に<a href='<s:url action="HomeAction"/>'>Home</a>に戻ります。</h2> --%>
 
-<h2>5秒後に<a href='<s:url action="HomeAction"/>'>Home</a>に戻ります。</h2>
+<div class="completeBox">
+	<h2>作成したバーガーはカートに入っています。<br>
+	5秒後に<a href='<s:url action="HomeAction"/>'>Home</a>に戻ります。</h2>
+</div>
 
 <script>
 // var waitTime = new Date();

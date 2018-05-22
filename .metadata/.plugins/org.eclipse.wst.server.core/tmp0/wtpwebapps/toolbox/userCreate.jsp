@@ -17,52 +17,57 @@
 		<jsp:include page="include_header.jsp"/>
 <!-- main -->
 		<div id="main">
-			<div id="top">
-			<p>UserCreate</p>
-			</div>
-				<div>
-				<s:if test="errorMassage != ''">
-				<s:property value="errorMassage" escape="false" />
-				</s:if>
+
+			<h1>UserCreate</h1>
+
 				<table>
 					<s:form action="UserCreateConfirmAction">
 						<tr>
-							<td>
-								<label>ログインID:</label>
-							</td>
-							<td><input type="text" name="LoginId" value="" /></td>
+							<td><b>ユーザーID:</b></td>
+							<td><input type="text" name="userId" value="" /></td>
 						</tr>
 						<tr>
-							<td>
-								<label>ログインPASS:</label>
-							</td>
-							<td><input type="text" name="LoginPassword" value="" /></td>
+							<td><b>パスワード:</b></td>
+							<td><input type="text" name="password" value="" /></td>
 						</tr>
 						<tr>
-							<td>
-								<label>ユーザー名:</label>
-							</td>
-							<td><input type="text" name="UserName" value="" /></td>
+							<td><b>ユーザー名:</b></td>
+							<td><input type="text" name="userName" value="" /></td>
 						</tr>
 						<tr>
-							<td>
-								<label>メールアドレス:</label>
-							</td>
-							<td><input type="text" name="WebAddress" value="" /></td>
+							<td><b>ユーザー名(ふりがな):</b></td>
+							<td><input type="text" name="userNameKana" value="" /></td>
+						</tr>
+						<tr><td><b>性別:</b></td>
+							<s:if test="sex==0">
+								<span>
+									<input type="radio" name="sex" value="0" checked="checked">男
+									<input type="radio" name="sex" value="1">女
+								</span>
+							</s:if>
+							<s:elseif test="sex==1">
+								<span>
+									<input type="radio" name="sex" value="0">男
+									<input type="radio" name="sex" value="1" checked="checked">女
+								</span>
+							</s:elseif>
+							<s:else>
+								<span>
+									<input type="radio" name="sex" value="0" checked="checked">男
+									<input type="radio" name="sex" value="1">女
+								</span>
+							</s:else>
 						</tr>
 						<tr>
-							<td>
-								<label>住所:</label>
-							</td>
-							<td><input type="text" name="Address" value="" /></td>
+							<td><b>メールアドレス:</b></td>
+							<td><input type="text" name="email" value="" /></td>
 						</tr>
+
 						<s:submit value="登録"/>
 					</s:form>
 				</table>
 
 			</div>
-
-		</div>
 
 <!-- footer -->
 		<jsp:include page="include_footer.jsp"/>
