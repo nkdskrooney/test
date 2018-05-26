@@ -17,18 +17,19 @@ public class CartSelectAction extends ActionSupport implements SessionAware{
 	public String execute(){
 		ArrayList<CartDTO> cartList = new ArrayList<>();
 		CartSelectDAO dao = new CartSelectDAO();
-		String userId = session.get("userId").toString();
-		String tempUserId = "none";
+		String userId ;
+		String tempUserId ;
 		String result;
 
 	//ログイン済の際に結び付く情報をSELECTする
 		if(session.containsKey("loginUser")){
+			userId = session.get("userId").toString();
 			tempUserId = session.get("temp_user_id").toString();
 			cartList = dao.CartSelect(userId, tempUserId);
 			session.put("cartList", cartList);
 		}
 	//temp_user_idがsessionから消えている、かつ未ログインの際にStartActionを実行する。
-		if( tempUserId == "none" && !(session.containsKey("loginUser"))){
+		if( session.get("temp_user_id").toString() == null && !(session.containsKey("loginUser"))){
 			return ERROR;
 		}
 	//未ログインの際に結び付く情報をSELECTする

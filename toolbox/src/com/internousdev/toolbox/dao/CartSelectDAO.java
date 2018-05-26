@@ -18,8 +18,10 @@ public class CartSelectDAO {
 		CartDTO dto;
 		ArrayList<CartDTO> cartList = new ArrayList<>();
 		con = db.getConnection();
-		String sql ="SELECT ci.id, ci.user_id, ci.temp_user_id, ci.item_id, ii.item_name, ii.item_name_kana, ii.item_description, ii.category_id, ii.price, ci.count, ii.stock, ii.image_file_path, ii.release_date"
-					+ "FROM cart_info ci LEFT JOIN item_info ii ON ci.item_id = ii.item_id WHERE ci.temp_user_id=?";
+		String sql ="SELECT c.id, c.temp_user_id, c.item_id, i.item_name, i.item_name_kana, i.category_id, i.price, c.count, i.stock, i.image_file_path, i.release_date"
+					+ " FROM cart_info c LEFT JOIN item_info i "
+					+ " ON c.item_id = i.item_id "
+					+ " WHERE c.temp_user_id = ? ";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,tempUserId);
@@ -27,18 +29,17 @@ public class CartSelectDAO {
 
 			while(rs.next()){
 				dto = new CartDTO();
-				dto.setCartId(rs.getInt("ci.id"));
-				dto.setUserId(rs.getString("ci.user_id"));
-				dto.setTemp_user_id(rs.getString("ci.temp_user_id"));
-				dto.setItemId(rs.getInt("ci.item_id"));
-				dto.setItemName(rs.getString("ii.item_name"));
-				dto.setItemNameKana(rs.getString("ii.item_name_kana"));
-				dto.setCategoryId(rs.getString("ii.category_id"));
-				dto.setPrice(rs.getInt("ii.price"));
-				dto.setCount(rs.getInt("ci.count"));
-				dto.setStock(rs.getInt("ii.stock"));
-				dto.setImage_file_path(rs.getString("ii.image_file_path"));
-				dto.setRelease_date(rs.getString("ii.release_date"));
+				dto.setCartId(rs.getInt("c.id"));
+				dto.setTemp_user_id(rs.getString("c.temp_user_id"));
+				dto.setItemId(rs.getInt("c.item_id"));
+				dto.setItemName(rs.getString("i.item_name"));
+				dto.setItemNameKana(rs.getString("i.item_name_kana"));
+				dto.setCategoryId(rs.getString("i.category_id"));
+				dto.setPrice(rs.getInt("i.price"));
+				dto.setCount(rs.getInt("c.count"));
+				dto.setStock(rs.getInt("i.stock"));
+				dto.setImageFilePath(rs.getString("i.image_file_path"));
+				dto.setRelease_date(rs.getString("i.release_date"));
 
 				//合計金額を計算後　DTOに挿入
 				int count = dto.getCount();
@@ -68,8 +69,12 @@ public class CartSelectDAO {
 		CartDTO dto;
 		ArrayList<CartDTO> cartList = new ArrayList<>();
 		con = db.getConnection();
-		String sql ="SELECT ci.id, ci.user_id, ci.temp_user_id, ci.item_id, ii.item_name, ii.item_name_kana, ii.item_description, ii.category_id, ii.price, ci.count, ii.stock, ii.image_file_path, ii.release_date"
-					+ "FROM cart_info ci LEFT JOIN item_info ii ON ci.item_id = ii.item_id WHERE ci.user_id=? OR ci.temp_user_id=?";
+
+		String sql ="SELECT c.id, c.user_id, c.temp_user_id, c.item_id, i.item_name, i.item_name_kana, i.category_id, i.price, c.count, i.stock, i.image_file_path, i.release_date"
+				+ " FROM cart_info c LEFT JOIN item_info i "
+				+ " ON c.item_id = i.item_id "
+				+ " WHERE c.user_id=? OR c.temp_user_id=?";
+
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,userId);
@@ -78,18 +83,18 @@ public class CartSelectDAO {
 
 			while(rs.next()){
 				dto = new CartDTO();
-				dto.setCartId(rs.getInt("ci.id"));
-				dto.setUserId(rs.getString("ci.user_id"));
-				dto.setTemp_user_id(rs.getString("ci.temp_user_id"));
-				dto.setItemId(rs.getInt("ci.item_id"));
-				dto.setItemName(rs.getString("ii.item_name"));
-				dto.setItemNameKana(rs.getString("ii.item_name_kana"));
-				dto.setCategoryId(rs.getString("ii.category_id"));
-				dto.setPrice(rs.getInt("ii.price"));
-				dto.setCount(rs.getInt("ci.count"));
-				dto.setStock(rs.getInt("ii.stock"));
-				dto.setImage_file_path(rs.getString("ii.image_file_path"));
-				dto.setRelease_date(rs.getString("ii.release_date"));
+				dto.setCartId(rs.getInt("c.id"));
+				dto.setUserId(rs.getString("c.user_id"));
+				dto.setTemp_user_id(rs.getString("c.temp_user_id"));
+				dto.setItemId(rs.getInt("c.item_id"));
+				dto.setItemName(rs.getString("i.item_name"));
+				dto.setItemNameKana(rs.getString("i.item_name_kana"));
+				dto.setCategoryId(rs.getString("i.category_id"));
+				dto.setPrice(rs.getInt("i.price"));
+				dto.setCount(rs.getInt("c.count"));
+				dto.setStock(rs.getInt("i.stock"));
+				dto.setImageFilePath(rs.getString("i.image_file_path"));
+				dto.setRelease_date(rs.getString("i.release_date"));
 
 				//合計金額を計算後　DTOに挿入
 				int count = dto.getCount();

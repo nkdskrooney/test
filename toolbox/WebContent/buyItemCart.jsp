@@ -25,17 +25,21 @@
 <!-- main -->
 		<div id="main">
 			<div id="top">
-				<p>CartItem</p>
+				<h1>カート一覧</h1>
 			</div>
 
 			<s:form action="BuyItemConfirmAction">
 <!-- iterator -->
-				<s:iterator value="session.itemList" id="cart-item">
+				<s:iterator value="session.cartList" id="cart-item">
 
-							商品名<s:property value="itemName" />
-							<img class="item-img" src='<s:property value="imgAddress"/>'>
-							値段<s:property value="totalPrice" /><span>円</span>
-							購入数:<s:property value="PurchaseNumber" /><span>個</span>
+		<!-- 各商品情報 -->
+					商品名：<s:property value="itemName" />
+					商品かな：<s:property value="itemNameKana" />
+					<img src="<s:property value="imageFilePath"/>" width="100" height="100"/>
+					値段：<s:property value="price" /><span>円</span>
+					購入数：<s:property value="count" /><span>個</span>
+					合計金額：<s:property value="totalPrice" /><span>円</span>
+					<br>
 
 				</s:iterator>
 <!-- iterator -->

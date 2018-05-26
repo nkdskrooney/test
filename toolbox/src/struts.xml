@@ -79,7 +79,7 @@
 		<action name="CartSelectAction" class="com.internousdev.toolbox.action.CartSelectAction"
 			method="execute">
 			<result name="success">buyItemCart.jsp</result>
-			<result name="error" type="chain">StartAction</result>
+			<result name="error" type="chain">EntranceAction</result>
 		</action>
 
 		<!-- BuyItemConfirmAction -->

@@ -12,7 +12,7 @@ public class CartDTO {
 	private int totalPrice;
 	private int count;
 	private int stock;
-	private String image_file_path;
+	private String imageFilePath;
 	private String release_date;
 
 	public int getCartId() {
@@ -81,11 +81,11 @@ public class CartDTO {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	public String getImage_file_path() {
-		return image_file_path;
+	public String getImageFilePath() {
+		return imageFilePath;
 	}
-	public void setImage_file_path(String image_file_path) {
-		this.image_file_path = image_file_path;
+	public void setImageFilePath(String imageFilePath) {
+		this.imageFilePath = imageFilePath;
 	}
 	public String getRelease_date() {
 		return release_date;

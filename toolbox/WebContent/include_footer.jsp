@@ -16,7 +16,7 @@
 <!-- footer -->
 		<div id="footer">
 			<ul>
-				<li><a href='<s:url action="GoHomeAction" />'>ホーム画面へ戻る</a></li>
+				<li><a href='<s:url action="HomeAction" />'>ホーム画面へ戻る</a></li>
 				<li>利用規約</li>
 				<li>internous株式会社</li>
 			</ul>

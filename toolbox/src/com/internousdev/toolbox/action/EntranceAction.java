@@ -24,8 +24,10 @@ public class EntranceAction extends ActionSupport implements SessionAware{
 		ItemDAO dao = new ItemDAO();
 		itemList = dao.getItemInfo();
 		session.put("itemId", ItemDTO.getItemId());
+
 //カート処理の為の仮IDを発行
 		session.put("temp_user_id", RandomStringUtils.randomAlphanumeric(10));
+		System.out.println(session.get("temp_user_id"));
 //結果SUCCESSを挿入
 		String result=SUCCESS;
 		return result;

@@ -20,7 +20,7 @@
 	<div id="main">
 		<h1>商品一覧</h1>
 
-			<s:form action="BuyItemCartAction">
+			<s:form action="CartInsertAction">
 
 				商品名：<s:property value="session.itemName" />
 				<img class="item-img" src='<s:property value="session.imageFilePath"/>'>

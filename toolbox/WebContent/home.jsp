@@ -25,7 +25,7 @@
 		<!-- 各商品情報 -->
 					商品名：<s:property value="itemName" />
 					商品かな：<s:property value="itemNameKana" />
-					<img src='<s:property value="imageFilePath"/>'>
+					<img src="<s:property value="imageFilePath"/>" width="100" height="100"/>
 					値段：<s:property value="price" /><span>円</span>
 
 		<!-- 商品単体のidをActionへ送る -->
