@@ -1,12 +1,10 @@
 package com.internousdev.toolbox.action;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.toolbox.dao.LoginDAO;
-import com.internousdev.toolbox.dto.ItemDTO;
 import com.internousdev.toolbox.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -18,12 +16,12 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	private LoginDTO loginDTO = new LoginDTO();
 
 	public String execute() {
-		@SuppressWarnings("unchecked")
+
 //ArrayList<ItemDTO>型のallItemListにsessionから今までの購入情報を挿入
-		ArrayList<ItemDTO> allItemlist = (ArrayList<ItemDTO>) session.get("itemList");
+//		ArrayList<ItemDTO> allItemlist = (ArrayList<ItemDTO>) session.get("itemList");
 //同クラス内のallTotalPrice()を使用し、カート内商品全ての合計金額を受け取り変数ATPに代入後、sessionに格納
-		int ATP = allTotalPrice(allItemlist);
-		session.put("alltotalprice", ATP);
+//		int ATP = allTotalPrice(allItemlist);
+//		session.put("alltotalprice", ATP);
 //result結果、ERRORを挿入
 		String result = ERROR;
 //ログイン判定(LoginFlgがtrueの場合SUCCESSを結果に挿入)
@@ -35,13 +33,13 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	}
 
 //allTotalPrice()の定義：ArrayList内に格納されている各商品ごとの合計金額を変数に繰り返し代入する
-	public int allTotalPrice(ArrayList<ItemDTO> itemlist){
-		int allTotalPrice = 0;
-		for(ItemDTO TP : itemlist ){
-			allTotalPrice += TP.getTotalPrice();
-		}
-		return allTotalPrice;
-	}
+//	public int allTotalPrice(ArrayList<ItemDTO> itemlist){
+//		int allTotalPrice = 0;
+//		for(ItemDTO TP : itemlist ){
+//			allTotalPrice += TP.getTotalPrice();
+//		}
+//		return allTotalPrice;
+//	}
 
 //以下、getter/setter
 	public Map<String, Object> getSession() {

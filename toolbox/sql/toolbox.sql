@@ -15,7 +15,7 @@ create table user_info(
 	sex int,
 	email varchar(50),
 	regist_date datetime,
-	updated_date datetime
+	update_date datetime
 );
 
 INSERT INTO user_info(user_id, password, user_name, user_name_kana, sex, email, regist_date, update_date) VALUES("admin","admin","管理者","かんりしゃ",0,"kanrisya@yahoo.com","2018-05-01 00:00:00","2018-05-01 00:00:00");
@@ -35,6 +35,12 @@ create table item_info(
 	regist_date datetime not null,
 	update_date datetime
 );
+
+INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 1 ,"ハンマー","はんまー", 1 , 850 , 10 , "./img/hammer.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
+INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 2 ,"包丁","ほうちょう", 2 , 1000 , 10 , "./img/houchou.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
+INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 3 ,"杖","つえ", 3 , 5000 , 3 , "./img/tsue.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
+INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 4 ,"ピッケル","ぴっける", 4 , 3000 , 5 , "./img/pickel.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
+INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 5 ,"グルーガン","ぐるーがん", 1 , 500 , 20 , "./img/gluegun.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
 
 drop table if exists cart_info;
 create table cart_info(

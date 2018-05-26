@@ -3,27 +3,19 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-		<constant name="struts.ui.theme" value="simple" />
-<!-- 	<constant name="struts.devMode" value="true" /> -->
-	<package name="com.internousdev.toolbox.action" extends="struts-default">
-
-		<!--GoImageAction -->
-		<action name="GoImageAction" class="com.internousdev.toolbox.action.GoImageAction"
-			method="execute">
-			<result name="success">image.jsp</result>
-		</action>
+<!-- 	<constant name="struts.ui.theme" value="simple" /> -->
+		<constant name="struts.devMode" value="true" />
+		<package name="com.internousdev.toolbox.action" extends="struts-default">
 
 		<!-- FileUploadAction -->
-		<action name="FileUploadAction" class="com.internousdev.toolbox.action.FileUploadAction">
-
-    	<interceptor-ref name="fileUpload">
-
-	    <param name="allowedTypes">image/png,image/jpeg,image/gif,image/pjpeg</param>
-    	</interceptor-ref>
-    	<interceptor-ref name="defaultStack"/>
-   		<result name="success">successUserImage.jsp</result>
-   		<result name="input">image.jsp</result>
-		</action>
+<!-- 		<action name="FileUploadAction" class="com.internousdev.toolbox.action.FileUploadAction"> -->
+<!--     	<interceptor-ref name="fileUpload"> -->
+<!-- 	    <param name="allowedTypes">image/png,image/jpeg,image/gif,image/pjpeg</param> -->
+<!--     	</interceptor-ref> -->
+<!--     	<interceptor-ref name="defaultStack"/> -->
+<!--    		<result name="success">successUserImage.jsp</result> -->
+<!--    		<result name="input">image.jsp</result> -->
+<!-- 		</action> -->
 
 		<!-- StartAction -->
 		<action name="StartAction" class="com.internousdev.toolbox.action.StartAction"
@@ -91,24 +83,24 @@
 		</action>
 
 		<!-- BuyItemConfirmAction -->
-		<action name="BuyItemConfirmAction" class="com.internousdev.toolbox.action.BuyItemConfirmAction"
-			method="execute">
-			<result name="success">buyItemConfirm.jsp</result>
-			<result name="error">login.jsp</result>
-		</action>
+<!-- 		<action name="BuyItemConfirmAction" class="com.internousdev.toolbox.action.BuyItemConfirmAction" -->
+<!-- 			method="execute"> -->
+<!-- 			<result name="success">buyItemConfirm.jsp</result> -->
+<!-- 			<result name="error">login.jsp</result> -->
+<!-- 		</action> -->
 
 		<!-- BuyItemCompleteAction -->
-		<action name="BuyItemCompleteAction" class="com.internousdev.toolbox.action.BuyItemCompleteAction"
-			method="execute">
-			<result name="success">buyItemComplete.jsp</result>
-		</action>
+<!-- 		<action name="BuyItemCompleteAction" class="com.internousdev.toolbox.action.BuyItemCompleteAction" -->
+<!-- 			method="execute"> -->
+<!-- 			<result name="success">buyItemComplete.jsp</result> -->
+<!-- 		</action> -->
 
 		<!-- MyPageAction -->
-		<action name="MyPageAction" class="com.internousdev.toolbox.action.fMyPageAction"
-			method="execute">
-			<result name="success">myPage.jsp</result>
-			<result name="error">login.jsp</result>
-		</action>
+<!-- 		<action name="MyPageAction" class="com.internousdev.toolbox.action.MyPageAction" -->
+<!-- 			method="execute"> -->
+<!-- 			<result name="success">myPage.jsp</result> -->
+<!-- 			<result name="error">login.jsp</result> -->
+<!-- 		</action> -->
 
 
 	</package>

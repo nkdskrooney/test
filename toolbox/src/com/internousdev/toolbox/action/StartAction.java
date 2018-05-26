@@ -25,7 +25,7 @@ public class StartAction extends ActionSupport implements SessionAware{
 		itemList = dao.getItemInfo();
 		session.put("itemId", ItemDTO.getItemId());
 //カート処理の為の仮IDを発行
-		session.put("tentativeId", RandomStringUtils.randomAlphanumeric(10));
+		session.put("temp_user_id", RandomStringUtils.randomAlphanumeric(10));
 //結果SUCCESSを挿入
 		String result=SUCCESS;
 		return result;
