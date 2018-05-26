@@ -31,40 +31,20 @@
 			<s:form action="BuyItemConfirmAction">
 <!-- iterator -->
 				<s:iterator value="session.itemList" id="cart-item">
-					<br>
-						<tr>
-							<td>商品名</td>
-							<td>
-								<s:property value="itemName" />
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img class="item-img" src='<s:property value="imgAddress"/>'>
-							</td>
-						</tr>
-						<tr>
-							<td>値段</td>
-							<td>
-								<s:property value="totalPrice" />
-								<span>円</span>
-							</td>
-						</tr>
-						<tr>
-							<td>購入個数</td>
-							<td>
-								<s:property value="PurchaseNumber" />
-								<span>個</span>
-							</td>
-						</tr>
-						<tr>
-							<td>支払い方法</td>
-							<td>
-								<s:property value="payment"/>
-							</td>
-						</tr>
+
+							商品名<s:property value="itemName" />
+							<img class="item-img" src='<s:property value="imgAddress"/>'>
+							値段<s:property value="totalPrice" /><span>円</span>
+							購入数:<s:property value="PurchaseNumber" /><span>個</span>
+
 				</s:iterator>
 <!-- iterator -->
+					支払い方法：
+					<input type="radio" name="payment" value="1">
+						現金払い
+					<input type="radio" name="payment" value="2">
+						クレ ジットカード
+
 				<br>
 				<s:submit value="確認画面へ"/>
 			</s:form>

@@ -11,7 +11,7 @@ import com.internousdev.toolbox.dto.ItemDTO;
 import com.internousdev.toolbox.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class EntranceAction extends ActionSupport implements SessionAware{
+public class StartAction extends ActionSupport implements SessionAware{
 //session情報
 	public Map<String,Object>session;
 //各インスタンスの生成

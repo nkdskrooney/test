@@ -10,7 +10,7 @@ import com.internousdev.toolbox.dao.ItemDAO;
 import com.internousdev.toolbox.dto.ItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GoHomeAction extends ActionSupport implements SessionAware {
+public class HomeAction extends ActionSupport implements SessionAware {
 	public Map<String,Object>session;
 	public List<ItemDTO> itemList = new ArrayList<ItemDTO>();
 

@@ -17,35 +17,27 @@
 	<jsp:include page="include_header.jsp"/>
 
 <!-- main -->
-		<div id="main">
+	<div id="main">
+		<h1>商品一覧</h1>
 
-			<div id="top">
-				<p>商品一覧</p>
-			</div>
-			<div>
-					<s:form action="BuyItemCartAction">
-						<tr>
-							<td>商品名：<s:property value="session.itemName" /></td>
-							<td><img class="item-img" src='<s:property value="session.imageFilePath"/>'></td>
-							<td>価格：<s:property value="session.price" />円</td>
-							<td>在庫：<s:property value="session.stock" />個</td>
-							<td>購入数<select name="count">
-								<option value="1" selected="selected">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select></td>
-							<td>支払い方法：
-								<input type="radio" name="payment" value="1">
-									現金払い
-								<input type="radio" name="payment" value="2">
-									クレ ジットカード
-							</td>
-							<td><s:submit value="カートへ入れる" /></td>
-						</tr>
-					</s:form>
-			</div>
+			<s:form action="BuyItemCartAction">
+
+				商品名：<s:property value="session.itemName" />
+				<img class="item-img" src='<s:property value="session.imageFilePath"/>'>
+				値段：<s:property value="session.price" />円
+				在庫：<s:property value="session.stock" />個
+				発売日：<s:property value="releaseDate" />
+				購入数：<select name="count">
+							<option value="1" selected="selected">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+<!-- ValueStackでの受け渡し　home.jsp→BuyItemAction→buyItem.jsp→CartInsertActon -->
+				<s:hidden name = "itemId" />
+				<s:submit value="カートへ入れる" />
+			</s:form>
 		</div>
 <!-- footer -->
 		<jsp:include page="include_footer.jsp"/>

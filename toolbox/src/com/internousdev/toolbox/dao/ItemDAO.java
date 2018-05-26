@@ -17,8 +17,9 @@ public class ItemDAO implements SessionAware{
 //商品情報を格納するArrayListのインスタンスを作成
 	private ArrayList<ItemDTO> itemDTOList = new ArrayList<ItemDTO>();
 	private ItemDTO itemDTO ;
-	private DBConnector db= new DBConnector();
+	private DBConnector db = new DBConnector();
 	private Connection con = null;
+
 //全ての商品情報を取得するメソッド
 	public ArrayList<ItemDTO> getItemInfo() {
 		con = db.getConnection();

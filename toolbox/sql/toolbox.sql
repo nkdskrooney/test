@@ -43,8 +43,6 @@ create table cart_info(
 	temp_user_id varchar(100),
 	item_id int,
 	count int,
-	image_file_path varchar(100),
-	price int,
 	regist_date datetime,
 	delete_date datetime
 	);
