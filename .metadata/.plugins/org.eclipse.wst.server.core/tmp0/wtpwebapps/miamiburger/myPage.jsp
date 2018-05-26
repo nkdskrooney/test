@@ -10,63 +10,9 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
+<link rel="stylesheet" type="text/css" href="./css/myPage.css">
 <title>MyPage画面</title>
-<style type="text/css">
-body {
-	background-image: url(./images/board.jpg);
-	background-attachment: fixed;
-	background-size: cover;
-	background-size: 100% auto;
-}
-.inner{
-	margin:5% 20% 5% 20%;
-	float:left;
-	width: 60%;
-	height: 50%;
-/* 	影をつけるボックスのプロパティです */
-	border-left:1px solid black;
-	border-bottom:1px solid black;
-	border-radius:10px;
-	background-color:rgba(255,255,255,0.5);
-	box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-}
-.main{
-	padding-top:5%;
-}
-.main h1{
-	width:60%;
-	margin:0 auto;
-	margin-top:50px;
-	text-align: center;
-/* 	影をつけるボックスのプロパティです */
-	border-left:1px solid black;
-	border-bottom:1px solid black;
-	border-radius:10px;
-	background-color:rgba(255,255,255,0.5);
-	box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-}
-.user_info{
-	margin:10%;
-}
-.user_info p{
-	font-size:20px;
-	padding-bottom:3%;
-}
-.character{
-	padding:3%;
-}
-.character b{
-	padding-right:1%;
-}
-.button{
-	margin:10%;
-}
-.button input{
-	width:30%;
-	margin:3%;
-}
-</style>
+<style type="text/css"></style>
 </head>
 <body>
 		<div class="header">
@@ -94,19 +40,20 @@ body {
 				<!-- ユーザー情報変更画面への遷移 -->
 				<input type="button"
 					onclick="location.href='<s:url action="UserUpdateAction" />'"
-					value="ユーザー情報変更" /><br>
+					value="ユーザー情報変更" class="submitBtn"/><br>
 
 				<!-- パスワード再設定画面への遷移 -->
 				<input type="button"
 					onclick="location.href='<s:url action="MyPageChangePasswordAction" />'"
-					value="パスワード変更" /><br>
+					value="パスワード変更" class="submitBtn" /><br>
 
 				<!-- 購入履歴画面への遷移 -->
 				<input type="button"
 					onclick="location.href='<s:url action="PurchaseHistoryAction" />'"
-					value="購入履歴" /><br>
+					value="購入履歴" class="submitBtn" /><br>
 				</div>
 			</div>
 		</div>
+		<jsp:include page="footer.jsp" />
 </body>
 </html>

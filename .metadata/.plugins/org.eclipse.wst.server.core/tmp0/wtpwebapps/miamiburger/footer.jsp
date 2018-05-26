@@ -28,7 +28,9 @@
 <body>
 
 	<footer>
-		<a href="#">▲Topへ▲</a><br> copyright © internous|Team Wada MiamiBurger
+		<div class="footer_link">
+		<a href="#">▲Scroll This Pagetop▲</a><br> copyright © internous | Team Wada MiamiBurger
+		</div>
 	</footer>
 </body>
 </html>

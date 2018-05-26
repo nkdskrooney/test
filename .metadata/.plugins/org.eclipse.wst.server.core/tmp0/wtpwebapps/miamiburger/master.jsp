@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+if(!(session.getAttribute("admin") == "admin")){
+  out.println("本ページへのアクセスは認められていません");
+  out.close();
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,59 +16,9 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
+<link rel="stylesheet" type="text/css" href="./css/master.css">
 <title>管理画面</title>
-<style type="text/css">
-body {
-	background-image: url(./images/board.jpg);
-	background-attachment: fixed;
-	background-size: cover;
-	background-size: 100% auto;
-}
-.main{
-	padding-top:5%;
-}
-.main h1{
-	width:60%;
-	margin:0 auto;
-	margin-top:50px;
-	text-align: center;
-/* 	影をつけるボックスのプロパティです */
-	border-left:1px solid black;
-	border-bottom:1px solid black;
-	border-radius:10px;
-	background-color:rgba(255,255,255,0.5);
-	box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-}
-.product_container {
-	float: left;
-	width: 25%;
-	margin: 0 4% 4% 4%;
-	border: 1px solid black;
-	border-left:1px solid black;
-	border-bottom:1px solid black;
-	border-radius:10px;
-	background-color:rgba(255,255,255,0.5);
-	box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-}
-img {
-	width: 50%;
-	height: 50%;
-	padding: 5px;
-}
-.product_info{
-	text-align:center;
-
-}
-.button{
-	width:40%;
-	margin:0 auto;
-	padding:2%;
-}
-.button input{
-	width:100%;
-}
-</style>
+<style type="text/css"></style>
 </head>
 <body>
 	<div class="header">
@@ -79,13 +35,13 @@ img {
 		<!-- 商品一覧 -->
 			<s:iterator value="productInfoList">
 				<div class="product_container">
-					<div class="product_info"><img src='<s:property value="imageFilePath"/>' width="100"height="100" /> <br></div>
-					<div class="product_info"><b><s:property value="productName" /></b><br></div>
-					<div class="product_info"><s:property value="productNameKana" /><br></div>
-					<div class="product_info"><s:property value="price" />円<br></div>
+					<img src='<s:property value="imageFilePath"/>'/> <br>
+					<b><s:property value="productName" /></b><br>
+					<s:property value="productNameKana" /><br>
+					<s:property value="price" />円<br>
 				</div>
 			</s:iterator>
 	</div>
-
+<jsp:include page="footer.jsp" />
 </body>
 </html>

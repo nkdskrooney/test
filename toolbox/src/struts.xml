@@ -17,8 +17,8 @@
 <!--    		<result name="input">image.jsp</result> -->
 <!-- 		</action> -->
 
-		<!-- StartAction -->
-		<action name="StartAction" class="com.internousdev.toolbox.action.StartAction"
+		<!-- EntranceAction -->
+		<action name="EntranceAction" class="com.internousdev.toolbox.action.EntranceAction"
 			method="execute">
 			<result name="success">home.jsp</result>
 		</action>

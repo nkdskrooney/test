@@ -11,17 +11,21 @@
 <link rel="stylesheet" type="text/css" href="./css/address.css">
 </head>
 <body>
-
+<div class="wrapper">
 <jsp:include page="header.jsp" />
 
-<div class="completeTitleBox">
+<div id="titleBox">
 	<h1>登録が完了しました</h1>
 </div>
 <%-- <h2><span id="timer"></span>秒後に<a href='<s:url action="AddressSelectAction"/>'>商品宛先選択</a>に戻ります。</h2> --%>
 
 <div class="completeBox">
-	<h2>5秒後に<a href='<s:url action="AddressSelectAction"/>'>決済確認画面</a>に戻ります。</h2> 
+	<h2>5秒後に<a href='<s:url action="AddressSelectAction"/>'>決済確認画面</a>に戻ります。</h2>
 </div>
+
+<div class="push"></div>
+</div>	
+<jsp:include page="footer.jsp" />
 
 <script>
 // var waitTime = new Date();

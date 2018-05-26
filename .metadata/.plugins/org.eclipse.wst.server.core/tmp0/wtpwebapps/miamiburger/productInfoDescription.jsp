@@ -21,7 +21,7 @@
 </style>
 </head>
 <body>
-
+<div class="wrapper">
 	<div class="header">
 		<jsp:include page="header.jsp" />
 	</div>
@@ -97,5 +97,8 @@
 			</div>
 		</div>
 	</div>
+<div class="push"></div>
+</div>	
+<jsp:include page="footer.jsp" />
 </body>
 </html>

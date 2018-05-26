@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+if(!(session.getAttribute("admin") == "admin")){
+  out.println("本ページへのアクセスは認められていません");
+  out.close();
+}
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,62 +14,9 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
+		<link rel="stylesheet" type="text/css" href="./css/masterAddConfirm.css">
 		<title>確認画面</title>
-		<style type="text/css">
-		body {
-			background-image: url(./images/board.jpg);
-			background-attachment: fixed;
-			background-size: cover;
-			background-size: 100% auto;
-		}
-		.main{
-			padding-top:5%;
-		}
-		.main h1{
-			width:60%;
-			margin:0 auto;
-			margin-top:50px;
-			text-align: center;
-		/* 	影をつけるボックスのプロパティです */
-			border-left:1px solid black;
-			border-bottom:1px solid black;
-			border-radius:10px;
-			background-color:rgba(255,255,255,0.5);
-			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-		}
-		.inner{
-			margin:5% 20% 5% 20%;
-			float:left;
-			width: 60%;
-			height: 50%;
-		/* 	影をつけるボックスのプロパティです */
-			border-left:1px solid black;
-			border-bottom:1px solid black;
-			border-radius:10px;
-			background-color:rgba(255,255,255,0.5);
-			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-		}
-		.product_info{
-			text-align:center;
-
-		}
-		.character{
-			padding:3%;
-		}
-		.character b{
-			padding-right:1%;
-		}
-		.button{
-			width:40%;
-			margin:0 auto;
-			padding:2%;
-		}
-		.button input{
-			width:100%;
-		}
-
-		</style>
+		<style type="text/css"></style>
 	</head>
 	<body>
 
@@ -77,7 +30,7 @@
 			<div class="product_info">
 				<div class="character">
 					<b>ファイル名：</b><s:property value="session.image_file_name"/><br/>
-					<img src="img/<s:property value="session.image_file_path"/>" width="100" height="100"/><br>
+					<img src="<s:property value="session.image_file_path"/>" width="100" height="100"/><br>
 				</div>
 				<div class="character">
 					<b>商品名:</b><s:property value="session.productName" /><br>
@@ -104,10 +57,15 @@
 			<div class="button">
 			<input type="button"
 				onclick="location.href='<s:url action="MasterAddCompleteAction" />'"
-				value="完了画面" />
+				value="完了" />
+			<br>
+				<input type="button"
+				onclick="location.href='<s:url action="MasterAddAction" />'"
+				value="訂正" />
 			<br>
 			</div>
 		</div>
 	</div>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

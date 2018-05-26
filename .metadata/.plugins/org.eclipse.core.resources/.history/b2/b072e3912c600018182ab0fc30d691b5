@@ -1,0 +1,48 @@
+package com.internousdev.miamiburger.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.internousdev.miamiburger.util.DBConnector;
+import com.internousdev.miamiburger.util.DateUtil;
+
+public class InsertCartDAO {
+
+	private DBConnector db= new DBConnector();
+	private Connection con = null;
+	private DateUtil date = new DateUtil();
+
+	public int insertCart(String user_id, String temp_user_id, int item_id, int count) {
+	//戻り値（確認用）の変数
+		int check = 0;
+	//データベースへの接続
+		con = db.getConnection();
+
+		String sql = "INSERT INTO cart_info (product_id, product_count,  regist_date, temp_user_id";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, product_id);
+			ps.setInt(2, product_count);
+			ps.setInt(3, price);
+			ps.setString(4, date.getDate());
+			ps.setString(5, temp_user_id);
+			if(userIdExist){
+				ps.setString(6, user_id);
+			}
+			check = ps.executeUpdate();
+		}catch (SQLException e){
+			e.printStackTrace();
+		}finally{
+			if(con != null){
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+		}
+		return check;
+	}
+}

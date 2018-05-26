@@ -1,0 +1,56 @@
+package com.internousdev.toolbox.action;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class CartInsertAction {
+
+	public Map<String, Object> session;
+	private int productId;
+	private int price;
+	private int productCount;
+	private int totalPrice = 0;
+	private List<CartProductInfoDTO> cartList = new ArrayList<>();
+
+	public String execute(){
+		String tempUserId = session.get("temp_user_id").toString();
+		String userId = null;
+		String result;
+
+		if(session.containsKey("userInfoDTO")){
+			UserInfoDTO loginDTO = (UserInfoDTO) session.get("userInfoDTO");
+			userId = loginDTO.getUserId();
+		}
+		InsertCartDAO insertCartDAO = new InsertCartDAO();
+
+		if(productCount < 6 && productCount>0){
+		price = price*productCount;
+//		cart_infoテーブルへの入力
+		int check = insertCartDAO.insertCart(userId, tempUserId, productId, productCount, price);
+		if(check == 0){
+			result = ERROR;
+		}
+
+		session.put("userId", userId);
+
+		SelectCartInfoDAO dao = new SelectCartInfoDAO();
+//		カート情報の取得
+		cartList = dao.selectCartInfo(userId, tempUserId);
+
+//		カートの合計金額を算出
+		for(int i = 0; i < cartList.size(); i++){
+			totalPrice += cartList.get(i).getTotalPrice();
+		}
+		session.put("cartList", cartList);
+		result = SUCCESS;
+
+		}else{
+			result = ERROR;
+		}
+		return result;
+	}
+	
+	
+	
+}

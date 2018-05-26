@@ -19,7 +19,7 @@
 
 </head>
 <body>
-	<div id="top"></div>
+<div class="wrapper">
 	<div class="header">
 		<jsp:include page="header.jsp" />
 	</div>
@@ -30,7 +30,9 @@
 		<div class="PI-productcontainer">
 			<h1>MENU</h1>
 			<s:if test="errorMessage != null">
-				<s:property value="errorMessage" />
+				<div class="errorBox">
+					<s:property value="errorMessage" />
+				</div>
 			</s:if>
 
 			<!-- 引き出した商品情報を 3×3 で表示（現在CSSで3列制御中） -->
@@ -62,12 +64,15 @@
 				</div>
 			</s:iterator>
 		</div>
-
 		<div class="PI-pagingbox">
 			<!-- ページセレクト（1ページ目では"前へ"を表示しない、最終ページでは"次へ"を表示しない） -->
 			<s:if test="pageSelect > 0">
 				<form action="ProductInfoAction">
 					<s:hidden name="pageSelect" value="%{pageSelect - 1}" />
+
+					<s:hidden name="categoryId" value="%{#session.categoryId}"/>
+					<s:hidden name="search" value="%{#session.search}"/>
+
 					<s:submit value=" 前へ"  class="details-submit"/>
 				</form>
 			</s:if>
@@ -75,6 +80,10 @@
 			<s:if test="pageSelect < mainList.size() -1">
 				<form action="ProductInfoAction" method="post">
 					<s:hidden name="pageSelect" value="%{pageSelect + 1}"/>
+
+					<s:hidden name="categoryId" value="%{#session.categoryId}"/>
+					<s:hidden name="search" value="%{#session.search}"/>
+
 					<s:submit value=" 次へ"  class="details-submit" />
 				</form>
 			</s:if>
@@ -83,7 +92,9 @@
 
 
 
-	<jsp:include page="footer.jsp" />
+<div class="push"></div>
+</div>	
+<jsp:include page="footer.jsp" />
 
 
 </body>

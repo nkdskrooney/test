@@ -6,65 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
-<style>
-body{
-	background-image:url(./images/board.jpg);
-	background-size: 100% auto;
-}
-.PHD-main {
-        position: relative; top: 90px;
-
-	text-align: center;
-	margin: auto;
-	width: 90%;
-	border: 1px solid #ddd;
-	background-image:url(./images/menutile.jpg);
-	background-repeat:repeat;
-}
-.PHD-inner {
-	width: 90%;
-	height: 150px;
-	border: 1px solid black;
-	margin: 5%;
-	  background-color:#E6FFE9;
-	  border-radius: 1em;
-
-}
-
-.PHD-img {
-	position: relative;top:-1px;left: -1px;
-	width: 200px;
-	height: 100%;
-	border: 1px solid black;
-	background-color: #00FFFF;
-	float:	left;
-}
-
-.PHD-footer {
-	clear: both;
-}
-
-.PHD-text{
-	text-align: left;
-	position: relative; left: 10px;
-	width: 100%;
-
-}
-
-
-h1{
-	text-decoration: underline;
-	text-align: center;
-	border-radius: 1em;
-}
-.text{
-	text-align: right;
-	position: relative; right:50px;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="./css/purchaseHistoryDetails.css">
 <title>購入履歴一覧</title>
 </head>
 <body>
+<div class="wrapper">
 <div class="header">
 <jsp:include page="header.jsp" />
 </div>
@@ -88,7 +34,9 @@ h1{
 
 </s:iterator>
 </div>
-<!-- <div class="footer"></div> -->
+<div class="push"></div>
+</div>
+<jsp:include page="footer.jsp" />
 </body>
 </html>
 

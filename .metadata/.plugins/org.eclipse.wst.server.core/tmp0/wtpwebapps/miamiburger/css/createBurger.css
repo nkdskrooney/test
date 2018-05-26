@@ -8,13 +8,12 @@ body {
 
 h1 {
 	text-align: center;
-	line-height: 0.8;
+	line-height: 1.5;
+	margin:auto;
 }
 
 .createBox {
-	position: absolute;
-	top: 100px;
-	left: 15%;
+	margin:150px 15% 30px;
 	width: 70%;
 	border-radius: 30px;
 	background-color: rgba(255, 255, 255, 0.5);
@@ -22,13 +21,14 @@ h1 {
 	border-bottom: 3px solid #000040;
 	box-shadow: -15px 15px 15px 5px rgba(0, 0, 0, 0.3);
 }
+#displayBox{
+	margin:30px 0px;
+	width:100%;
+}
 
 /* オプション選択ボタンの設定--------------------- */
 #optionList {
-	position: absolute;
-	top: 680px;
-	left: 10%;
-	right: 10%;
+	margin:50px 10%;
 	list-style-type: none;
 }
 
@@ -59,9 +59,7 @@ h1 {
 
 /* 選択オプションの設定----------------------------- */
 .selectStyle {
-	position: absolute;
-	top: 230px;
-	left: 12%;
+	margin:0px 38% 0px 12%;
 	width: 20%;
 	border-left: 1px solid black;
 	border-bottom: 1px solid black;
@@ -69,11 +67,14 @@ h1 {
 	background-color: rgba(255, 255, 255, 0.5);
 	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
 	text-shadow: 1px 2px 2px grey;
+	float:left;
+	display:block;
 }
 
 .selectStyle h3 {
 	text-align: center;
-	line-height: 0.8;
+	line-height: 1.5;
+	margin:auto;
 }
 
 #selectContainer {
@@ -114,10 +115,8 @@ h1 {
 	display: none;
 }
 /* -------------------------------- */
-.CreateBurgerConfirmAction {
-	position: absolute;
-	top: 230px;
-	left: 70%;
+.formBox {
+	margin:0px 0px 100px 0px;
 	width: 20%;
 	padding-left: 5px;
 	border-left: 1px solid black;
@@ -125,6 +124,7 @@ h1 {
 	border-radius: 10px;
 	background-color: rgba(200, 255, 255, 0.5);
 	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
+	overflow:hidden;
 }
 
 .submitBtn {
@@ -155,75 +155,82 @@ h1 {
 img {
 	width: 400px;
 }
-
+.cuttingBoard{
+	width: 550px;
+	height:800px;
+	position: absolute;
+	top: 0px;
+	left: 33%;
+	z-index: -1;
+}
 /* ＋20pxずつ追加していく？ */
 .img1 {
 	position: absolute;
 	top: 420px;
-	left: 35%;
+	left: 38%;
 	z-index: 1;
 }
 
 .img2 {
 	position: absolute;
 	top: calc(420px - 20px);
-	left: 35%;
+	left: 38%;
 	z-index: 2;
 }
 
 .img3 {
 	position: absolute;
 	top: calc(420px - 40px);
-	left: 35%;
+	left: 38%;
 	z-index: 3;
 }
 
 .img4 {
 	position: absolute;
 	top: calc(420px - 60px);
-	left: 35%;
+	left: 38%;
 	z-index: 4;
 }
 
 .img5 {
 	position: absolute;
 	top: calc(420px - 80px);
-	left: 35%;
+	left: 38%;
 	z-index: 5;
 }
 
 .img6 {
 	position: absolute;
 	top: calc(420px - 100px);
-	left: 35%;
+	left: 38%;
 	z-index: 6;
 }
 
 .img7 {
 	position: absolute;
 	top: calc(420px - 120px);
-	left: 35%;
+	left: 38%;
 	z-index: 7;
 }
 
 .img8 {
 	position: absolute;
 	top: calc(420px - 140px);
-	left: 35%;
+	left: 38%;
 	z-index: 8;
 }
 
 .img9 {
 	position: absolute;
 	top: calc(420px - 160px);
-	left: 35%;
+	left: 38%;
 	z-index: 9;
 }
 
 .img10 {
 	position: absolute;
 	top: calc(420px - 180px);
-	left: 35%;
+	left: 38%;
 	z-index: 10;
 }
 /* ----------------------------------- */
@@ -237,13 +244,15 @@ h2 {
 /* 確認画面用の設定 優先度を上げる */
 .confirmBurger img {
 	position: absolute;
+	left: 25%;
+}
+.confirmBurger .cuttingBoard{
+	position: absolute;
 	left: 20%;
 }
 
 #confirmBox {
-	position: absolute;
-	top: 230px;
-	left: 70%;
+	margin:60px 10% 30px 60%;
 	width: 20%;
 	padding-left: 5px;
 	border-left: 1px solid black;
@@ -251,6 +260,7 @@ h2 {
 	border-radius: 10px;
 	background-color: rgba(200, 255, 255, 0.5);
 	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
+	overflow:hidden;
 }
 
 #confirmBox img {
@@ -262,30 +272,15 @@ h2 {
 /* --------------------------------------- */
 
 /* 登録完了画面---------------------------------- */
-.completeTitleBox {
-	position: absolute;
-	top: 20%;
-	left: 20%;
-	width: 60%;
-	border-left: 1px solid black;
-	border-bottom: 1px solid black;
-	border-radius: 10px;
-	background-color: rgba(200, 255, 255, 0.5);
-	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
-	text-align: center;
-	line-height: 0.8;
-}
 
 .completeBox {
-	position: absolute;
-	top: 40%;
-	left: 20%;
+	margin:50px 20%;
 	width: 60%;
 	height: 50%;
 	border-left: 1px solid black;
 	border-bottom: 1px solid black;
 	border-radius: 10px;
-	background-color: rgba(200, 255, 255, 0.5);
+	background-color: rgba(255, 255, 255, 0.5);
 	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.4);
 	text-align: center;
 	line-height: 300px;

@@ -11,18 +11,20 @@
 <link rel="stylesheet" type="text/css" href="./css/address.css">
 </head>
 <body>
-
-<jsp:include page="header.jsp" />
-
-<div class="completeTitleBox">
-	<h1>決済完了</h1>
-</div>
-
-<%-- <h2><span id="timer"></span>秒後に<a href='<s:url action="HomeAction"/>'>Home</a>に戻ります。</h2> --%>
-<div class="completeBox">
-	<h2>5秒後に<a href='<s:url action="HomeAction"/>'>Home</a>に戻ります。</h2>
-</div>
-
+<div class="wrapper">
+	<jsp:include page="header.jsp" />
+	
+	<div id="titleBox">
+		<h1>決済完了</h1>
+	</div>
+	
+	<%-- <h2><span id="timer"></span>秒後に<a href='<s:url action="HomeAction"/>'>Home</a>に戻ります。</h2> --%>
+	<div class="completeBox">
+		<h2>5秒後に<a href='<s:url action="HomeAction"/>'>Home</a>に戻ります。</h2>
+	</div>
+<div class="push"></div>
+</div>	
+<jsp:include page="footer.jsp" />
 <script>
 // var waitTime = new Date();
 // waitTime = waitTime.getTime()+5000; //5秒間待つ設定

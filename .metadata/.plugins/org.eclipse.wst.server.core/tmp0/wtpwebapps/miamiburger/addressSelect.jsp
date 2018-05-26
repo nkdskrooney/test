@@ -11,15 +11,39 @@
 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
-
+<div class="wrapper">
 <jsp:include page="header.jsp" />
 
-	<h1>決済確認</h1>
+	<div id="titleBox">
+		<h1>決済確認</h1>
+	</div>
+	
+	<div class="inner">
+		<div id="selectCartContainer">
+			<h2>カート内容</h2>
+			<s:iterator value="#session.cartList">
+				<div class="selectCart">
+					<img src=<s:property value="imageFilePath"/> alt=<s:property value="imageFileName"/>/>
+					商品名：
+					<s:property value="productName" />
+					<br> 個数：
+					<s:property value="productCount" />
+					<br> 金額：￥
+					<s:property value="totalPrice" />
+					（1個あたりの価格：￥
+					<s:property value="price" />)<br>
+					<div class="clearLeft"></div>
+				</div>
+				<div class="floatReset"></div>
+			</s:iterator>
+		</div>
+	</div>
+	
 	<div id="addressBox">
 		<h3>宛先を選択してください</h3>
 		<h3>宛先一覧：<a href=<s:url action="AddressCreateAction"/>>新規宛先作成</a></h3>
 
-		<s:form action="SettlementCompleteAction">
+		<s:form action="SettlementCompleteAction" id="addressFormBox">
 			<s:iterator value="#session.destinationDTOList" status="status">
 				<div class="destinationContainer">
 					姓：
@@ -50,29 +74,13 @@
 					宛先がありません。<a href=<s:url action="AddressCreateAction"/>>宛先を作成してください。</a>
 				</s:if>
 				<s:else>
-					<s:submit value="決済"/>
+					<s:submit value="決済" class="submitBtn"/>
 				</s:else>
 		</s:form>
 	</div>
 	
-		<div id="selectCartContainer">
-			<h2>カート内容</h2>
-			<s:iterator value="#session.cartList">
-				<div class="selectCart">
-					<img src=<s:property value="imageFilePath"/> alt=<s:property value="imageFileName"/>/>
-					商品名：
-					<s:property value="productName" />
-					<br> 個数：
-					<s:property value="productCount" />
-					<br> 金額：￥
-					<s:property value="totalPrice" />
-					（1個あたりの価格：￥
-					<s:property value="price" />)<br>
-					<div class="clearLeft"></div>
-				</div>
-				<div class="floatReset"></div>
-			</s:iterator>
-		</div>
-		
+<div class="push"></div>
+</div>	
+<jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+if(!(session.getAttribute("admin") == "admin")){
+  out.println("本ページへのアクセスは認められていません");
+  out.close();
+}
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,60 +16,8 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<title>管理画面</title>
-		<style type="text/css">
-		body {
-			background-image: url(./images/board.jpg);
-			background-attachment: fixed;
-			background-size: cover;
-			background-size: 100% auto;
-		}
-		.inner{
-			margin:5% 15% 5% 15%;
-			float:left;
-			width: 70%;
-			height: 50%;
-		/* 	影をつけるボックスのプロパティです */
-			border-left:1px solid black;
-			border-bottom:1px solid black;
-			border-radius:10px;
-			background-color:rgba(255,255,255,0.5);
-			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-		}
-		.main{
-			padding-top:5%;
-		}
-		.main h1{
-			width:60%;
-			margin:0 auto;
-			margin-top:50px;
-			text-align: center;
-		/* 	影をつけるボックスのプロパティです */
-			border-left:1px solid black;
-			border-bottom:1px solid black;
-			border-radius:10px;
-			background-color:rgba(255,255,255,0.5);
-			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-		}
-		.product_info{
-			float:left;
-			width:42%;
-			margin:6%;
-		}
-		.character{
-			padding:3%;
-		}
-		.character b{
-			padding-right:1%;
-		}
-		.file{
-			float:right;
-			width:33%;
-			margin:6%;
-		}
-		.clear{
-		clear:both;
-		}
-		</style>
+		<link rel="stylesheet" type="text/css" href="./css/masterAdd.css">
+		<style type="text/css"></style>
 	</head>
 	<body>
 	<div class="header">
@@ -75,50 +29,80 @@
 			<div class="product_info">
 				<s:form action="MasterAddConfirmAction" >
 					<div class="character">
-						<b>商品名:</b><input name="productName" placeholder="商品名" required><br>
+						<b>商品名:</b><input name="productName" placeholder="商品名" value="<s:property value="session.productName"/>" required><br>
 					</div>
 					<div class="character">
-						<b>商品かな:</b><input name="productNameKana"placeholder="商品かな" required><br>
+						<b>商品かな:</b><input name="productNameKana"placeholder="商品かな" value="<s:property value="session.productNameKana"/>" required><br>
 					</div>
 					<div class="character">
-						<b>商品詳細:</b><textarea name="productDescription" placeholder="商品詳細" required></textarea><br>
+						<b>商品詳細:</b><textarea name="productDescription" placeholder="商品詳細" required><s:property value="session.productDescription"/></textarea><br>
 					</div>
 					<div class="character">
 						<b>カテゴリ:</b><br>
-						<s:iterator value="#session.mCategoryDTOList">
-							<s:if test= "categoryId >0">
-								<s:if test="categoryId ==1">
-									<input type="radio" name="categoryId" value=<s:property value="categoryId"/> checked><s:property value ="categoryName"/><br>
-								</s:if>
-								<s:else>
-									<input type="radio" name="categoryId" value=<s:property value="categoryId"/> ><s:property value ="categoryName"/><br>
-								</s:else>
-							</s:if>
-						</s:iterator>
+						<s:if test="session.categoryId==1">
+										<input type="radio" name="categoryId" value="1" checked>ハンバーガー<br>
+										<input type="radio" name="categoryId" value="2" >飲み物<br>
+										<input type="radio" name="categoryId" value="3" >サイドメニュー<br>
+										<input type="radio" name="categoryId" value="4" >セット<br>
+						</s:if>
+						<s:elseif test="session.categoryId==2">
+										<input type="radio" name="categoryId" value="1" >ハンバーガー<br>
+										<input type="radio" name="categoryId" value="2" checked>飲み物<br>
+										<input type="radio" name="categoryId" value="3" >サイドメニュー<br>
+										<input type="radio" name="categoryId" value="4" >セット<br>
+						</s:elseif>
+						<s:elseif test="session.categoryId==3">
+										<input type="radio" name="categoryId" value="1" >ハンバーガー<br>
+										<input type="radio" name="categoryId" value="2" >飲み物<br>
+										<input type="radio" name="categoryId" value="3" checked>サイドメニュー<br>
+										<input type="radio" name="categoryId" value="4" >セット<br>
+						</s:elseif>
+						<s:elseif test="session.categoryId==4">
+										<input type="radio" name="categoryId" value="1" >ハンバーガー<br>
+										<input type="radio" name="categoryId" value="2" >飲み物<br>
+										<input type="radio" name="categoryId" value="3" >サイドメニュー<br>
+										<input type="radio" name="categoryId" value="4" checked>セット<br>
+						</s:elseif>
+						<s:else>
+										<input type="radio" name="categoryId" value="1" checked>ハンバーガー<br>
+										<input type="radio" name="categoryId" value="2" >飲み物<br>
+										<input type="radio" name="categoryId" value="3" >サイドメニュー<br>
+										<input type="radio" name="categoryId" value="4" >セット<br>
+						</s:else>
 					</div>
 					<div class="character">
-						<b>値段:</b><input type ="text" name="price" placeholder="1000" required><span>円</span><br>
+						<b>値段:</b><input type ="number" name="price" placeholder="1000" min="0" max="10000" value="<s:property value="session.price"/>" required><span>円</span><br>
 					</div>
 					<div class="character">
-						<b>発売日:</b><input type ="text" name="releaseDate" placeholder="2000-01-01 00:00:00"><br>
+						<b>発売日:</b><input type ="date" name="releaseDate" placeholder="2000-01-01 00:00:00" value="<s:property value="session.releaseDate"/>" required><br>
 					</div>
 					<div class="character">
+						<s:if test="session.Status==0">
+						<b>ステータス:</b><input type="radio" name="Status" value="0" checked>無効<input type="radio" name="Status" value="1">有効<br>
+						</s:if>
+						<s:elseif test="session.Status==1">
 						<b>ステータス:</b><input type="radio" name="Status" value="0">無効<input type="radio" name="Status" value="1" checked>有効<br>
+						</s:elseif>
+						<s:else>
+						<b>ステータス:</b><input type="radio" name="Status" value="0">無効<input type="radio" name="Status" value="1" checked>有効<br>
+						</s:else>
 					</div>
 
 					<s:submit value="確認画面へ" />
 				</s:form>
 			</div>
 			<div class="file">
-				<b>ファイル名：</b><s:property value="session.userImageFileName"/><br/>
-				<img src="img/<s:property value="session.image_file_path"/>" width="100" height="100"/>
+				<b>※画像をはじめにアップロードしてください</b><br>
+				<b>ファイル名：</b><s:property value="session.image_file_name"/><br/>
+				<img src="<s:property value="session.image_file_path"/>" width="100" height="100"/>
 				<s:form action="MasterAddAction" method="post" enctype="multipart/form-data">
-					<s:file name="userImage" label="参照" />
+					<s:file name="userImage" />
 					<s:submit value="アップロード" align="center" />
 				</s:form>
 			<div class="clear"></div>
 			</div>
 		</div>
 	</div>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

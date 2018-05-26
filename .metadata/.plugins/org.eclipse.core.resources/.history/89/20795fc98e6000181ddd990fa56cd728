@@ -1,0 +1,103 @@
+package com.internousdev.toolbox.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.internousdev.toolbox.dto.CartDTO;
+import com.internousdev.toolbox.dto.ItemDTO;
+import com.internousdev.toolbox.util.DBConnector;
+
+public class CartSelectDAO {
+	//
+	public ItemDTO getCart(String cart_id) {
+		DBConnector dbConnector= new DBConnector();
+		Connection con = dbConnector.getConnection();
+		String sql = "SELECT id ,item_transaction_id, total_price, total_count ,payment ,img_address, cart_id, insert_date "
+				+ "FROM cart_item_transaction WHERE id = ?";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, cart_id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+				itemDTO = new ItemDTO();
+				itemDTO.setItemId(rs.getInt("id"));
+				itemDTO.setItemName(rs.getString("item_name"));
+				itemDTO.setItemPrice(rs.getInt("item_price"));
+				itemDTO.setItemStock(rs.getInt("item_stock"));
+				itemDTO.setImgAddress(rs.getString("img_address"));
+
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				 con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		return itemDTO;
+	}
+
+//ログイン時にカート情報を取得する。
+public ArrayList<CartDTO> CartSelect(String userId, String tempUserId){
+	CartDTO dto;
+	ArrayList<CartDTO> dtoList = new ArrayList<>();
+	Connection con = null;
+	DBConnector db = new DBConnector();
+	con = db.getConnection();
+
+	String sql =
+	"SELECT ci.id , ci.item_id, ci.count, ci.price, ii.item_name, ii.item_name_kana, ii.item_description, ii.category_id, ii.price, ii.image_file_path, ii.image_file_name ,ii.release_date"
+	+ "FROM cart_info ci LEFT JOIN item_info ii  WHERE ci.user_id=? ci.temp_user_id=?";
+
+	try{
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1,userId);
+		ps.setString(2,tempUserId);
+		ResultSet rs = ps.executeQuery();
+
+		while(rs.next()){
+			dto = new CartDTO();
+			dto.setCartId(rs.getInt("ci.id"));
+			dto.setUserId(rs.getString(""));
+			dto.setTemp_user_id(rs.getString(""));
+			dto.setItemId(rs.getInt("ci.item_id"));
+			dto.setItemName(rs.getString(""));
+			dto.setItemNameKana(rs.getString(""));
+			dto.setCategoryId(rs.getString(""));
+			dto.setPrice(rs.getInt(""));
+			dto.setCount(rs.getInt("ci.count"));
+			dto.setStock(rs.getInt("stock"));
+			dto.setImage_file_path(rs.getString("image_file_path"));
+			dto.setRelease_date(rs.getString("release_date"));
+			dto.setRegist_date(rs.getString("regist_date"));
+			dto.setUpdate_date(rs.getString("update_date"));
+			//合計金額を計算後　DTOに挿入
+			int count = dto.getCount();
+			int price = dto.getPrice();
+			int totalPrice = count * price;
+			dto.setTotalPrice(totalPrice);
+
+			dtoList.add(dto);
+		}
+
+	}catch (SQLException e){
+		e.printStackTrace();
+	}finally{
+		if(con != null){
+			try{
+				con.close();
+			}catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
+	}
+	return dtoList;
+}
+
+}

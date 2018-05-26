@@ -1,7 +1,7 @@
 HTML  CSS  JS  Result
 EDIT ON
- @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
- @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+ @import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+ @import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i");
 
 @font-face {
 	font-family: 'Fjalla One';
@@ -15,28 +15,23 @@ EDIT ON
 
 body
 {
+	margin:0;
+	padding:0;
     font-family:'Fjalla One', sans-serif;
-    font-size: 14px;
-    background-image: url(../images/startbg.jpg);
-    background-size: cover;
+	font-size: 14px;
+	background-image: url(../images/startbg.jpg);
+	background-size: cover;
+	color: #999999;
+	word-wrap: break-word;
+	background-position: center center;
+	background-repeat: no-repeat;
+	backround-attachment: fixed;
+	background-size: contain;
+	background-color: black;
+	}
 
-    color: #999999;
-    word-wrap:break-word;
-
-  /* 画像を常に天地左右の中央に配置 */
-  background-position: center center;
-
-  /* 画像をタイル状に繰り返し表示しない */
-  background-repeat: no-repeat;
-
-  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-  background-attachment: fixed;
-
-  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
-  background-size: cover;
-
-  /* 背景画像が読み込まれる前に表示される背景のカラー */
-  background-color: black;
+img{
+	width:90%;
 }
 
 p
@@ -50,12 +45,12 @@ ul
 }
 
 .container {
+	margin-top:-5%;
     width: 100%;
-    margin: auto;
+    overflow:hidden;
     font-weight: 900;
     text-transform: uppercase;
     text-align: center;
-    padding: 0 0 200px;
 }
 
 /*.take-input {
@@ -188,175 +183,4 @@ a.repeat:hover {
     }
 }
 
-
-/* Animation Two */
-
-.two span {
-    color: #a5cb21;
-    opacity: 0;
-    transform: translate(200px, -100px) scale(2);
-    animation: ballDrop .3s forwards;
-}
-
-@keyframes ballDrop {
-    60% {
-        transform: translate(0, 20px) rotate(-180deg) scale(.5);
-    }
-
-    100% {
-        transform: translate(0) rotate(0deg) scale(1);
-        opacity: 1;
-    }
-}
-
-
-/* Animation Three */
-
-
-.three span {
-    color: #b10e81;
-    opacity: 0;
-    transform: translate(-300px, 0) scale(0);
-    animation: sideSlide .5s forwards;
-}
-
-@keyframes sideSlide {
-    60% {
-        transform: translate(20px, 0) scale(1);
-        color: #b10e81;
-    }
-
-    80% {
-        transform: translate(20px, 0) scale(1);
-        color: #b10e81;
-    }
-
-    99% {
-        transform: translate(0) scale(1.2);
-        color: #00f0ff;
-    }
-
-    100% {
-        transform: translate(0) scale(1);
-        opacity: 1;
-        color: #b10e81;
-    }
-}
-
-
-/* Animation Four */
-
-
-.four span {
-    color: #8d6a00;
-    opacity: 0;
-    transform: translate(0, -100px) rotate(360deg) scale(0);
-    animation: revolveDrop .3s forwards;
-}
-
-
-@keyframes revolveDrop {
-    30% {
-        transform: translate(0, -50px) rotate(180deg) scale(1);
-    }
-
-    60% {
-        transform: translate(0, 20px) scale(.8) rotate(0deg);
-    }
-
-    100% {
-        transform: translate(0) scale(1) rotate(0deg);
-        opacity: 1;
-    }
-}
-
-
-/* Animation Five */
-
-
-.five span {
-    color: #dd3f0f;
-    opacity: 0;
-    transform: translate(0, -100px) rotate(360deg) scale(0);
-    animation: dropVanish .5s forwards;
-}
-
-
-@keyframes dropVanish {
-    30% {
-        transform: translate(0, -50px) rotate(180deg) scale(1);
-    }
-
-    50% {
-        transform: translate(0, 20px) scale(.8) rotate(0deg);
-        opacity: 1;
-    }
-
-    80% {
-        transform: translate(-100px, -100px) scale(1.5) rotate(-180deg);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translate(0) scale(1) rotate(0deg);
-        opacity: 1;
-    }
-}
-
-
-
-/* Animation Six */
-
-
-.six span {
-    color: #ddb40f;
-    opacity: 0;
-    transform: rotate(-180deg) translate(150px, 0);
-    animation: twister .5s forwards;
-}
-
-
-@keyframes twister {
-    10% {
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(0deg) translate(0);
-        opacity: 1;
-    }
-}
-
-
-
-/* Animation Seven */
-
-
-.seven span {
-    color: #348c04;
-    opacity: 0;
-    transform: translate(-150px, 0) scale(.3);
-    animation: leftRight .5s forwards;
-}
-
-
-@keyframes leftRight {
-    40% {
-        transform: translate(50px, 0) scale(.7);
-        opacity: 1;
-        color: #348c04;
-    }
-
-    60% {
-        color: #0f40ba;
-    }
-
-    80% {
-        transform: translate(0) scale(2);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translate(0) scale(1);
-        opacity: 1;
-    }
 }

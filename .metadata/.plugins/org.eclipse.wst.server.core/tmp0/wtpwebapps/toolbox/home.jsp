@@ -17,39 +17,26 @@
 		<jsp:include page="include_header.jsp"/>
 <!-- main -->
 		<div id="main">
-			<div id="top">
-				<p>商品一覧</p>
-			</div>
-			<div>
+			<h1>商品一覧</h1>
+
 <!-- iterator -->
-				<s:iterator value="itemList">
-					<tr>
-						<s:form action="BuyItemAction">
+			<s:iterator value="itemList">
+				<s:form action="BuyItemAction">
+		<!-- 各商品情報 -->
+					商品名：<s:property value="itemName" />
+					商品かな：<s:property value="itemNameKana" />
+					<img src='<s:property value="imageFilePath"/>'>
+					値段：<s:property value="price" /><span>円</span>
 
-							<td>
-								<s:property value="itemName" />
-							</td>
-							<td>
-								<img class="item-img" src='<s:property value="imageFilePath"/>'>
-							</td>
-							<td>
-								<s:property value="price" />
-								<span>円</span>
-							</td>
-							<td>
-								<s:property value="stock" />
-								<span>個</span>
-							</td>
-							<s:hidden name = "itemId" />
+		<!-- 商品単体のidをActionへ送る -->
+					<s:hidden name = "itemId" />
 
-							<td><s:submit value="商品詳細へ" /></td>
+					<input type="submit" value="商品詳細へ" />
 
-						</s:form>
-					</tr>
+					</s:form>
 				</s:iterator>
 <!-- iterator -->
 			</div>
-		</div>
 
 <!-- footer -->
 		<jsp:include page="include_footer.jsp"/>

@@ -11,42 +11,9 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <title>入力情報確認画面</title>
-<link rel="stylesheet" type="text/css" href="miamiburger.css">
+<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
 <link rel="stylesheet" type="text/css" href="userCreateConfirm.html">
-
-<style type="text/css">
-
-/*================LAYOUT==============*/
-body {
-	background-image: url(./images/board.jpg);
-	background-attachment: fixed;
-	background-size: cover;
-	background-size: 100% auto;
-}
-.inner{
-	margin:auto;
-	width:80%;
-	height:80%;
-/* 	影をつけるボックスのプロパティです */
-	border-left:1px solid black;
-	border-bottom:1px solid black;
-	border-radius:10px;
-	background-color:rgba(255,255,255,0.5);
-	box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-}
-.UCConfirm-text{
-	padding-left: 15%;
-}
-table{
-	 margin-left: auto;
-	 margin-right: auto;
-}
-
-.button{
-	text-align:center;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="./css/userCreateConfirm.css">
 </head>
 
 <%-- 		<script>
@@ -58,7 +25,7 @@ table{
 			}
 		</script> --%>
 <body>
-
+<div class="wrapper">
 <div><jsp:include page="header.jsp"/></div>
 
 <div class="main">
@@ -81,11 +48,6 @@ table{
 
  		<tr>
  			<th>パスワード</th>
-			<td><s:property value="passCon" escape="false" /></td>
-		</tr>
-
-		<tr>
- 			<th>確認用パスワード</th>
 			<td><s:property value="passCon" escape="false" /></td>
 		</tr>
 
@@ -138,8 +100,8 @@ table{
 
 			<!-- ボタン -->
 				<div class="button">
-					<input type="button" onclick="location.href='<s:url action="UserCreateAction" />'" value="訂正" />
-					<input type="button" onclick="location.href='<s:url action="UserCreateCompleteAction" />'" value="登録" />
+					<input type="button" onclick="location.href='<s:url action="UserCreateAction" />'" value="訂正" class="submitBtn" />
+					<input type="button" onclick="location.href='<s:url action="UserCreateCompleteAction" />'" value="登録" class="submitBtn"/>
 				</div>
 
 
@@ -149,6 +111,9 @@ table{
 </div>
 
 
+<div class="push"></div>
+</div>
 
+<jsp:include page="footer.jsp" />
 </body>
 </html>

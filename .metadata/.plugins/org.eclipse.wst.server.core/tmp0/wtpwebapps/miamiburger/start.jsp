@@ -24,10 +24,6 @@
 </head>
 <body>
 	<div class="container">
-		<!--<div class="take-input">
-     <input type="text" placeholder="Write any text" />
-    <a href="javascript:void(0);">Enter Text</a>
-  </div>-->
 		<div class="animate one">
 			<span>M</span><span>I</span><span>A</span><span>M</span><span>I</span><br>
 			<span>B</span><span>U</span><span>R</span><span>G</span><span>E</span><span>R</span><br>

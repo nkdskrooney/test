@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+		<constant name="struts.ui.theme" value="simple" />
+<!-- 	<constant name="struts.devMode" value="true" /> -->
+	<package name="com.internousdev.toolbox.action" extends="struts-default">
+
+		<!--GoImageAction -->
+		<action name="GoImageAction" class="com.internousdev.toolbox.action.GoImageAction"
+			method="execute">
+			<result name="success">image.jsp</result>
+		</action>
+
+		<!-- FileUploadAction -->
+		<action name="FileUploadAction" class="com.internousdev.toolbox.action.FileUploadAction">
+
+    	<interceptor-ref name="fileUpload">
+
+	    <param name="allowedTypes">image/png,image/jpeg,image/gif,image/pjpeg</param>
+    	</interceptor-ref>
+    	<interceptor-ref name="defaultStack"/>
+   		<result name="success">successUserImage.jsp</result>
+   		<result name="input">image.jsp</result>
+		</action>
+
+		<!-- StartAction -->
+		<action name="StartAction" class="com.internousdev.toolbox.action.StartAction"
+			method="execute">
+			<result name="success">home.jsp</result>
+		</action>
+
+		<!-- HomeAction -->
+		<action name="HomeAction" class="com.internousdev.toolbox.action.HomeAction"
+			method="execute">
+			<result name="success">home.jsp</result>
+		</action>
+
+		<!-- LoginGoAction -->
+		<action name="LoginGoAction" class="com.internousdev.toolbox.action.LoginGoAction"
+			method="execute">
+			<result name="success">login.jsp</result>
+		</action>
+
+		<!-- LoginAction -->
+		<action name="LoginAction" class="com.internousdev.toolbox.action.LoginAction"
+			method="execute">
+			<result name="input">root.jsp</result>
+			<result name="success">home.jsp</result>
+			<result name="error">login.jsp</result>
+		</action>
+
+		<!-- UserCreateAction -->
+		<action name="UserCreateAction" class="com.internousdev.toolbox.action.UserCreateAction"
+			method="execute">
+			<result name="success">userCreate.jsp</result>
+		</action>
+
+		<!-- UserCreateConfirmAction -->
+		<action name="UserCreateConfirmAction" class="com.internousdev.toolbox.action.UserCreateConfirmAction"
+			method="execute">
+			<result name="success">userCreateConfirm.jsp</result>
+			<result name="error">userCreate.jsp</result>
+		</action>
+
+		<!-- UserCreateCompleteAction -->
+		<action name="UserCreateCompleteAction" class="com.internousdev.toolbox.action.UserCreateCompleteAction"
+			method="execute">
+			<result name="success">userCreateComplete.jsp</result>
+		</action>
+
+		<!-- BuyItemAction -->
+		<action name="BuyItemAction" class="com.internousdev.toolbox.action.BuyItemAction"
+			method="execute">
+			<result name="success">buyItem.jsp</result>
+		</action>
+
+		<!-- CartInsertAction -->
+		<action name="CartInsertAction" class="com.internousdev.toolbox.action.CartInsertAction"
+			method="execute">
+			<result type="chain" name="success">CartSelectAction</result>
+			<result type="chain" name="error">StartAction</result>
+		</action>
+
+		<!-- CartSelectAction -->
+		<action name="CartSelectAction" class="com.internousdev.toolbox.action.CartSelectAction"
+			method="execute">
+			<result name="success">buyItem.jsp</result>
+		</action>
+
+
+
+		<!-- BuyItemConfirmAction -->
+		<action name="BuyItemConfirmAction" class="com.internousdev.toolbox.action.BuyItemConfirmAction"
+			method="execute">
+			<result name="success">buyItemConfirm.jsp</result>
+			<result name="error">login.jsp</result>
+		</action>
+
+		<!-- BuyItemCompleteAction -->
+		<action name="BuyItemCompleteAction" class="com.internousdev.toolbox.action.BuyItemCompleteAction"
+			method="execute">
+			<result name="success">buyItemComplete.jsp</result>
+		</action>
+
+		<!-- MyPageAction -->
+		<action name="MyPageAction" class="com.internousdev.toolbox.action.fMyPageAction"
+			method="execute">
+			<result name="success">myPage.jsp</result>
+			<result name="error">login.jsp</result>
+		</action>
+
+
+	</package>
+</struts>
+

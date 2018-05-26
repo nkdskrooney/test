@@ -7,88 +7,13 @@
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
+		<link rel="stylesheet" type="text/css" href="./css/userUpdateConfirm.css">
 		<meta name="keywords" content="" />
 		<title>ユーザー情報変更画面</title>
-		<style type="text/css">
-		body {
-			background-image: url(./images/board.jpg);
-			background-attachment: fixed;
-			background-size: cover;
-			background-size: 100% auto;
-		}
-		.main{
-			width:100%;
-			padding-top:5%;
-		}
-		.clear{
-		clear:both;
-		}
-		h1{
-			width:60%;
-			margin:0 auto;
-			margin-top:50px;
-			text-align: center;
-			border-left:1px solid black;
-			border-bottom:1px solid black;
-			border-radius:10px;
-			background-color:rgba(255,255,255,0.5);
-			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-		}
-		.inner_1{
-			margin:5% 0 0 5%;
-			float:left;
-			width: 35%;
-			height: 50%;
-			border-left:1px solid black;
-			border-bottom:1px solid black;
-			border-radius:10px;
-			background-color:rgba(255,255,255,0.5);
-			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-		}
-		.inner_1 p{
-			font-size:20px;
-			padding:3%;
-		}
-		.inner_2{
-			float:right;
-			margin:5% 5% 0 0;
-			width: 35%;
-			height: 50%;
-			border-left:1px solid black;
-			border-bottom:1px solid black;
-			border-radius:10px;
-			background-color:rgba(255,255,255,0.5);
-			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-		}
-		.inner_2 p{
-			font-size:20px;
-			padding:3%;
-		}
-		.user_info{
-			margin:0 auto;
-		}
-		.character{
-			padding:3%;
-		}
-		.img{
-			margin:15% 2% 0 4% ;
-			float:left;
-			width:12%;
-			height:100px;
-			object-fit: contain;
-		}
-		.button{
-			margin:0 auto;
-			width:20%;
-		}
-		.button input{
-			margin:3%;
-			width:100%;
-		}
 
-		</style>
 	</head>
 	<body>
+<div class="wrapper">
 	<div class="header">
 		<jsp:include page="header.jsp" />
 	</div>
@@ -153,12 +78,15 @@
 			<div class="button">
 				<input type="button"
 					onclick="location.href='<s:url action="UserUpdateAction" />'"
-					value="変更画面へ戻る" /><br>
+					value="変更画面へ戻る" class="submitBtn"/>
 
 				<input type="button"
 					onclick="location.href='<s:url action="UserUpdateCompleteAction" />'"
-					value="変更完了" /><br>
+					value="変更完了" class="submitBtn"/>
 			</div>
 	</div>
+	<div class="push"></div>
+</div>
+	<jsp:include page="footer.jsp" />
 	</body>
 </html>

@@ -8,48 +8,10 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<title>ユーザー情報変更画面</title>
-		<style type="text/css">
-
-		body {
-			background-image: url(./images/board.jpg);
-			background-attachment: fixed;
-			background-size: cover;
-			background-size: 100% auto;
-		}
-		.inner{
-			margin:5% 20% 5% 20%;
-			text-align:center;
-			float:left;
-			width: 60%;
-			height: 70%;
-			border-left:1px solid black;
-			border-bottom:1px solid black;
-			border-radius:10px;
-			background-color:rgba(255,255,255,0.5);
-			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-		}
-		.main{
-			padding-top:5%;
-		}
-		.main h1{
-			width:60%;
-			margin:0 auto;
-			margin-top:50px;
-			text-align: center;
-			border-left:1px solid black;
-			border-bottom:1px solid black;
-			border-radius:10px;
-			background-color:rgba(255,255,255,0.5);
-			box-shadow:-10px 10px 10px 5px rgba(0,0,0,0.4);
-		}
-		.character{
-			padding-top:4%;
-			padding-bottom:2%;
-			text-align:center;
-		}
-
-		</style>
+		<title>パスワード変更画面</title>
+		<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/myPageChangePassword.css">
+		<style type="text/css"></style>
 	</head>
 	<body>
 	<div class="header">
@@ -78,12 +40,12 @@
 				<input type="password" name="new_password_2" placeholder=" 半角英数字 " maxlength="16"><br>
 			</div>
 			<div class="character">
-				<s:if test="errorPass!=null">
-					<s:property value="errorPass" />
+				<s:if test="!errorPass.equals('')">
+					<span class="error">エラー 詳細はこちら</span><span class="tooltip"><s:property value="errorPass" /></span>
 				</s:if>
 			</div>
 
-			<s:submit value="パスワード変更完了"/>
+				<s:submit value="パスワード変更完了" class="submitBtn"/>
 
 			</s:form>
 		</div>
@@ -91,6 +53,26 @@
 
 <!-- マイページ画面への遷移 -->
 	<p><a href='<s:url action="MyPageAction" />'>マイページ戻る</a></p>
+<jsp:include page="footer.jsp" />
 
+<script>
+		$(function(){
+			$('span.tooltip').css({
+				opacity:'0.9',
+				position:'absolute',
+				display:'none'
+			});
+			$('span.error').mouseover(function(){
+				$(this).parent().find('span.tooltip').fadeIn();
+			}).mouseout(function(){
+				$(this).parent().find('span.tooltip').fadeOut();
+			}).mousemove(function(e){
+				$(this).parent().find('span.tooltip').css({
+					"top":(e.pageY)+10+"px",
+					"left":(e.pageX )+10+"px"
+				});
+			});
+		});
+	</script>
 	</body>
 </html>

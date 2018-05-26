@@ -11,55 +11,101 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<link rel="stylesheet"type="text/css"href="">
 <title>パスワード変更</title>
-<style type="text/css">
-
-</style>
+<link rel="stylesheet" type="text/css" href="./css/miamiburger.css">
+<link rel="stylesheet" type="text/css" href="./css/default.css">
+<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
-<jsp:include page="header.jsp" />
-<h2>秘密の質問に答えてください</h2>
+<div class="wrapper">
+<div class="UC-header">
+	<jsp:include page="header.jsp" />
+</div>
 
+<div id="titleBox">
+<h1>秘密の質問に答えてください</h1>
+</div>
+
+<div class="inner">
 <s:if test = "!(errorMessage.isEmpty())">
-	<s:property value ="errorMessage" />
+	<span><s:property value ="errorMessage" /></span>
 </s:if>
 
 <s:form action ="ChangePasswordConfirmAction">
-
-
-<span>あなたのログインID：</span><input type="text" name="userId" size="8"><span>1文字以上8文字以下</span>
-		<s:if test="errorId!=null">
-				<s:property value="errorId" />
+<table>
+	<tr>
+		<td>あなたのログインID：</td>
+		<td><input type="text" name="userId" size="8"></td>
+		<s:if test="!(errorId.equals(''))">
+				<td><span class="error">エラー 詳細はこちら</span><span class="tooltip"><s:property value="errorId" /></span></td>
 		</s:if>
-		<br>
 
-<span>秘密の質問：</span>
-		<select name="secretQuestion">
+	</tr>
+
+	<tr>
+		<td>秘密の質問：</td>
+
+		<td><select name="secretQuestion">
 		<option value = "1">好きな食物</option>
 		<option value = "2">好きな生物</option>
-		</select>
-		<br>
+		</select></td>
+	</tr>
 
-		<span>秘密の質問の答え：</span><input type= "text" name="secretAnswer" value =""><span>1文字以上10文字以下</span>
-		<s:if test="errorAnswer!=null">
-				<s:property value="errorAnswer" />
+	<tr>
+		<td>秘密の質問の答え：</td>
+		<td><input type= "text" name="secretAnswer" size="16"></td>
+
+		<s:if test="!(errorAnswer.equals(''))">
+				<td><span class="error">エラー 詳細はこちら</span><span class="tooltip"><s:property value="errorAnswer" /></span></td>
 		</s:if>
-		<br>
+	<tr>
 
+	<tr>
+		<td>パスワード：</td>
+		<td><input type= "password" name="password1" size="16"></td>
 
-		<span>パスワード：</span><input type= "password" name="password1" value =""><span>1文字以上16文字以下</span>
-		<s:if test="errorPass!=null">
-				<s:property value="errorPass" />
+		<s:if test="!(errorPass.equals(''))">
+				<td><span class="error">エラー 詳細はこちら</span><span class="tooltip"><s:property value="errorPass" /></span></td>
 		</s:if>
-		<br>
+	</tr>
 
-		<span>再確認パスワード：</span><input type= "password" name="password2" value =""><span>1文字以上16文字以下</span>
-		<s:if test="errorRePass!=null">
-			<s:property value="errorRePass" /><br>
+	<tr>
+		<td>再確認パスワード：</td>
+		<td><input type= "password" name="password2" size="16"></td>
+
+		<s:if test="!(errorRePass.equals(''))">
+			<td><span class="error">エラー 詳細はこちら</span><span class="tooltip"><s:property value="errorRePass" /></span></td>
 		</s:if>
-		<br>
+	</tr>
 
-		<s:submit value="送信"/>
+	<tr><td><s:submit value="送信" class="submitBtn"/></td></tr>
+</table>
+
 	</s:form>
+	</div>
+
+	<div class="push"></div>
+</div>
+<jsp:include page="footer.jsp" />
+
+	<script>
+		$(function(){
+			$('span.tooltip').css({
+				opacity:'0.9',
+				position:'absolute',
+				display:'none'
+			});
+			$('span.error').mouseover(function(){
+				$(this).parent().find('span.tooltip').fadeIn();
+			}).mouseout(function(){
+				$(this).parent().find('span.tooltip').fadeOut();
+			}).mousemove(function(e){
+				$(this).parent().find('span.tooltip').css({
+					"top":(e.pageY)+10+"px",
+					"left":(e.pageX)+10+"px"
+				});
+			});
+		});
+	</script>
+</body>
 </html>

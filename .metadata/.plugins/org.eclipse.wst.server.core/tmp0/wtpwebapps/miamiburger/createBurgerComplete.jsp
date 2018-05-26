@@ -11,19 +11,22 @@
 <link rel="stylesheet" type="text/css" href="./css/createBurger.css">
 </head>
 <body>
-
-<jsp:include page="header.jsp" />
-
-<div class="completeTitleBox">
-	<h1>作成完了</h1>
-</div>
+<div class="wrapper">
+	<jsp:include page="header.jsp" />
+	
+	<div class="createBox">
+		<h1>作成完了</h1>
+	</div>
 
 <%-- <h2><span id="timer"></span>秒後に<a href='<s:url action="HomeAction"/>'>Home</a>に戻ります。</h2> --%>
 
-<div class="completeBox">
-	<h2>作成したバーガーはカートに入っています。<br>
-	5秒後に<a href='<s:url action="HomeAction"/>'>Home</a>に戻ります。</h2>
-</div>
+		<div class="completeBox">
+			<h2>作成したバーガーはカートに入っています。<br>
+			5秒後に<a href='<s:url action="HomeAction"/>'>Home</a>に戻ります。</h2>
+		</div>
+		<div class="push"></div>
+	</div>	
+<jsp:include page="footer.jsp" />
 
 <script>
 // var waitTime = new Date();
