@@ -4,9 +4,43 @@ a:link  { color : white; }
 a:visited  { color : white; }
 a { text-decoration:none; }
 
+
 body{
 	background-image:url("../img/CorkBoard.jpg");
 	background-attachment: fixed;
 	background-size: cover;
 	background-size: 100% auto;
+	font-family: メイリオ;
+	color:white;
+}
+.main{
+	width:100%;
+	height:90%;
+	margin-top:13%;
+	margin-bottom:13%;
+
+}
+.main h1{
+	width:60%;
+	height:20%;
+	text-align:center;
+	margin:0 auto;
+	margin-bottom:2%;
+	border:3px solid white;
+	border-radius:10px;
+	background-color:rgba(0,0,0,0.5);
+}
+.inner{
+	width:80%;
+	margin:0 auto;
+}
+.item{
+	float:left;
+	width:24%;
+	margin: 0 4% 4% 4%;
+	text-align:center;
+	border:3px solid white;
+	border-radius:10px;
+	background-color:rgba(0,0,0,0.5);
+
 }

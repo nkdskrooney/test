@@ -5,16 +5,16 @@ a:visited  { color : white; }
 a { text-decoration:none; }
 
 body{
-	background-image:url("./img/toolbox.jpg");
+	background-image:url("../img/toolbox.jpg");
 	background-attachment: fixed;
 	background-size: cover;
 	background-size: 100% auto;
 }
 .title{
-	width:40%;
+	width:50%;
 	color:white;
 	margin:0 auto;
-	padding:3%;
+	text-align:center;
 	font-size:80px;
 	border:10px solid white;
 	border-radius:10px;

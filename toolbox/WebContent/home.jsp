@@ -16,11 +16,12 @@
 <!-- header -->
 		<jsp:include page="include_header.jsp"/>
 <!-- main -->
-		<div id="main">
-			<h1>商品一覧</h1>
+		<div class="main">
+			<h1>-　contents　-</h1>
 			<div class="inner">
 <!-- iterator -->
 				<s:iterator value="itemList">
+					<div class="item">
 					<a href="<s:url action="BuyItemAction"/>">
 
 			<!-- 各商品情報 -->
@@ -33,6 +34,7 @@
 						<s:hidden name = "itemId" />
 
 					</a>
+					</div>
 				</s:iterator>
 <!-- iterator -->
 			</div>

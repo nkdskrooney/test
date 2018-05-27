@@ -9,7 +9,7 @@
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" type="text/css" href="./css/contents.css">
 		<title>確認画面</title>
 		<style type="text/css">
 

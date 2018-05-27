@@ -16,7 +16,7 @@
 	<body>
 <!-- main -->
 	<div class="title">
-		<a href='<s:url action="EntranceAction" />'>　　＿<br>　Life with<br>　　＿　￣<br>　ToolBox<br>　　　　￣</a>
+		<a href='<s:url action="EntranceAction" />'>＿<br>　Life with　<br>　　＿　￣<br>　ToolBox　<br>　　　　￣</a>
 	</div>
 	</body>
 </html>
