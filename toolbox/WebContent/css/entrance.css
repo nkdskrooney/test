@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+a:link  { color : white; }
+a:visited  { color : white; }
+a { text-decoration:none; }
+
+body{
+	background-image:url("./img/toolbox.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	background-size: 100% auto;
+}
+.title{
+	width:40%;
+	color:white;
+	margin:0 auto;
+	padding:3%;
+	font-size:80px;
+	border:10px solid white;
+	border-radius:10px;
+}

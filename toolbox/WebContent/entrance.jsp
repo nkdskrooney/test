@@ -6,16 +6,17 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
-		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="./css/global.css">
-		<title>HOME</title>
+		<title>START</title>
+		<link rel="stylesheet" type="text/css" href="./css/entrance.css">
 		<style type="text/css"></style>
 	</head>
 	<body>
-<!-- footer -->
-		<div class="footer">
-			<div class="copy"><b>copyright © nakagawa | toolbox.</b></div>
-		</div>
+<!-- main -->
+	<div class="title">
+		<a href='<s:url action="EntranceAction" />'>　　＿<br>　Life with<br>　　＿　￣<br>　ToolBox<br>　　　　￣</a>
+	</div>
 	</body>
 </html>

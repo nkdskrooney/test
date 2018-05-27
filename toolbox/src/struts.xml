@@ -5,10 +5,10 @@
 <struts>
 <!-- 	<constant name="struts.ui.theme" value="simple" /> -->
 		<constant name="struts.devMode" value="true" />
-		<package name="com.internousdev.toolbox.action" extends="struts-default">
+		<package name="com.toolbox.action" extends="struts-default">
 
 		<!-- FileUploadAction -->
-<!-- 		<action name="FileUploadAction" class="com.internousdev.toolbox.action.FileUploadAction"> -->
+<!-- 		<action name="FileUploadAction" class="com.toolbox.action.FileUploadAction"> -->
 <!--     	<interceptor-ref name="fileUpload"> -->
 <!-- 	    <param name="allowedTypes">image/png,image/jpeg,image/gif,image/pjpeg</param> -->
 <!--     	</interceptor-ref> -->
@@ -18,25 +18,25 @@
 <!-- 		</action> -->
 
 		<!-- EntranceAction -->
-		<action name="EntranceAction" class="com.internousdev.toolbox.action.EntranceAction"
+		<action name="EntranceAction" class="com.toolbox.action.EntranceAction"
 			method="execute">
 			<result name="success">home.jsp</result>
 		</action>
 
 		<!-- HomeAction -->
-		<action name="HomeAction" class="com.internousdev.toolbox.action.HomeAction"
+		<action name="HomeAction" class="com.toolbox.action.HomeAction"
 			method="execute">
 			<result name="success">home.jsp</result>
 		</action>
 
 		<!-- LoginGoAction -->
-		<action name="LoginGoAction" class="com.internousdev.toolbox.action.LoginGoAction"
+		<action name="LoginGoAction" class="com.toolbox.action.LoginGoAction"
 			method="execute">
 			<result name="success">login.jsp</result>
 		</action>
 
 		<!-- LoginAction -->
-		<action name="LoginAction" class="com.internousdev.toolbox.action.LoginAction"
+		<action name="LoginAction" class="com.toolbox.action.LoginAction"
 			method="execute">
 			<result name="input">root.jsp</result>
 			<result name="success">home.jsp</result>
@@ -44,59 +44,59 @@
 		</action>
 
 		<!-- UserCreateAction -->
-		<action name="UserCreateAction" class="com.internousdev.toolbox.action.UserCreateAction"
+		<action name="UserCreateAction" class="com.toolbox.action.UserCreateAction"
 			method="execute">
 			<result name="success">userCreate.jsp</result>
 		</action>
 
 		<!-- UserCreateConfirmAction -->
-		<action name="UserCreateConfirmAction" class="com.internousdev.toolbox.action.UserCreateConfirmAction"
+		<action name="UserCreateConfirmAction" class="com.toolbox.action.UserCreateConfirmAction"
 			method="execute">
 			<result name="success">userCreateConfirm.jsp</result>
 			<result name="error">userCreate.jsp</result>
 		</action>
 
 		<!-- UserCreateCompleteAction -->
-		<action name="UserCreateCompleteAction" class="com.internousdev.toolbox.action.UserCreateCompleteAction"
+		<action name="UserCreateCompleteAction" class="com.toolbox.action.UserCreateCompleteAction"
 			method="execute">
 			<result name="success">userCreateComplete.jsp</result>
 		</action>
 
 		<!-- BuyItemAction -->
-		<action name="BuyItemAction" class="com.internousdev.toolbox.action.BuyItemAction"
+		<action name="BuyItemAction" class="com.toolbox.action.BuyItemAction"
 			method="execute">
 			<result name="success">buyItem.jsp</result>
 		</action>
 
 		<!-- CartInsertAction -->
-		<action name="CartInsertAction" class="com.internousdev.toolbox.action.CartInsertAction"
+		<action name="CartInsertAction" class="com.toolbox.action.CartInsertAction"
 			method="execute">
 			<result name="success" type="chain">CartSelectAction</result>
 			<result name="error" type="chain">StartAction</result>
 		</action>
 
 		<!-- CartSelectAction -->
-		<action name="CartSelectAction" class="com.internousdev.toolbox.action.CartSelectAction"
+		<action name="CartSelectAction" class="com.toolbox.action.CartSelectAction"
 			method="execute">
 			<result name="success">buyItemCart.jsp</result>
 			<result name="error" type="chain">EntranceAction</result>
 		</action>
 
 		<!-- BuyItemConfirmAction -->
-<!-- 		<action name="BuyItemConfirmAction" class="com.internousdev.toolbox.action.BuyItemConfirmAction" -->
+<!-- 		<action name="BuyItemConfirmAction" class="com.toolbox.action.BuyItemConfirmAction" -->
 <!-- 			method="execute"> -->
 <!-- 			<result name="success">buyItemConfirm.jsp</result> -->
 <!-- 			<result name="error">login.jsp</result> -->
 <!-- 		</action> -->
 
 		<!-- BuyItemCompleteAction -->
-<!-- 		<action name="BuyItemCompleteAction" class="com.internousdev.toolbox.action.BuyItemCompleteAction" -->
+<!-- 		<action name="BuyItemCompleteAction" class="com.toolbox.action.BuyItemCompleteAction" -->
 <!-- 			method="execute"> -->
 <!-- 			<result name="success">buyItemComplete.jsp</result> -->
 <!-- 		</action> -->
 
 		<!-- MyPageAction -->
-<!-- 		<action name="MyPageAction" class="com.internousdev.toolbox.action.MyPageAction" -->
+<!-- 		<action name="MyPageAction" class="com.toolbox.action.MyPageAction" -->
 <!-- 			method="execute"> -->
 <!-- 			<result name="success">myPage.jsp</result> -->
 <!-- 			<result name="error">login.jsp</result> -->

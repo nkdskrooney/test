@@ -8,18 +8,17 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/global.css">
 		<title>HOME</title>
 		<style type="text/css"></style>
 	</head>
 	<body>
 <!-- header -->
-		<div id="header">
-			<h1><a href='<s:url action="HomeAction" />'>Listening.</a></h1>
+		<div class="header">
+			<div class="logo">
+				<a href='<s:url action="HomeAction" />'><span>toolbox.</span></a>
+			</div>
 			<ul>
-				<li><a href='<s:url action="MyPageAction" />'>マイページへ</a></li>
-				<li><a href='<s:url action="UserCreateAction" />'>新規ユーザー登録</a></li>
-				<li><a href='<s:url action="LoginGoAction" />'>ログイン</a></li>
 				<li>ようこそ
 				<s:if test="#session.loginUser.LoginFlg == true">
 					<s:property value="#session.loginUser.UserName"/>
@@ -27,7 +26,13 @@
 				<s:else>ゲスト</s:else>
 				様
 				</li>
+				<li><a href='<s:url action="LoginGoAction" />'>ログイン</a></li>
+				<li><a href='<s:url action="UserCreateAction" />'>新規ユーザー登録</a></li>
+				<li><a href='<s:url action="MyPageAction" />'>マイページへ</a></li>
+
+
 			</ul>
+			<div class="clear"></div>
 		</div>
 	</body>
 </html>

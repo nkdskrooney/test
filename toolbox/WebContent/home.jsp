@@ -8,7 +8,7 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" type="text/css" href="./css/contents.css">
 		<title>HOME</title>
 		<style type="text/css"></style>
 	</head>
@@ -18,25 +18,25 @@
 <!-- main -->
 		<div id="main">
 			<h1>商品一覧</h1>
-
+			<div class="inner">
 <!-- iterator -->
-			<s:iterator value="itemList">
-				<s:form action="BuyItemAction">
-		<!-- 各商品情報 -->
-					商品名：<s:property value="itemName" />
-					商品かな：<s:property value="itemNameKana" />
-					<img src="<s:property value="imageFilePath"/>" width="100" height="100"/>
-					値段：<s:property value="price" /><span>円</span>
+				<s:iterator value="itemList">
+					<a href="<s:url action="BuyItemAction"/>">
 
-		<!-- 商品単体のidをActionへ送る -->
-					<s:hidden name = "itemId" />
+			<!-- 各商品情報 -->
+						<img src="<s:property value="imageFilePath"/>" width="100" height="100"/><br>
+						<b>商品名：</b><s:property value="itemName" /><br>
+						商品かな：<s:property value="itemNameKana" /><br>
+						<b>値段：</b><s:property value="price" /><span>円</span><br>
 
-					<input type="submit" value="商品詳細へ" />
+			<!-- 商品単体のidをActionへ送る -->
+						<s:hidden name = "itemId" />
 
-					</s:form>
+					</a>
 				</s:iterator>
 <!-- iterator -->
 			</div>
+		</div>
 
 <!-- footer -->
 		<jsp:include page="include_footer.jsp"/>
