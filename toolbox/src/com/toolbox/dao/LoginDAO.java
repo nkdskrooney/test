@@ -12,11 +12,12 @@ public class LoginDAO {
 
 	private DBConnector db = new DBConnector();
 	private Connection con = null;
-
+//通常通りログインの判別するためのメソッドです。
 	public LoginDTO getLoginUserInfo(String loginUserId, String loginPassword) {
 		con = db.getConnection();
 		LoginDTO loginDTO = new LoginDTO();
 		String sql = "SELECT * FROM user_info WHERE user_id = ? AND password = ?";
+
 		try {
 
 			PreparedStatement preparedStatement = con.prepareStatement(sql);
@@ -48,5 +49,27 @@ public class LoginDAO {
 			}
 		}
 		return loginDTO;
+	}
+
+//ログインした際にカートテーブルのtempUserIdとuserIdを紐づけします。
+	public void StringWithCart(String userId,String tempUserId){
+
+		con = db.getConnection();
+		String sql = "UPDATE cart_info SET user_id = ? WHERE temp_user_id = ?";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userId);
+			ps.setString(2, tempUserId);
+			ps.executeUpdate();
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		try{
+			con.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 	}
 }
