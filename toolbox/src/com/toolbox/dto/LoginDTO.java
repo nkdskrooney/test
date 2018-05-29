@@ -9,7 +9,7 @@ public class LoginDTO {
 	private int sex;
 	private String email;
 	private String regist_date;
-	private String updated_date;
+	private String update_date;
 
 	private boolean LoginFlg = false;
 
@@ -69,12 +69,13 @@ public class LoginDTO {
 		this.regist_date = regist_date;
 	}
 
-	public String getUpdated_date() {
-		return updated_date;
+
+	public String getUpdate_date() {
+		return update_date;
 	}
 
-	public void setUpdated_date(String updated_date) {
-		this.updated_date = updated_date;
+	public void setUpdate_date(String update_date) {
+		this.update_date = update_date;
 	}
 
 	public boolean getLoginFlg() {

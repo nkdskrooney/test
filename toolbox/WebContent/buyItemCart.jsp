@@ -9,7 +9,7 @@
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="./css/contents.css">
+		<link rel="stylesheet" type="text/css" href="./css/itemlist.css">
 		<title>カート</title>
 		<style type="text/css">
 		#cart-item{
@@ -23,37 +23,35 @@
 <!-- header	 -->
 		<jsp:include page="include_header.jsp"/>
 <!-- main -->
-		<div id="main">
-			<div id="top">
-				<h1>カート一覧</h1>
-			</div>
-
+	<div class="main">
+		<h1>-　cart item　-</h1>
+		<div class="inner">
 			<s:form action="BuyItemConfirmAction">
 <!-- iterator -->
 				<s:iterator value="session.cartList" id="cart-item">
-
-		<!-- 各商品情報 -->
-					商品名：<s:property value="itemName" />
-					商品かな：<s:property value="itemNameKana" />
-					<img src="<s:property value="imageFilePath"/>" width="100" height="100"/>
-					値段：<s:property value="price" /><span>円</span>
-					購入数：<s:property value="count" /><span>個</span>
-					合計金額：<s:property value="totalPrice" /><span>円</span>
-					<br>
-
+			<!-- 各商品情報 -->
+					<div class="item">
+						<img src="<s:property value="imageFilePath"/>" width="100" height="100"/><br>
+						商品名：<s:property value="itemName" /><br>
+						商品かな：<s:property value="itemNameKana" /><br>
+						値段：<s:property value="price" /><span>円</span><br>
+						購入数：<s:property value="count" /><span>個</span><br>
+						合計金額：<s:property value="totalPrice" /><span>円</span><br>
+					</div>
 				</s:iterator>
 <!-- iterator -->
+				<div class="option">
 					支払い方法：
 					<input type="radio" name="payment" value="1">
 						現金払い
 					<input type="radio" name="payment" value="2">
-						クレ ジットカード
-
+						クレジットカード
 				<br>
-				<s:submit value="確認画面へ"/>
+				<input type="submit" value="確認画面へ"/>
+				</div>
 			</s:form>
 		</div>
-
+	</div>
 <!-- footer -->
 		<jsp:include page="include_footer.jsp"/>
 	</body>

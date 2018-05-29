@@ -18,8 +18,8 @@ create table user_info(
 	update_date datetime
 );
 
-INSERT INTO user_info(user_id, password, user_name, user_name_kana, sex, email, regist_date, update_date) VALUES("admin","admin","ç®¡ç†è€…","ã‹ã‚“ã‚Šã—ã‚ƒ",0,"kanrisya@yahoo.com","2018-05-01 00:00:00","2018-05-01 00:00:00");
-INSERT INTO user_info(user_id, password, user_name, user_name_kana, sex, email, regist_date, update_date) VALUES("guest","guest","å®¢","ãã‚ƒã",0,"kanrisya@yahoo.com","2018-05-01 00:00:00","2018-05-01 00:00:00");
+INSERT INTO user_info(user_id, password, user_name, user_name_kana, sex, email, regist_date, update_date) VALUES("admin","admin","ŠÇ—Ò","‚©‚ñ‚è‚µ‚á",0,"kanrisya@yahoo.com","2018-05-01 00:00:00","2018-05-01 00:00:00");
+INSERT INTO user_info(user_id, password, user_name, user_name_kana, sex, email, regist_date, update_date) VALUES("guest","guest","‹q","‚«‚á‚­",0,"kanrisya@yahoo.com","2018-05-01 00:00:00","2018-05-01 00:00:00");
 
 drop table if exists item_info;
 create table item_info(
@@ -36,11 +36,11 @@ create table item_info(
 	update_date datetime
 );
 
-INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 1 ,"ãƒãƒ³ãƒãƒ¼","ã¯ã‚“ã¾ãƒ¼", 1 , 850 , 10 , "./img/hammer.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
-INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 2 ,"åŒ…ä¸","ã»ã†ã¡ã‚‡ã†", 2 , 1000 , 10 , "./img/houchou.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
-INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 3 ,"æ–","ã¤ãˆ", 3 , 5000 , 3 , "./img/tsue.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
-INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 4 ,"ãƒ”ãƒƒã‚±ãƒ«","ã´ã£ã‘ã‚‹", 4 , 3000 , 5 , "./img/pickel.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
-INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 5 ,"ã‚°ãƒ«ãƒ¼ã‚¬ãƒ³","ãã‚‹ãƒ¼ãŒã‚“", 1 , 500 , 20 , "./img/gluegun.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
+INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 1 ,"ƒnƒ“ƒ}[","‚Í‚ñ‚Ü[", 1 , 850 , 10 , "./img/hammer.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
+INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 2 ,"•ï’š","‚Ù‚¤‚¿‚å‚¤", 2 , 1000 , 10 , "./img/houchou.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
+INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 3 ,"ñ","‚Â‚¦", 3 , 5000 , 3 , "./img/tsue.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
+INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 4 ,"ƒsƒbƒPƒ‹","‚Ò‚Á‚¯‚é", 4 , 3000 , 5 , "./img/pickel.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
+INSERT INTO item_info(item_id, item_name, item_name_kana, category_id, price, stock, image_file_path, release_date, regist_date, update_date) VALUES( 5 ,"ƒOƒ‹[ƒKƒ“","‚®‚é[‚ª‚ñ", 1 , 500 , 20 , "./img/gluegun.png", "2018-05-01 00:00:00", "2018-05-01 00:00:00", "2018-05-01 00:00:00");
 
 drop table if exists cart_info;
 create table cart_info(
@@ -73,5 +73,3 @@ create table m_category(
 	regist_date datetime,
 	delete_date datetime
 	);
-
-

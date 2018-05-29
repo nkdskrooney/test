@@ -18,7 +18,7 @@ public class CartSelectAction extends ActionSupport implements SessionAware{
 		ArrayList<CartDTO> cartList = new ArrayList<>();
 		CartSelectDAO dao = new CartSelectDAO();
 		String userId ;
-		String tempUserId ;
+		String tempUserId = "none";
 		String result;
 
 	//ログイン済の際に結び付く情報をSELECTする
@@ -29,7 +29,7 @@ public class CartSelectAction extends ActionSupport implements SessionAware{
 			session.put("cartList", cartList);
 		}
 	//temp_user_idがsessionから消えている、かつ未ログインの際にStartActionを実行する。
-		if( session.get("temp_user_id").toString() == null && !(session.containsKey("loginUser"))){
+		if( session.get("temp_user_id").toString() == "none" && !(session.containsKey("loginUser"))){
 			return ERROR;
 		}
 	//未ログインの際に結び付く情報をSELECTする

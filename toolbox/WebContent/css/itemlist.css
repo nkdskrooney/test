@@ -3,7 +3,7 @@
 a:link  { color : white; }
 a:visited  { color : white; }
 a { text-decoration:none; }
-.clear{ clear:both; }
+
 
 body{
 	background-image:url("../img/CorkBoard.jpg");
@@ -20,7 +20,7 @@ body{
 	margin-bottom:13%;
 }
 .main h1{
-	width:50%;
+	width:60%;
 	height:20%;
 	text-align:center;
 	margin:0 auto;
@@ -30,22 +30,28 @@ body{
 	background-color:rgba(0,0,0,0.5);
 }
 .inner{
+	width:80%;
+	margin:0 auto;
+}
+.item{
+	float:left;
+	width:24%;
+	margin: 0 4% 4% 4%;
+	text-align:center;
+	border:3px solid white;
+	border-radius:10px;
+	background-color:rgba(0,0,0,0.5);
+}
+.option{
+	clear:both;
 	width:60%;
+	height:30%;
+	text-align:center;
 	margin:0 auto;
 	border:3px solid white;
 	border-radius:10px;
 	background-color:rgba(0,0,0,0.5);
 }
-.inner img{
-	float:left;
-	margin:7%;
-}
-.item{
-	float:left;
-	width:40%;
-	margin: 5% ;
-	text-align:left;
-}
-.inner input{
-	margin: 5% ;
+.option input{
+	text-align:center;
 }

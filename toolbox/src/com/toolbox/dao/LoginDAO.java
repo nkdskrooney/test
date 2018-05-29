@@ -16,7 +16,7 @@ public class LoginDAO {
 	public LoginDTO getLoginUserInfo(String loginUserId, String loginPassword) {
 		con = db.getConnection();
 		LoginDTO loginDTO = new LoginDTO();
-		String sql = "SELECT * FROM user_info where user_id = ? AND password = ?";
+		String sql = "SELECT * FROM user_info WHERE user_id = ? AND password = ?";
 		try {
 
 			PreparedStatement preparedStatement = con.prepareStatement(sql);
@@ -32,7 +32,7 @@ public class LoginDAO {
 					loginDTO.setSex(resultSet.getInt("sex"));
 					loginDTO.setEmail(resultSet.getString("email"));
 					loginDTO.setRegist_date(resultSet.getString("regist_date"));
-					loginDTO.setUpdated_date(resultSet.getString("updated_date"));
+					loginDTO.setUpdate_date(resultSet.getString("update_date"));
 
 					if(!(resultSet.getString("user_id").equals(null))) {
 						loginDTO.setLoginFlg(true);

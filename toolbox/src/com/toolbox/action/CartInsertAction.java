@@ -17,7 +17,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 
 	public String execute(){
 		String userId = null ;
-		String tempUserId ;
+		String tempUserId = "none";
 		String result;
 		CartInsertDAO dao = new CartInsertDAO();
 
@@ -35,7 +35,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware{
 			}
 		}
 	//temp_user_idがsessionから消えている、かつ未ログインの際にStartActionを実行する。
-		if( session.get("temp_user_id").toString() == null && !(session.containsKey("loginUser"))){
+		if( session.get("temp_user_id").toString() == "none" && !(session.containsKey("loginUser"))){
 			return ERROR;
 		}
 	//未ログインの際カート情報をinsertする

@@ -8,7 +8,7 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" type="text/css" href="./css/contents.css">
+		<link rel="stylesheet" type="text/css" href="./css/itemlist.css">
 		<title>HOME</title>
 		<style type="text/css"></style>
 	</head>
@@ -22,16 +22,14 @@
 <!-- iterator -->
 				<s:iterator value="itemList">
 					<div class="item">
-					<a href="<s:url action="BuyItemAction"/>">
-
+					<a href="<s:url action="BuyItemAction">
+							<s:param name="itemId" value="%{itemId}"/>
+						</s:url>">
 			<!-- 各商品情報 -->
 						<img src="<s:property value="imageFilePath"/>" width="100" height="100"/><br>
 						<b>商品名：</b><s:property value="itemName" /><br>
 						商品かな：<s:property value="itemNameKana" /><br>
 						<b>値段：</b><s:property value="price" /><span>円</span><br>
-
-			<!-- 商品単体のidをActionへ送る -->
-						<s:hidden name = "itemId" />
 
 					</a>
 					</div>

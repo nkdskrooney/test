@@ -9,6 +9,7 @@ import com.toolbox.dao.ItemDAO;
 import com.toolbox.dto.ItemDTO;
 
 public class BuyItemAction extends ActionSupport implements SessionAware{
+
 //session情報
 	public Map<String,Object>session;
 //前ページで選択されたitemIdを受け取る
