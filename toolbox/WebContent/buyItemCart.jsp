@@ -28,23 +28,23 @@
 		<div class="inner">
 			<s:form action="BuyItemConfirmAction">
 <!-- iterator -->
-				<s:iterator value="session.cartList" id="cart-item">
+				<s:iterator value="session.cartList">
 			<!-- 各商品情報 -->
 					<div class="item">
 						<img src="<s:property value="imageFilePath"/>" width="100" height="100"/><br>
 						商品名：<s:property value="itemName" /><br>
 						商品かな：<s:property value="itemNameKana" /><br>
-						値段：<s:property value="price" /><span>円</span><br>
 						購入数：<s:property value="count" /><span>個</span><br>
+						値段：<s:property value="price" /><span>円</span><br>
 						合計金額：<s:property value="totalPrice" /><span>円</span><br>
 					</div>
 				</s:iterator>
 <!-- iterator -->
 				<div class="option">
 					支払い方法：
-					<input type="radio" name="payment" value="1">
+					<input type="radio" name="payment" value="0">
 						現金払い
-					<input type="radio" name="payment" value="2">
+					<input type="radio" name="payment" value="1">
 						クレジットカード
 				<br>
 				<input type="submit" value="確認画面へ"/>

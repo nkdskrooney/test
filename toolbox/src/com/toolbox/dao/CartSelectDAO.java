@@ -14,7 +14,7 @@ public class CartSelectDAO {
 	Connection con = null;
 
 	//未ログイン時のtemp_user_idに対応するカート情報を取得する。
-	public ArrayList<CartDTO> CartSelect(String tempUserId){
+	public ArrayList<CartDTO> tempCartSelect(String tempUserId){
 		CartDTO dto;
 		ArrayList<CartDTO> cartList = new ArrayList<>();
 		con = db.getConnection();
@@ -65,7 +65,7 @@ public class CartSelectDAO {
 	}
 
 //ログイン時にuser_idもしくはtemp_user_idに対応するカート情報を取得する。
-	public ArrayList<CartDTO> CartSelect(String userId, String tempUserId){
+	public ArrayList<CartDTO> CartSelect(String userId){
 		CartDTO dto;
 		ArrayList<CartDTO> cartList = new ArrayList<>();
 		con = db.getConnection();
@@ -73,12 +73,12 @@ public class CartSelectDAO {
 		String sql ="SELECT c.id, c.user_id, c.temp_user_id, c.item_id, i.item_name, i.item_name_kana, i.category_id, i.price, c.count, i.stock, i.image_file_path, i.release_date"
 				+ " FROM cart_info c LEFT JOIN item_info i "
 				+ " ON c.item_id = i.item_id "
-				+ " WHERE c.user_id=? OR c.temp_user_id=?";
+				+ " WHERE c.user_id=? ";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,userId);
-			ps.setString(2,tempUserId);
+
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){

@@ -1,34 +1,45 @@
 package com.toolbox.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+
+import com.toolbox.dto.CartDTO;
+import com.toolbox.util.DBConnector;
+import com.toolbox.util.DateUtil;
+
 public class BuyItemCompleteDAO {
 
-//	public void buyItemInfo(ArrayList<ItemDTO> List, String user_master_id) throws SQLException {
-//		DBConnector dbConnector = new DBConnector();
-//		Connection connection = dbConnector.getConnection();
-//		DateUtil dateUtil = new DateUtil();
-//
-//		String sql = "INSERT INTO user_buy_item_transaction (" + "item_transaction_id, total_price,"
-//				+ " total_count, user_master_id, pay, img_address, insert_date)" + " VALUES(?, ?, ?, ?, ?, ?, ?)";
-//
-//		for (ItemDTO itemList : List) {
-//			try {
-//				PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//				preparedStatement.setInt(1, itemList.getItemId());
-//				preparedStatement.setInt(2, itemList.getTotalPrice());
-//				preparedStatement.setInt(3, itemList.getPurchaseNumber());
-//				preparedStatement.setString(4, user_master_id);
-//				preparedStatement.setString(5, itemList.getPayment());
-//				preparedStatement.setString(6, itemList.getImgAddress());
-//				preparedStatement.setString(7, dateUtil.getDate());
-//				preparedStatement.execute();
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		try {
-//			connection.close();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	private DBConnector db = new DBConnector();
+	private Connection con = null;
+
+	public void purchaseInsert(ArrayList<CartDTO> cartList, int payment) throws SQLException {
+
+		DateUtil dateUtil = new DateUtil();
+		String sql = "INSERT INTO purchase_info (user_id, item_id, total_price, count, payment, regist_date)VALUES(?, ?, ?, ?, ?, ?)";
+
+	//拡張for文でcartListを回し、各CartDTOを一つずつテーブルへInsertしていきます。
+		for (CartDTO buyList : cartList) {
+			try {
+				con = db.getConnection();
+				PreparedStatement preparedStatement = con.prepareStatement(sql);
+				preparedStatement.setString(1, buyList.getUserId());
+				preparedStatement.setInt(2, buyList.getItemId());
+				preparedStatement.setInt(3, buyList.getTotalPrice());
+				preparedStatement.setInt(4, buyList.getCount());
+				preparedStatement.setInt(5, payment);
+				preparedStatement.setString(6, dateUtil.getDate());
+				preparedStatement.execute();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

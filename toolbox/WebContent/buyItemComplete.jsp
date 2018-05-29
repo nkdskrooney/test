@@ -17,16 +17,13 @@
 		<jsp:include page="include_header.jsp"/>
 <!-- main -->
 		<div id="main">
-			<div id="top">
-				<p>BuyItemComplete</p>
-			</div>
+
+				<h1>BuyItemComplete</h1>
+
 			<div>
-				<p>購入手続きが完了致しました。</p>
-				<div>
-					<a href='<s:url action="MyPageAction" />'> マイページ</a>
-					<span>から購入履歴の確認が可能です。</span>
-					<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction" />'> こちら</a></p>
-				</div>
+				<h3>購入手続きが完了致しました。</h3>
+					Homeへ戻る場合は<a href='<s:url action="GoHomeAction" />'> こちら</a>
+
 			</div>
 		</div>
 

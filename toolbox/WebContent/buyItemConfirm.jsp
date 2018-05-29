@@ -10,51 +10,33 @@
 		<meta name="keywords" content="" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="./css/contents.css">
-		<title>確認画面</title>
-		<style type="text/css">
-
-		</style>
+		<title>購入情報確認</title>
+		<style type="text/css"></style>
 	</head>
 	<body>
 <!-- header -->
 		<jsp:include page="include_header.jsp"/>
 <!-- main -->
 		<div id="main">
-			<div id="top">
-				<p>CartItem</p>
-			</div>
+				<h1>-　BuyItemConfirm　-</h1>
 			<s:form action="BuyItemCompleteAction">
 <!-- iterator -->
-				<s:iterator value="session.itemList" id="cart-item">
-					<br>
+				<s:iterator value="session.cartList">
 
-							<label>商品名</label>
-								<s:property value="itemName" />
-
-								<img class="item-img" src='<s:property value="imgAddress"/>'>
-
-							<label>値段</label>
-
-								<s:property value="totalPrice" />
-								<span>円</span>
-
-
-							<label>購入個数</label>
-
-								<s:property value="PurchaseNumber" />
-								<span>個</span>
-
-							<td>支払い方法</td>
-
-								<s:property value="payment"/>
+					<div class="item">
+						<img src="<s:property value="imageFilePath"/>" width="100" height="100"/><br>
+						商品名：<s:property value="itemName" /><br>
+						商品かな：<s:property value="itemNameKana" /><br>
+						購入数：<s:property value="count" /><span>個</span><br>
+						値段：<s:property value="price" /><span>円</span><br>
+						合計金額：<s:property value="totalPrice" /><span>円</span><br>
+					</div>
 
 				</s:iterator>
 <!-- iterator -->
-				<br>
-				<span>合計金額</span>
-				<s:property value="session.alltotalprice" />
-				<span>円</span>
-				<br>
+					支払い方法：<s:property value="session.paymentName"/><br>
+					合計購入金額：<s:property value="session.alltotalprice" /><span>円</span>
+
 				<s:submit value="完了画面へ"/>
 			</s:form>
 		</div>
