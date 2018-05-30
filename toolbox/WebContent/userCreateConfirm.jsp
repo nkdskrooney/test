@@ -8,7 +8,7 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" type="text/css" href="./css/contents.css">
+		<link rel="stylesheet" type="text/css" href="./css/contentsBox.css">
 		<title>登録画面</title>
 		<style type="text/css"></style>
 	</head>
@@ -16,47 +16,25 @@
 <!-- header -->
 		<jsp:include page="include_header.jsp"/>
 <!-- main -->
-		<div id="main">
-			<div id="top">
-				<p>UserCreateConfirm</p>
-			</div>
-			<div>
+		<div class="main">
+			<h1>-　UserCreateConfirm　-</h1>
+			<div class="inner">
+				<div class="box">
 				<h3>登録する内容は以下でよろしいですか。</h3>
-				<table>
 					<s:form action="UserCreateCompleteAction">
-						<tr>
-							<td><b>ユーザーID:</b></td>
-							<td><s:property value="session.userId" escape="false" /></td>
-						</tr>
-						<tr>
-							<td><b>パスワード:</b></td>
-							<td><s:property value="session.password" escape="false" /></td>
-						</tr>
-						<tr>
-							<td><b>ユーザー名:</b></td>
-							<td><s:property value="session.userName" escape="false" /></td>
-						</tr>
-						<tr>
-							<td><b>ユーザー名(ふりがな):</b></td>
-							<td><s:property value="session.userNameKana" escape="false" /></td>
-						</tr>
-						<tr>
-							<td><b>性別:</b></td>
-							<td><s:property value="session.sexName" escape="false" /></td>
-						</tr>
-						<tr>
-							<td><b>メールアドレス:</b></td>
-							<td><s:property value="session.email" escape="false" /></td>
-						</tr>
+						<b>ユーザーID:</b><s:property value="session.userId" escape="false" /><br>
+						<b>パスワード:</b><s:property value="session.password" escape="false" /><br>
+						<b>ユーザー名:</b><s:property value="session.userName" escape="false" /><br>
+						<b>ユーザー名(ふりがな):</b><s:property value="session.userNameKana" escape="false" /><br>
+						<b>性別:</b><s:property value="session.sexName" escape="false" /><br>
+						<b>メールアドレス:</b><s:property value="session.email" escape="false" /><br>
 
-						<tr>
-							<td><s:submit value="完了" /></td>
-						</tr>
+						<input type="submit" value="完了" />
 					</s:form>
-				</table>
+				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
-
 <!-- footer -->
 		<jsp:include page="include_footer.jsp"/>
 	</body>

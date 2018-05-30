@@ -9,7 +9,7 @@
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="./css/contents.css">
+		<link rel="stylesheet" type="text/css" href="./css/itemlist.css">
 		<title>購入情報確認</title>
 		<style type="text/css"></style>
 	</head>
@@ -17,10 +17,10 @@
 <!-- header -->
 		<jsp:include page="include_header.jsp"/>
 <!-- main -->
-		<div id="main">
-				<h1>-　BuyItemConfirm　-</h1>
+		<div class="main">
+			<h1>-　BuyItemConfirm　-</h1>
 			<s:form action="BuyItemCompleteAction">
-<!-- iterator -->
+	<!-- iterator -->
 				<s:iterator value="session.cartList">
 
 					<div class="item">
@@ -33,13 +33,15 @@
 					</div>
 
 				</s:iterator>
-<!-- iterator -->
-					支払い方法：<s:property value="session.paymentName"/><br>
-					合計購入金額：<s:property value="session.alltotalprice" /><span>円</span>
-
-				<s:submit value="完了画面へ"/>
+	<!-- iterator -->
+					<div class="option">
+						支払い方法：<s:property value="session.paymentName"/><br>
+						合計購入金額：<s:property value="session.alltotalprice" /><span>円</span><br>
+						<input type="submit" value="完了画面へ"/>
+					</div>
 			</s:form>
 		</div>
+
 
 <!-- footer -->
 		<jsp:include page="include_footer.jsp"/>

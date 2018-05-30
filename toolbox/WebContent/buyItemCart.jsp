@@ -42,10 +42,18 @@
 <!-- iterator -->
 				<div class="option">
 					支払い方法：
-					<input type="radio" name="payment" value="0">
-						現金払い
-					<input type="radio" name="payment" value="1">
-						クレジットカード
+					<s:if test="payment==0">
+						<input type="radio" name="payment" value="0" checked>現金払い
+						<input type="radio" name="payment" value="1">クレジットカード
+					</s:if>
+					<s:elseif test="payment">
+						<input type="radio" name="payment" value="0">現金払い
+						<input type="radio" name="payment" value="1" checked>クレジットカード
+					</s:elseif>
+					<s:else>
+						<input type="radio" name="payment" value="0" checked>現金払い
+						<input type="radio" name="payment" value="1">クレジットカード
+					</s:else>
 				<br>
 				<input type="submit" value="確認画面へ"/>
 				</div>

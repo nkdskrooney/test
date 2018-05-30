@@ -41,13 +41,11 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			return INPUT ;
 		}
 //もしtempUserIdに照合するカートテーブルがあればログインしたUserIdとtempUserIdを紐づけする。
-		System.out.println(session.get("temp_user_id").toString());
 		if (session.containsKey("temp_user_id")){
 			tempUserId = session.get("temp_user_id").toString();
 			ArrayList<CartDTO> cartList = new ArrayList<>();
 			CartSelectDAO cartdao = new CartSelectDAO();
 			cartList = cartdao.tempCartSelect(tempUserId);
-			System.out.println(cartList.isEmpty());
 			if(!(cartList.isEmpty())){
 				loginDAO.StringWithCart(loginDTO.getUserId(), tempUserId);
 			}

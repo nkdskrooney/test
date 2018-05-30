@@ -22,7 +22,6 @@
 		<div class="inner">
 			<s:form action="CartInsertAction">
 
-
 				<img class="item-img" src='<s:property value="session.imageFilePath"/>'width="200" height="200"/><br>
 				<div class="item">
 				商品名：<s:property value="session.itemName" /><br>

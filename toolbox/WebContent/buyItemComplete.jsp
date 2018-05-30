@@ -8,7 +8,7 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" type="text/css" href="./css/contents.css">
+		<link rel="stylesheet" type="text/css" href="./css/contentsBox.css">
 		<title>HOME</title>
 		<style type="text/css"></style>
 	</head>
@@ -16,14 +16,14 @@
 <!-- header -->
 		<jsp:include page="include_header.jsp"/>
 <!-- main -->
-		<div id="main">
-
-				<h1>BuyItemComplete</h1>
-
-			<div>
-				<h3>購入手続きが完了致しました。</h3>
-					Homeへ戻る場合は<a href='<s:url action="GoHomeAction" />'> こちら</a>
-
+		<div class="main">
+			<h1>BuyItemComplete</h1>
+			<div class="inner">
+				<div class="box">
+					<h3>購入手続きが完了致しました。</h3>
+					<a href='<s:url action="GoHomeAction" />'>Homeへ戻る場合はこちら</a>
+				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
 
