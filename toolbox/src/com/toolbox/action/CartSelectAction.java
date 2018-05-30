@@ -28,6 +28,13 @@ public class CartSelectAction extends ActionSupport implements SessionAware{
 			userId = logindto.getUserId();
 			cartList = dao.CartSelect(userId);
 			session.put("cartList", cartList);
+		//カートの合計金額を計算し、sessionへ格納する。
+			int allTotalPrice = 0;
+				for(CartDTO Price : cartList){
+				allTotalPrice = allTotalPrice + Price.getTotalPrice();
+				}
+			session.put("allTotalPrice", allTotalPrice);
+
 		}
 	//temp_user_idがsessionから消えている、かつ未ログインの際にStartActionを実行する。
 		if( session.get("temp_user_id").toString() == "none" && !(session.containsKey("loginUser"))){
@@ -38,6 +45,12 @@ public class CartSelectAction extends ActionSupport implements SessionAware{
 			tempUserId = session.get("temp_user_id").toString();
 			cartList = dao.tempCartSelect(tempUserId);
 			session.put("cartList", cartList);
+		//カートの合計金額を計算し、sessionへ格納する。
+			int allTotalPrice = 0;
+				for(CartDTO Price : cartList){
+				allTotalPrice = allTotalPrice + Price.getTotalPrice();
+				}
+			session.put("allTotalPrice", allTotalPrice);
 		}
 	//SUCCESSであればbuyItemCart.jspへ
 		result = SUCCESS;

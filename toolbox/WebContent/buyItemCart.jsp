@@ -41,6 +41,7 @@
 				</s:iterator>
 <!-- iterator -->
 				<div class="option">
+					合計購入金額：<s:property value="session.allTotalPrice" /><span>円</span><br>
 					支払い方法：
 					<s:if test="payment==0">
 						<input type="radio" name="payment" value="0" checked>現金払い
@@ -54,8 +55,8 @@
 						<input type="radio" name="payment" value="0" checked>現金払い
 						<input type="radio" name="payment" value="1">クレジットカード
 					</s:else>
-				<br>
-				<input type="submit" value="確認画面へ"/>
+					<br>
+					<input type="submit" value="確認画面へ"/>
 				</div>
 			</s:form>
 		</div>

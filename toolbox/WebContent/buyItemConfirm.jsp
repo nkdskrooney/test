@@ -36,7 +36,7 @@
 	<!-- iterator -->
 					<div class="option">
 						支払い方法：<s:property value="session.paymentName"/><br>
-						合計購入金額：<s:property value="session.alltotalprice" /><span>円</span><br>
+						合計購入金額：<s:property value="session.allTotalPrice" /><span>円</span><br>
 						<input type="submit" value="完了画面へ"/>
 					</div>
 			</s:form>
