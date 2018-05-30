@@ -18,7 +18,7 @@ public class HomeAction extends ActionSupport implements SessionAware {
 		String result=SUCCESS;
 		ItemDAO dao = new ItemDAO();
 		itemList = dao.getItemInfo();
-
+		session.put("itemList", itemList);
 		return result;
 	}
 	public Map<String, Object> getSession() {

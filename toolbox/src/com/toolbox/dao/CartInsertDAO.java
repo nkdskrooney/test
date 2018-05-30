@@ -38,7 +38,7 @@ public class CartInsertDAO{
 	public void CartInsert(String user_id, String temp_user_id, int item_id, int count) throws SQLException {
 		con =  db.getConnection();
 		try {
-			String sql = "INSERT INTO cart_info (user_id, temp_user_id, item_id, count, regist_date)VALUES(?,?,?,?,?) WHERE temp_user_id=? ";
+			String sql = "INSERT INTO cart_info (user_id, temp_user_id, item_id, count, regist_date) VALUES(?,?,?,?,?)";
 			PreparedStatement preparedStatement = con.prepareStatement(sql);
 			preparedStatement.setString(1, user_id);
 			preparedStatement.setString(2, temp_user_id);
@@ -46,7 +46,6 @@ public class CartInsertDAO{
 			preparedStatement.setInt(4, count);
 			preparedStatement.setString(5, dateUtil.getDate());
 
-			preparedStatement.setString(6, temp_user_id);
 			preparedStatement.execute();
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -20,7 +20,7 @@
 			<h1>-　contents　-</h1>
 			<div class="inner">
 <!-- iterator -->
-				<s:iterator value="itemList">
+				<s:iterator value="session.itemList">
 					<div class="item">
 					<a href="<s:url action="BuyItemAction">
 							<s:param name="itemId" value="%{itemId}"/>

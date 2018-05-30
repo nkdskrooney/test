@@ -29,8 +29,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 //result結果、ERRORの挿入
 		String result = ERROR;
 //itemListに商品情報を挿入する(home.jsp遷移後に商品情報を表示するため)
-		ItemDAO itemdao = new ItemDAO();
-		itemList = itemdao.getItemInfo();
+		ItemDAO dao = new ItemDAO();
+		itemList = dao.getItemInfo();
 		session.put("itemList", itemList);
 //インスタンスloginDTOにログイン情報を格納する
 		if(!(loginUserId == null) && !(loginPassword == null)){
@@ -41,11 +41,13 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			return INPUT ;
 		}
 //もしtempUserIdに照合するカートテーブルがあればログインしたUserIdとtempUserIdを紐づけする。
+		System.out.println(session.get("temp_user_id").toString());
 		if (session.containsKey("temp_user_id")){
 			tempUserId = session.get("temp_user_id").toString();
 			ArrayList<CartDTO> cartList = new ArrayList<>();
 			CartSelectDAO cartdao = new CartSelectDAO();
-			cartList = cartdao.CartSelect(tempUserId);
+			cartList = cartdao.tempCartSelect(tempUserId);
+			System.out.println(cartList.isEmpty());
 			if(!(cartList.isEmpty())){
 				loginDAO.StringWithCart(loginDTO.getUserId(), tempUserId);
 			}
