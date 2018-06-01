@@ -37,9 +37,17 @@
 					<div class="option">
 						支払い方法：<s:property value="session.paymentName"/><br>
 						合計購入金額：<s:property value="session.allTotalPrice" /><span>円</span><br>
-						<input type="submit" value="完了画面へ"/>
+						<input type="submit" value="購入完了"/>
 					</div>
 			</s:form>
+			<div class="text">
+			<h3>購入確認画面</h3>
+				・購入情報の確認のために購入情報の表示をしています。<br>
+				・支払い情報はデータ上では、int型のため<br>
+				　BuyItemConfirmActionで判別し文字列を挿入しています。<br>
+				・購入完了ボタンを押すと購入履歴情報へ購入情報がInsertされます。<br>
+				・同時にカート情報を削除しています。<br>
+			</div>
 		</div>
 
 

@@ -72,6 +72,11 @@
 			・ログイン状態であれば、支払い方法とともに購入確認画面へ遷移します。<br>
 			・カート内の全商品合計金額はCartSelectActionにて、<br>
 			　格納しているリストを拡張for文でまわして合計金額を算出しています。<br>
+			・削除ボタンには、iteratorから取り出した、CartIdをパラメータに挿入しています。<br>
+			　ボタンのリンクをクリックすることで、CartDeleteActionが作動し、<br>
+			　CartIdとuserIdもしくはtempUserIdに対応した商品がDBから削除されます。<br>
+			　CartDeleteActionはInsertと同様にChainによりCartSelectActionへと接続し、<br>
+			　カート情報を再取得しつつ、カート画面へ再び遷移します。<br>
 
 		</div>
 	</div>

@@ -6,8 +6,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
-		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<meta http-equiv="refresh"  content="5;URL=<s:url action="HomeAction"/>">
 		<link rel="stylesheet" type="text/css" href="./css/contentsBox.css">
 		<title>HOME</title>
 		<style type="text/css"></style>
@@ -21,6 +23,7 @@
 			<div class="inner">
 				<div class="box">
 					<h3>購入手続きが完了致しました。</h3>
+					<h4>―5秒後にホーム画面へ遷移します―</h4>
 					<a href='<s:url action="GoHomeAction" />'>Homeへ戻る場合はこちら</a>
 				</div>
 				<div class="clear"></div>
