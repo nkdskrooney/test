@@ -38,7 +38,7 @@
 		<!-- LoginAction -->
 		<action name="LoginAction" class="com.toolbox.action.LoginAction"
 			method="execute">
-			<result name="input">root.jsp</result>
+			<result name="input">master.jsp</result>
 			<result name="success">home.jsp</result>
 			<result name="error">login.jsp</result>
 		</action>
@@ -109,11 +109,13 @@
 		</action>
 
 		<!-- MyPageAction -->
-<!-- 		<action name="MyPageAction" class="com.toolbox.action.MyPageAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success">myPage.jsp</result> -->
+		<action name="MyPageAction" class="com.toolbox.action.MyPageAction"
+			method="execute">
+			<result name="success">myPage.jsp</result>
 <!-- 			<result name="error">login.jsp</result> -->
-<!-- 		</action> -->
+		</action>
+
+
 
 
 	</package>

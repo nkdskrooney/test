@@ -50,7 +50,7 @@
 				<h3>ヘッダーメニュー</h3>
 				・ロゴ…Home画面へのリンク(HomeAction)<br>
 				・ヘッダーリスト(未ログイン)<br>
-				　◆ようこそゲスト様◆ログイン(LoginGoAction)<br>
+				　◆ようこそゲスト様　　　　◆ログイン(LoginGoAction)<br>
 				　◆新規ユーザー登録(UserCreateAction)◆カート(CartSelectAction)<br>
 				・ヘッダーリスト(ログイン)<br>
 				　◆ようこそ【ユーザー名】様◆ログアウト(LogoutAction)<br>
