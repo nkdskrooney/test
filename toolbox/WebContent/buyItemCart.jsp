@@ -20,13 +20,13 @@
 	<div class="main">
 		<h1>-　cart item　-</h1>
 		<div class="inner">
+			<s:if test="session.cartList.isEmpty()">
+				<h1>商品を追加してください</h1>
+			</s:if>
 			<s:form action="BuyItemConfirmAction">
 <!-- iterator -->
 				<s:iterator value="session.cartList">
 			<!-- 各商品情報 -->
-					<s:if test="session.cartList.isEmpty()">
-						<h1>カートの中は空です</h1>
-					</s:if>
 					<div class="item">
 						<img src="<s:property value="imageFilePath"/>" width="100" height="100"/><br>
 						商品名：<s:property value="itemName" /><br>
