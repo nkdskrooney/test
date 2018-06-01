@@ -9,7 +9,7 @@
 		<meta http-equiv="imagetoolbar" content="no" /> <meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" type="text/css" href="./css/contentsBox.css">
-		<title>UserCreate</title>
+		<title>-　UserCreate　-</title>
 		<style type="text/css"></style>
 	</head>
 	<body>
@@ -21,10 +21,10 @@
 			<div class="inner">
 			<s:form action="UserCreateConfirmAction">
 				<div class="box">
-				<b>ユーザーID:</b><input type="text" name="userId" value="guestuser" /><br>
-				<b>パスワード:</b><input type="text" name="password" value="guestuser" /><br>
-				<b>ユーザー名:</b><input type="text" name="userName" value="山田太郎" /><br>
-				<b>ユーザー名(ふりがな):</b><input type="text" name="userNameKana" value="やまだたろう" /><br>
+				<b>ユーザーID:</b><input type="text" name="userId" value="guestuser" required /><br>
+				<b>パスワード:</b><input type="text" name="password" value="guestuser" required /><br>
+				<b>ユーザー名:</b><input type="text" name="userName" value="山田太郎" required /><br>
+				<b>ユーザー名(ふりがな):</b><input type="text" name="userNameKana" value="やまだたろう" required /><br>
 				<b>性別:</b>
 				<s:if test="sex==0">
 					<input type="radio" name="sex" value="0" checked="checked">男
@@ -38,12 +38,21 @@
 					<input type="radio" name="sex" value="0" checked="checked">男
 					<input type="radio" name="sex" value="1">女
 				</s:else>
-				<br><b>メールアドレス:</b><input type="text" name="email" value="guestuser@gmail.com" /><br>
+				<br><b>メールアドレス:</b><input type="text" name="email" value="guestuser@gmail.com" required /><br>
 
 				<input type="submit" value="登録"/>
 				</div>
 			</s:form>
 			<div class="clear"></div>
+			</div>
+			<div class="text">
+				<h3>新規ユーザー登録画面</h3>
+					・ごくごく普通のユーザー登録画面です。<br>
+					・InputCheckerを導入していないので入力のエラーは返ってきません。<br>
+					・時間がないのでフォームにrequiredを適用するだけにしてます。許してください！<br>
+					・入力内容は用意していますので、そのままお使いください。<br>
+					・機能的にはフォームに入力した情報をUserCreateConfirmActionへ<br>
+					　飛ばしsessionへ格納しているだけです。<br>
 			</div>
 		</div>
 

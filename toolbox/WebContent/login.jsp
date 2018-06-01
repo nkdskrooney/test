@@ -22,14 +22,14 @@
 				<div class="box">
 				<h3>ログインID・パスワードの入力をお願いします。</h3>
 				<s:form action="LoginAction">
-					ログインID：<input type="text" name="loginUserId"><br>
-					パスワード：<input type="password" name="loginPassword"><br>
+					ログインID：<input type="text" name="loginUserId" required><br>
+					パスワード：<input type="password" name="loginPassword" required><br>
 					<input type="submit" value="ログイン"/>
 				</s:form>
 				<br/>
 				<div >
 					<p><a href='<s:url action="UserCreateAction" />'>新規ユーザー登録はこちら</a></p>
-					<p><a href='<s:url action="GoHomeAction" />'>Homeへ戻る場合はこちら</a></p>
+					<p><a href='<s:url action="HomeAction" />'>Homeへ戻る場合はこちら</a></p>
 				</div>
 				</div>
 				<div class="clear"></div>

@@ -44,6 +44,21 @@
 			</s:form>
 			<div class="clear"></div>
 		</div>
+		<div class="text">
+			<h3>商品詳細画面</h3>
+			・商品詳細画面はBuyItemActionで抽出した、商品詳細情報を表示しています。<br>
+			・この画面では購入個数を1～5個選択し、DBへカート情報をInsertします。<br>
+			<h3>カート画面への流れ</h3>
+			・カート情報のInsertにはCartInsertActionを使用します。<br>
+			・テーブルへはtempUserIdで挿入し、その後LoginActionにてuserIdと紐づけを行います。<br>
+			・CartInsertActionでは、struts.xmlにてresult type="chain"を使用し、<br>
+			　SUCCESSの際にCartSelectActionへつながります。<br>
+			・CartSelectActionでDBからtempUserIdもしくはuserIdに対応するカート情報、<br>
+			　それに対応する商品情報を抽出します。<br>
+			※ネットでtype="chain"の評判はあまりよくないみたいですが、<br>
+			　今回はCartInsertAction・CartSelectActionの独立性、<br>
+			　チーム製作との差別化を図るためあえて使用しています。<br>
+		</div>
 	</div>
 <!-- footer -->
 		<jsp:include page="include_footer.jsp"/>

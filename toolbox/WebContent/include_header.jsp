@@ -26,10 +26,16 @@
 				<s:else>ゲスト</s:else>
 				様
 				</li>
+				<s:if test="#session.loginUser.LoginFlg == true">
+				<li><a href='<s:url action="CartSelectAction" />'>カート</a></li>
+				<li><a href='<s:url action="MyPageAction" />'>マイページ</a></li>
+				<li><a href='<s:url action="LogoutAction" />'>ログアウト</a></li>
+				</s:if>
+				<s:else>
+				<li><a href='<s:url action="CartSelectAction" />'>カート</a></li>
 				<li><a href='<s:url action="LoginGoAction" />'>ログイン</a></li>
 				<li><a href='<s:url action="UserCreateAction" />'>新規ユーザー登録</a></li>
-				<li><a href='<s:url action="MyPageAction" />'>マイページへ</a></li>
-
+				</s:else>
 
 			</ul>
 			<div class="clear"></div>

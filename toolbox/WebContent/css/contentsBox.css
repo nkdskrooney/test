@@ -33,6 +33,7 @@ body{
 .inner{
 	width:60%;
 	margin:0 auto;
+	margin-bottom:3%;
 	border:3px solid white;
 	border-radius:10px;
 	background-color:rgba(0,0,0,0.5);
@@ -49,4 +50,14 @@ body{
 }
 .box input{
 	margin:1%;
+}
+
+.text{
+	clear:both;
+	width:80%;
+	margin:0 auto;
+	padding:3%;
+	border:3px solid white;
+	border-radius:10px;
+	background-color:rgba(0,0,0,0.5);
 }

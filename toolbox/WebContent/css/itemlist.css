@@ -48,10 +48,29 @@ body{
 	height:30%;
 	text-align:center;
 	margin:0 auto;
+	margin-bottom:3%;
 	border:3px solid white;
 	border-radius:10px;
 	background-color:rgba(0,0,0,0.5);
 }
 .option input{
 	text-align:center;
+}
+.delete{
+	width:24%;
+	margin: 0 auto;
+	margin-bottom:2%;
+	text-align:center;
+	border:3px solid white;
+	border-radius:10px;
+
+}
+.text{
+	clear:both;
+	width:80%;
+	margin:0 auto;
+	padding:3%;
+	border:3px solid white;
+	border-radius:10px;
+	background-color:rgba(0,0,0,0.5);
 }

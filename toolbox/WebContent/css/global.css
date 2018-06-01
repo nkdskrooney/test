@@ -16,7 +16,7 @@ body{
 	top: 0px;
 	left: 0px;
 	width:100%;
-	height:18%;
+	height:14%;
 	background-size: contain;
 	background-color:#45A1CF;
 	color:white;
@@ -28,7 +28,7 @@ body{
 	width:20%;
 	height:20%;
 	text-align:center;
-	font-size:38px;
+	font-size:32px;
 }
 .header .logo span{
 	border:5px solid white;

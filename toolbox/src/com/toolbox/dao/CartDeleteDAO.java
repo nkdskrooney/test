@@ -3,7 +3,6 @@ package com.toolbox.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
 import com.toolbox.util.DBConnector;
 
@@ -15,19 +14,18 @@ public class CartDeleteDAO {
 	private Connection con = null;
 
 //カート画面にて各商品ごとの情報を削除するメソッドです。
-	public void CartDelete(String user_id, String temp_user_id ,List<Integer> cartId) {
+	public void CartDelete(String user_id, String temp_user_id ,int Id) {
 
 		con = db.getConnection();
-		String sql = "DELETE FROM cart_info WHERE (user_id=? OR temp_user_id=?) AND id=?";
+		String sql = "DELETE FROM cart_info WHERE (user_id=? OR temp_user_id=?)AND id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			for(int CI : cartId){
 			ps.setString(1, user_id);
 			ps.setString(2, temp_user_id);
-			ps.setInt(3, CI);
+			ps.setInt(3, Id);
+
 			ps.executeUpdate();
-			}
 		}catch (SQLException e){
 			e.printStackTrace();
 		}finally{

@@ -36,6 +36,26 @@
 				</s:iterator>
 <!-- iterator -->
 			</div>
+			<div class="text">
+				<h3>Home画面</h3>
+				・Home画面では、商品の一覧を表示しています。<br>
+				・各商品ごとにパラメータに商品Idが挿入されており、商品をBOXごと選択すると<br>
+				　商品Idに対応した商品情報をDBから抽出し商品詳細画面へと遷移します。(BuyItemActon)<br>
+				・Home画面へのアクセス方法は2パターンあり、<br>
+				　1.タイトル画面(entrance.jsp)からの遷移。(EntranceAction)<br>
+				　2.Home画面へのリンク(HomeAction)<br>
+				　このうち、EntranceActionでのみtempUserIdを発行しています。<br>
+				　tempUserIdには、ランダム文字列(10文字)を発行しています。<br>
+				　※apache.commons.lang3.RandomStringUtilsのrandomAlphanumeric()を使用。<br>
+				<h3>ヘッダーメニュー</h3>
+				・ロゴ…Home画面へのリンク(HomeAction)<br>
+				・ヘッダーリスト(未ログイン)<br>
+				　◆ようこそゲスト様◆ログイン(LoginGoAction)<br>
+				　◆新規ユーザー登録(UserCreateAction)◆カート(CartSelectAction)<br>
+				・ヘッダーリスト(ログイン)<br>
+				　◆ようこそ【ユーザー名】様◆ログアウト(LogoutAction)<br>
+				　◆マイページ(MyPageAction)◆カート(CartSelectAction)<br>
+			</div>
 		</div>
 
 <!-- footer -->
