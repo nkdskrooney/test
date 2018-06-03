@@ -37,7 +37,7 @@
 			<div class="text">
 				<h3>新規ユーザー登録確認画面</h3>
 					・UserCreateConfirmActionでsessionへ格納したユーザー情報を表示しています<br>
-					・性別については、UserCreateConfirmAction判別し文字列を挿入しています。<br>
+					・性別については、UserCreateConfirmActionでint型の値を判別し文字列を挿入しています。<br>
 					・完了ボタンを押すと、UserCreateCompleteActionが実行されDBへユーザー情報がInsertされます。<br>
 			</div>
 		</div>

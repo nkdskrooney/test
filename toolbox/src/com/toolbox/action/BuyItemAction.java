@@ -16,7 +16,6 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 	private int itemId ;
 
 	public String execute(){
-	System.out.println(itemId);
 //DBから取得した商品情報を格納するDTOのインスタンス生成
 		ItemDTO itemDTO = new ItemDTO();
 //ItemDAOインスタンスを作成
