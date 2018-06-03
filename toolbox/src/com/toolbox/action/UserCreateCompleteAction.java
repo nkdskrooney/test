@@ -21,6 +21,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 
 
 	public String execute() throws SQLException {
+	//新規登録ユーザー情報をDBへInsertする。
 		userCreateCompleteDAO.cerateUser(
 			session.get("userId").toString(),
 			session.get("password").toString(),

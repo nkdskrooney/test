@@ -11,7 +11,7 @@ public class UserCreateCompleteDAO{
 	private DBConnector db = new DBConnector();
 	private Connection con = null;
 	private DateUtil dateUtil = new DateUtil();
-
+	//何の変哲もなくDBへInsertするだけ
 	public void cerateUser(String userId, String password, String userName, String userNameKana, int sex, String email) throws SQLException {
 		con = db.getConnection();
 		String sql ="INSERT INTO user_info (user_id, password, user_name, user_name_kana, sex, email, regist_date)"

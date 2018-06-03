@@ -17,7 +17,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	public String execute() {
 		String result = SUCCESS;
-
+		//sessionへ格納
 			session.put("userId", userId);
 			session.put("password", password);
 			session.put("userName", userName);
@@ -25,7 +25,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			session.put("sex", sex);
 			session.put("email", email);
 
-			//男性と女性の判別、文字列の挿入(既存)
+		//男性と女性の判別、文字列の挿入(既存)
 			try{
 				switch(sex){
 				  case 0 :
